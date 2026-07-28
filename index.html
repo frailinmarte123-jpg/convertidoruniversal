@@ -531,6 +531,69 @@ function fuelFromL100(l100, unit) {
   if (unit === 'mpg') return 235.214583 / l100;
   if (unit === 'kml') return 100 / l100;
 }
+
+/* ===================== ENRUTAMIENTO: URLs AMIGABLES (dinámicas) ===================== */
+// Palabra usada en la URL para cada unidad, por categoría/pestaña.
+const SLUG_WORDS = {
+  longitud: { m:'metros', ft:'pies', cm:'centimetros', mm:'milimetros', km:'kilometros', yd:'yardas', in:'pulgadas', mi:'millas', nm:'nanometros', um:'micrometros' },
+  peso: { kg:'kilogramos', g:'gramos', lb:'libras', oz:'onzas', t:'toneladas', ct:'quilates' },
+  temperatura: { c:'celsius', f:'fahrenheit', k:'kelvin' },
+  area: { m2:'metros-cuadrados', ft2:'pies-cuadrados', cm2:'centimetros-cuadrados', in2:'pulgadas-cuadradas', km2:'kilometros-cuadrados', mi2:'millas-cuadradas', ha:'hectareas', acre:'acres' },
+  volumen: { L:'litros', mL:'mililitros', m3:'metros-cubicos', ft3:'pies-cubicos', galus:'galones-us', galuk:'galones-uk', floz:'onzas-liquidas', cup:'tazas', tbsp:'cucharadas', tsp:'cucharaditas', pt:'pintas', qt:'cuartos' },
+  tiempo: { ms:'milisegundos', s:'segundos', min:'minutos', h:'horas', day:'dias', week:'semanas', month:'meses', year:'anos' },
+  velocidad: { ms:'metros-por-segundo', kmh:'kilometros-por-hora', mph:'millas-por-hora', knot:'nudos', fts:'pies-por-segundo', mach:'mach' },
+  combustible: { mpg:'mpg', l100km:'litros-100km', kml:'kilometros-litro' },
+  presion: { kpa:'kilopascales', psi:'psi', bar:'bar', atm:'atmosferas', mmhg:'mmhg' },
+  energia: { j:'joules', cal:'calorias', kwh:'kwh', btu:'btu' },
+  potencia: { w:'watts', kw:'kilowatts', hp:'hp', btuh:'btu-h' },
+  electricidad: { v:'voltios', mv:'milivoltios', a:'amperios', ma:'miliamperios', ohm:'ohmios', kohm:'kiloohmios' },
+  datos: { bit:'bits', byte:'bytes', kb:'kb', mb:'mb', gb:'gb', tb:'tb', pb:'pb' },
+  angulos: { deg:'grados', rad:'radianes', grad:'gradianes' },
+  frecuencia: { hz:'hz', khz:'khz', mhz:'mhz', ghz:'ghz' },
+  densidad: { kgm3:'kg-m3', gcm3:'g-cm3', lbft3:'lb-ft3' },
+};
+
+function slugFor(tabId, fromCode, toCode) {
+  const words = SLUG_WORDS[tabId];
+  if (!words) return null;
+  const wf = words[fromCode], wt = words[toCode];
+  if (!wf || !wt) return null;
+  return `${wf}-a-${wt}`;
+}
+
+// Actualiza la URL del navegador (sin recargar) para reflejar la conversión activa.
+function updateUrlSlug(tabId, fromCode, toCode) {
+  const slug = slugFor(tabId, fromCode, toCode);
+  const newPath = slug ? `/${slug}` : '/';
+  const currentPath = location.pathname.replace(/\/+$/, '') || '/';
+  if (currentPath === newPath) return;
+  try {
+    history.replaceState(null, '', newPath + location.search);
+  } catch (e) {
+    // Algunos entornos (iframes en sandbox, vistas previas con documento "about:srcdoc", etc.)
+    // no permiten cambiar la URL con la History API. En un hosting real esto no ocurre.
+  }
+}
+
+// Lee la URL actual y, si coincide con una conversión conocida, devuelve {tab, from, to}.
+function presetFromPath(pathname) {
+  const slug = pathname.replace(/^\/+|\/+$/g, '');
+  if (!slug) return null;
+  const cutPoints = [];
+  let idx = slug.indexOf('-a-');
+  while (idx !== -1) { cutPoints.push(idx); idx = slug.indexOf('-a-', idx + 1); }
+  for (const i of cutPoints) {
+    const left = slug.slice(0, i);
+    const right = slug.slice(i + 3);
+    for (const tabId in SLUG_WORDS) {
+      const words = SLUG_WORDS[tabId];
+      const codeFrom = Object.keys(words).find(k => words[k] === left);
+      const codeTo = Object.keys(words).find(k => words[k] === right);
+      if (codeFrom && codeTo) return { tab: tabId, from: codeFrom, to: codeTo };
+    }
+  }
+  return null;
+}
 /* ===================== UTILIDADES ===================== */
 function normalize(s) {
   return s.toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
@@ -679,7 +742,7 @@ function renderSmartResult(parsed) {
 }
 
 /* ===================== RENDER DE PANELES POR CATEGORÍA (genérico lineal) ===================== */
-function renderLinearPanel(cat) {
+function renderLinearPanel(cat, preset) {
   const wrap = el('div', 'panel-linear');
   if (cat.note) wrap.appendChild(el('p', 'panel-note', cat.note));
 
@@ -700,6 +763,9 @@ function renderLinearPanel(cat) {
   if (cat.units.length > 1) selB.value = cat.units[1].code;
   colB.appendChild(inputB); colB.appendChild(selB);
 
+  if (preset && preset.from) selA.value = preset.from;
+  if (preset && preset.to) selB.value = preset.to;
+
   row.appendChild(colA); row.appendChild(swapBtn); row.appendChild(colB);
   wrap.appendChild(row);
 
@@ -709,6 +775,7 @@ function renderLinearPanel(cat) {
 
   function recalcFromA() {
     const v = parseFloat(inputA.value.replace(',', '.'));
+    updateUrlSlug(cat.id, selA.value, selB.value);
     if (isNaN(v)) { inputB.value = ''; renderQuickTable(NaN); return; }
     const r = convertLinear(cat.id, selA.value, selB.value, v);
     inputB.value = fmt(r);
@@ -716,6 +783,7 @@ function renderLinearPanel(cat) {
   }
   function recalcFromB() {
     const v = parseFloat(inputB.value.replace(',', '.'));
+    updateUrlSlug(cat.id, selA.value, selB.value);
     if (isNaN(v)) { inputA.value = ''; return; }
     const r = convertLinear(cat.id, selB.value, selA.value, v);
     inputA.value = fmt(r);
@@ -743,7 +811,7 @@ function renderLinearPanel(cat) {
 }
 
 /* ===================== TEMPERATURA ===================== */
-function renderTempPanel() {
+function renderTempPanel(preset) {
   const wrap = el('div', 'panel-linear');
   const row = el('div', 'convert-row');
   const colA = el('div', 'convert-col');
@@ -761,6 +829,9 @@ function renderTempPanel() {
   selB.value = 'f';
   colB.appendChild(inputB); colB.appendChild(selB);
 
+  if (preset && preset.from) selA.value = preset.from;
+  if (preset && preset.to) selB.value = preset.to;
+
   row.appendChild(colA); row.appendChild(swapBtn); row.appendChild(colB);
   wrap.appendChild(row);
 
@@ -769,6 +840,7 @@ function renderTempPanel() {
 
   function recalcFromA() {
     const v = parseFloat(inputA.value.replace(',', '.'));
+    updateUrlSlug('temperatura', selA.value, selB.value);
     if (isNaN(v)) return;
     inputB.value = fmt(convertTemp(selA.value, selB.value, v));
     table.innerHTML = TEMP_UNITS.map(u => `<div class="quick-item"><span class="quick-label">${u.label}</span><span class="quick-value">${fmt(convertTemp(selA.value, u.code, v))}</span></div>`).join('');
@@ -789,7 +861,7 @@ function renderTempPanel() {
 }
 
 /* ===================== COMBUSTIBLE ===================== */
-function renderFuelPanel() {
+function renderFuelPanel(preset) {
   const wrap = el('div', 'panel-linear');
   const row = el('div', 'convert-row');
   const colA = el('div', 'convert-col');
@@ -804,12 +876,15 @@ function renderFuelPanel() {
   FUEL_UNITS.forEach(u => selB.appendChild(el('option', null, u.label)).value = u.code);
   selB.value = 'l100km';
   colB.appendChild(inputB); colB.appendChild(selB);
+  if (preset && preset.from) selA.value = preset.from;
+  if (preset && preset.to) selB.value = preset.to;
   row.appendChild(colA); row.appendChild(swapBtn); row.appendChild(colB);
   wrap.appendChild(row);
   wrap.appendChild(el('p', 'panel-note', 'MPG usa el galón estadounidense (US). Nota: a menor L/100km, mayor eficiencia; a mayor MPG o km/L, mayor eficiencia.'));
 
   function recalcFromA() {
     const v = parseFloat(inputA.value.replace(',', '.'));
+    updateUrlSlug('combustible', selA.value, selB.value);
     if (isNaN(v) || v === 0) return;
     inputB.value = fmt(convertFuel(selA.value, selB.value, v));
   }
@@ -1451,21 +1526,21 @@ function renderTabs() {
   });
 }
 
-function renderPanel() {
+function renderPanel(preset) {
   const container = document.getElementById('panelArea');
   container.innerHTML = '';
   const t = TAB_DEFS.find(x => x.id === currentTab);
   if (t.kind === 'linear') {
     const cat = CATEGORIES.find(c => c.id === t.id);
-    container.appendChild(renderLinearPanel(cat));
+    container.appendChild(renderLinearPanel(cat, preset));
   } else if (t.kind === 'linear-extra') {
     const cat = CATEGORIES.find(c => c.id === t.id);
-    container.appendChild(renderLinearPanel(cat));
+    container.appendChild(renderLinearPanel(cat, preset));
     t.extra(container);
   } else if (t.kind === 'temp') {
-    container.appendChild(renderTempPanel());
+    container.appendChild(renderTempPanel(preset));
   } else if (t.kind === 'fuel') {
-    container.appendChild(renderFuelPanel());
+    container.appendChild(renderFuelPanel(preset));
   } else if (t.kind === 'custom') {
     t.render(container);
   }
@@ -1479,8 +1554,21 @@ function initSmartBar() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initSmartBar();
+  // Si la URL ya trae una conversión conocida (ej. /metros-a-pies), abrimos directo en ella.
+  const preset = presetFromPath(location.pathname);
+  if (preset && TAB_DEFS.some(t => t.id === preset.tab)) {
+    currentTab = preset.tab;
+  }
   renderTabs();
-  renderPanel();
+  renderPanel(preset || undefined);
+});
+
+// Soporte para los botones atrás/adelante del navegador.
+window.addEventListener('popstate', () => {
+  const preset = presetFromPath(location.pathname);
+  currentTab = (preset && TAB_DEFS.some(t => t.id === preset.tab)) ? preset.tab : 'longitud';
+  renderTabs();
+  renderPanel(preset || undefined);
 });
 </script>
 </body>
