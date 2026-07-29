@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL}}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Conversor Universal">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="{{OG_TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL}}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{OG_TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+
+{{JSONLD}}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ASSET_PREFIX}}assets/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div>
+{{BREADCRUMB}}
+        <h1 class="site-title">{{H1}}</h1>
+        <p class="site-sub">{{SUBTITLE}}</p>
+      </div>
+    </header>
+{{SEO_BLOCK}}
+    <div class="smart-bar">
+      <div class="tape-ticks"></div>
+      <input type="text" id="smartInput" placeholder='Ej: "1 metro en pies", "36 c a f", "5 kg en libras"' autocomplete="off" />
+      <div id="smartResult"></div>
+      <div id="smartTape"></div>
+    </div>
+
+    <nav id="tabNav"></nav>
+    <main id="panelArea"></main>
+{{RELATED_BLOCK}}
+    <footer class="site-footer">Conversor Universal — hecho con HTML, CSS y JavaScript puro.</footer>
+  </div>
+
+{{PRESET_SCRIPT}}<script src="{{ASSET_PREFIX}}assets/app.js"></script>
+</body>
+</html>
