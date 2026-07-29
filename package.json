@@ -1,0 +1,11 @@
+{
+  "name": "conversor-universal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conversor de unidades con páginas SEO generadas estáticamente para GitHub Pages",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:list": "node scripts/build-conversions-list.js",
+    "serve": "npx http-server docs -p 8080"
+  }
+}
