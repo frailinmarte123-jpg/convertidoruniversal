@@ -1,0 +1,1082 @@
+[
+  {
+    "slug": "metros-a-pies",
+    "tab": "longitud",
+    "from": "m",
+    "to": "ft"
+  },
+  {
+    "slug": "pies-a-metros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-centimetros",
+    "tab": "longitud",
+    "from": "m",
+    "to": "cm"
+  },
+  {
+    "slug": "centimetros-a-metros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-milimetros",
+    "tab": "longitud",
+    "from": "m",
+    "to": "mm"
+  },
+  {
+    "slug": "milimetros-a-metros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-kilometros",
+    "tab": "longitud",
+    "from": "m",
+    "to": "km"
+  },
+  {
+    "slug": "kilometros-a-metros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-yardas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "yd"
+  },
+  {
+    "slug": "yardas-a-metros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-pulgadas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "in"
+  },
+  {
+    "slug": "pulgadas-a-metros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "m"
+  },
+  {
+    "slug": "metros-a-millas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "mi"
+  },
+  {
+    "slug": "millas-a-metros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "m"
+  },
+  {
+    "slug": "pies-a-pulgadas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "in"
+  },
+  {
+    "slug": "pulgadas-a-pies",
+    "tab": "longitud",
+    "from": "in",
+    "to": "ft"
+  },
+  {
+    "slug": "pies-a-yardas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "yd"
+  },
+  {
+    "slug": "yardas-a-pies",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "ft"
+  },
+  {
+    "slug": "pies-a-millas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "mi"
+  },
+  {
+    "slug": "millas-a-pies",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "ft"
+  },
+  {
+    "slug": "kilometros-a-millas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "mi"
+  },
+  {
+    "slug": "millas-a-kilometros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "km"
+  },
+  {
+    "slug": "centimetros-a-pulgadas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "in"
+  },
+  {
+    "slug": "pulgadas-a-centimetros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "cm"
+  },
+  {
+    "slug": "centimetros-a-pies",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "ft"
+  },
+  {
+    "slug": "pies-a-centimetros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "cm"
+  },
+  {
+    "slug": "milimetros-a-pulgadas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "in"
+  },
+  {
+    "slug": "pulgadas-a-milimetros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "mm"
+  },
+  {
+    "slug": "yardas-a-millas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "mi"
+  },
+  {
+    "slug": "millas-a-yardas",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "yd"
+  },
+  {
+    "slug": "millas-a-pulgadas",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "in"
+  },
+  {
+    "slug": "pulgadas-a-millas",
+    "tab": "longitud",
+    "from": "in",
+    "to": "mi"
+  },
+  {
+    "slug": "nanometros-a-micrometros",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "um"
+  },
+  {
+    "slug": "micrometros-a-nanometros",
+    "tab": "longitud",
+    "from": "um",
+    "to": "nm"
+  },
+  {
+    "slug": "micrometros-a-milimetros",
+    "tab": "longitud",
+    "from": "um",
+    "to": "mm"
+  },
+  {
+    "slug": "milimetros-a-micrometros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "um"
+  },
+  {
+    "slug": "kilogramos-a-libras",
+    "tab": "peso",
+    "from": "kg",
+    "to": "lb"
+  },
+  {
+    "slug": "libras-a-kilogramos",
+    "tab": "peso",
+    "from": "lb",
+    "to": "kg"
+  },
+  {
+    "slug": "kilogramos-a-gramos",
+    "tab": "peso",
+    "from": "kg",
+    "to": "g"
+  },
+  {
+    "slug": "gramos-a-kilogramos",
+    "tab": "peso",
+    "from": "g",
+    "to": "kg"
+  },
+  {
+    "slug": "kilogramos-a-onzas",
+    "tab": "peso",
+    "from": "kg",
+    "to": "oz"
+  },
+  {
+    "slug": "onzas-a-kilogramos",
+    "tab": "peso",
+    "from": "oz",
+    "to": "kg"
+  },
+  {
+    "slug": "kilogramos-a-toneladas",
+    "tab": "peso",
+    "from": "kg",
+    "to": "t"
+  },
+  {
+    "slug": "toneladas-a-kilogramos",
+    "tab": "peso",
+    "from": "t",
+    "to": "kg"
+  },
+  {
+    "slug": "libras-a-onzas",
+    "tab": "peso",
+    "from": "lb",
+    "to": "oz"
+  },
+  {
+    "slug": "onzas-a-libras",
+    "tab": "peso",
+    "from": "oz",
+    "to": "lb"
+  },
+  {
+    "slug": "libras-a-gramos",
+    "tab": "peso",
+    "from": "lb",
+    "to": "g"
+  },
+  {
+    "slug": "gramos-a-libras",
+    "tab": "peso",
+    "from": "g",
+    "to": "lb"
+  },
+  {
+    "slug": "libras-a-toneladas",
+    "tab": "peso",
+    "from": "lb",
+    "to": "t"
+  },
+  {
+    "slug": "toneladas-a-libras",
+    "tab": "peso",
+    "from": "t",
+    "to": "lb"
+  },
+  {
+    "slug": "onzas-a-gramos",
+    "tab": "peso",
+    "from": "oz",
+    "to": "g"
+  },
+  {
+    "slug": "gramos-a-onzas",
+    "tab": "peso",
+    "from": "g",
+    "to": "oz"
+  },
+  {
+    "slug": "quilates-a-gramos",
+    "tab": "peso",
+    "from": "ct",
+    "to": "g"
+  },
+  {
+    "slug": "gramos-a-quilates",
+    "tab": "peso",
+    "from": "g",
+    "to": "ct"
+  },
+  {
+    "slug": "celsius-a-fahrenheit",
+    "tab": "temperatura",
+    "from": "c",
+    "to": "f"
+  },
+  {
+    "slug": "fahrenheit-a-celsius",
+    "tab": "temperatura",
+    "from": "f",
+    "to": "c"
+  },
+  {
+    "slug": "celsius-a-kelvin",
+    "tab": "temperatura",
+    "from": "c",
+    "to": "k"
+  },
+  {
+    "slug": "kelvin-a-celsius",
+    "tab": "temperatura",
+    "from": "k",
+    "to": "c"
+  },
+  {
+    "slug": "fahrenheit-a-kelvin",
+    "tab": "temperatura",
+    "from": "f",
+    "to": "k"
+  },
+  {
+    "slug": "kelvin-a-fahrenheit",
+    "tab": "temperatura",
+    "from": "k",
+    "to": "f"
+  },
+  {
+    "slug": "metros-cuadrados-a-pies-cuadrados",
+    "tab": "area",
+    "from": "m2",
+    "to": "ft2"
+  },
+  {
+    "slug": "pies-cuadrados-a-metros-cuadrados",
+    "tab": "area",
+    "from": "ft2",
+    "to": "m2"
+  },
+  {
+    "slug": "metros-cuadrados-a-hectareas",
+    "tab": "area",
+    "from": "m2",
+    "to": "ha"
+  },
+  {
+    "slug": "hectareas-a-metros-cuadrados",
+    "tab": "area",
+    "from": "ha",
+    "to": "m2"
+  },
+  {
+    "slug": "metros-cuadrados-a-acres",
+    "tab": "area",
+    "from": "m2",
+    "to": "acre"
+  },
+  {
+    "slug": "acres-a-metros-cuadrados",
+    "tab": "area",
+    "from": "acre",
+    "to": "m2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-millas-cuadradas",
+    "tab": "area",
+    "from": "km2",
+    "to": "mi2"
+  },
+  {
+    "slug": "millas-cuadradas-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "mi2",
+    "to": "km2"
+  },
+  {
+    "slug": "hectareas-a-acres",
+    "tab": "area",
+    "from": "ha",
+    "to": "acre"
+  },
+  {
+    "slug": "acres-a-hectareas",
+    "tab": "area",
+    "from": "acre",
+    "to": "ha"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "cm2",
+    "to": "in2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "in2",
+    "to": "cm2"
+  },
+  {
+    "slug": "litros-a-mililitros",
+    "tab": "volumen",
+    "from": "L",
+    "to": "mL"
+  },
+  {
+    "slug": "mililitros-a-litros",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "L"
+  },
+  {
+    "slug": "litros-a-galones-us",
+    "tab": "volumen",
+    "from": "L",
+    "to": "galus"
+  },
+  {
+    "slug": "galones-us-a-litros",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "L"
+  },
+  {
+    "slug": "litros-a-galones-uk",
+    "tab": "volumen",
+    "from": "L",
+    "to": "galuk"
+  },
+  {
+    "slug": "galones-uk-a-litros",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "L"
+  },
+  {
+    "slug": "litros-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "L",
+    "to": "m3"
+  },
+  {
+    "slug": "metros-cubicos-a-litros",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "L"
+  },
+  {
+    "slug": "litros-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "L",
+    "to": "ft3"
+  },
+  {
+    "slug": "pies-cubicos-a-litros",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "L"
+  },
+  {
+    "slug": "litros-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "L",
+    "to": "floz"
+  },
+  {
+    "slug": "onzas-liquidas-a-litros",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "L"
+  },
+  {
+    "slug": "mililitros-a-tazas",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "cup"
+  },
+  {
+    "slug": "tazas-a-mililitros",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "mL"
+  },
+  {
+    "slug": "tazas-a-cucharadas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "tbsp"
+  },
+  {
+    "slug": "cucharadas-a-tazas",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "cup"
+  },
+  {
+    "slug": "tazas-a-cucharaditas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "tsp"
+  },
+  {
+    "slug": "cucharaditas-a-tazas",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "cup"
+  },
+  {
+    "slug": "pintas-a-cuartos",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "qt"
+  },
+  {
+    "slug": "cuartos-a-pintas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "pt"
+  },
+  {
+    "slug": "cuartos-a-galones-us",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "galus"
+  },
+  {
+    "slug": "galones-us-a-cuartos",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "qt"
+  },
+  {
+    "slug": "segundos-a-minutos",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "min"
+  },
+  {
+    "slug": "minutos-a-segundos",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "s"
+  },
+  {
+    "slug": "minutos-a-horas",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "h"
+  },
+  {
+    "slug": "horas-a-minutos",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "min"
+  },
+  {
+    "slug": "horas-a-dias",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "day"
+  },
+  {
+    "slug": "dias-a-horas",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "h"
+  },
+  {
+    "slug": "dias-a-semanas",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "week"
+  },
+  {
+    "slug": "semanas-a-dias",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "day"
+  },
+  {
+    "slug": "semanas-a-meses",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "month"
+  },
+  {
+    "slug": "meses-a-semanas",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "week"
+  },
+  {
+    "slug": "meses-a-anos",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "year"
+  },
+  {
+    "slug": "anos-a-meses",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "month"
+  },
+  {
+    "slug": "milisegundos-a-segundos",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "s"
+  },
+  {
+    "slug": "segundos-a-milisegundos",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "ms"
+  },
+  {
+    "slug": "kilometros-por-hora-a-millas-por-hora",
+    "tab": "velocidad",
+    "from": "kmh",
+    "to": "mph"
+  },
+  {
+    "slug": "millas-por-hora-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "mph",
+    "to": "kmh"
+  },
+  {
+    "slug": "kilometros-por-hora-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "kmh",
+    "to": "ms"
+  },
+  {
+    "slug": "metros-por-segundo-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "kmh"
+  },
+  {
+    "slug": "millas-por-hora-a-nudos",
+    "tab": "velocidad",
+    "from": "mph",
+    "to": "knot"
+  },
+  {
+    "slug": "nudos-a-millas-por-hora",
+    "tab": "velocidad",
+    "from": "knot",
+    "to": "mph"
+  },
+  {
+    "slug": "metros-por-segundo-a-pies-por-segundo",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "fts"
+  },
+  {
+    "slug": "pies-por-segundo-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "fts",
+    "to": "ms"
+  },
+  {
+    "slug": "mach-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "mach",
+    "to": "kmh"
+  },
+  {
+    "slug": "kilometros-por-hora-a-mach",
+    "tab": "velocidad",
+    "from": "kmh",
+    "to": "mach"
+  },
+  {
+    "slug": "mach-a-millas-por-hora",
+    "tab": "velocidad",
+    "from": "mach",
+    "to": "mph"
+  },
+  {
+    "slug": "millas-por-hora-a-mach",
+    "tab": "velocidad",
+    "from": "mph",
+    "to": "mach"
+  },
+  {
+    "slug": "mpg-a-litros-100km",
+    "tab": "combustible",
+    "from": "mpg",
+    "to": "l100km"
+  },
+  {
+    "slug": "litros-100km-a-mpg",
+    "tab": "combustible",
+    "from": "l100km",
+    "to": "mpg"
+  },
+  {
+    "slug": "kilometros-litro-a-mpg",
+    "tab": "combustible",
+    "from": "kml",
+    "to": "mpg"
+  },
+  {
+    "slug": "mpg-a-kilometros-litro",
+    "tab": "combustible",
+    "from": "mpg",
+    "to": "kml"
+  },
+  {
+    "slug": "kilometros-litro-a-litros-100km",
+    "tab": "combustible",
+    "from": "kml",
+    "to": "l100km"
+  },
+  {
+    "slug": "litros-100km-a-kilometros-litro",
+    "tab": "combustible",
+    "from": "l100km",
+    "to": "kml"
+  },
+  {
+    "slug": "psi-a-bar",
+    "tab": "presion",
+    "from": "psi",
+    "to": "bar"
+  },
+  {
+    "slug": "bar-a-psi",
+    "tab": "presion",
+    "from": "bar",
+    "to": "psi"
+  },
+  {
+    "slug": "psi-a-kilopascales",
+    "tab": "presion",
+    "from": "psi",
+    "to": "kpa"
+  },
+  {
+    "slug": "kilopascales-a-psi",
+    "tab": "presion",
+    "from": "kpa",
+    "to": "psi"
+  },
+  {
+    "slug": "psi-a-atmosferas",
+    "tab": "presion",
+    "from": "psi",
+    "to": "atm"
+  },
+  {
+    "slug": "atmosferas-a-psi",
+    "tab": "presion",
+    "from": "atm",
+    "to": "psi"
+  },
+  {
+    "slug": "bar-a-kilopascales",
+    "tab": "presion",
+    "from": "bar",
+    "to": "kpa"
+  },
+  {
+    "slug": "kilopascales-a-bar",
+    "tab": "presion",
+    "from": "kpa",
+    "to": "bar"
+  },
+  {
+    "slug": "bar-a-atmosferas",
+    "tab": "presion",
+    "from": "bar",
+    "to": "atm"
+  },
+  {
+    "slug": "atmosferas-a-bar",
+    "tab": "presion",
+    "from": "atm",
+    "to": "bar"
+  },
+  {
+    "slug": "mmhg-a-atmosferas",
+    "tab": "presion",
+    "from": "mmhg",
+    "to": "atm"
+  },
+  {
+    "slug": "atmosferas-a-mmhg",
+    "tab": "presion",
+    "from": "atm",
+    "to": "mmhg"
+  },
+  {
+    "slug": "joules-a-calorias",
+    "tab": "energia",
+    "from": "j",
+    "to": "cal"
+  },
+  {
+    "slug": "calorias-a-joules",
+    "tab": "energia",
+    "from": "cal",
+    "to": "j"
+  },
+  {
+    "slug": "joules-a-kwh",
+    "tab": "energia",
+    "from": "j",
+    "to": "kwh"
+  },
+  {
+    "slug": "kwh-a-joules",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "j"
+  },
+  {
+    "slug": "calorias-a-kwh",
+    "tab": "energia",
+    "from": "cal",
+    "to": "kwh"
+  },
+  {
+    "slug": "kwh-a-calorias",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "cal"
+  },
+  {
+    "slug": "btu-a-joules",
+    "tab": "energia",
+    "from": "btu",
+    "to": "j"
+  },
+  {
+    "slug": "joules-a-btu",
+    "tab": "energia",
+    "from": "j",
+    "to": "btu"
+  },
+  {
+    "slug": "btu-a-kwh",
+    "tab": "energia",
+    "from": "btu",
+    "to": "kwh"
+  },
+  {
+    "slug": "kwh-a-btu",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "btu"
+  },
+  {
+    "slug": "watts-a-kilowatts",
+    "tab": "potencia",
+    "from": "w",
+    "to": "kw"
+  },
+  {
+    "slug": "kilowatts-a-watts",
+    "tab": "potencia",
+    "from": "kw",
+    "to": "w"
+  },
+  {
+    "slug": "hp-a-watts",
+    "tab": "potencia",
+    "from": "hp",
+    "to": "w"
+  },
+  {
+    "slug": "watts-a-hp",
+    "tab": "potencia",
+    "from": "w",
+    "to": "hp"
+  },
+  {
+    "slug": "hp-a-kilowatts",
+    "tab": "potencia",
+    "from": "hp",
+    "to": "kw"
+  },
+  {
+    "slug": "kilowatts-a-hp",
+    "tab": "potencia",
+    "from": "kw",
+    "to": "hp"
+  },
+  {
+    "slug": "btu-h-a-watts",
+    "tab": "potencia",
+    "from": "btuh",
+    "to": "w"
+  },
+  {
+    "slug": "watts-a-btu-h",
+    "tab": "potencia",
+    "from": "w",
+    "to": "btuh"
+  },
+  {
+    "slug": "bits-a-bytes",
+    "tab": "datos",
+    "from": "bit",
+    "to": "byte"
+  },
+  {
+    "slug": "bytes-a-bits",
+    "tab": "datos",
+    "from": "byte",
+    "to": "bit"
+  },
+  {
+    "slug": "kb-a-mb",
+    "tab": "datos",
+    "from": "kb",
+    "to": "mb"
+  },
+  {
+    "slug": "mb-a-kb",
+    "tab": "datos",
+    "from": "mb",
+    "to": "kb"
+  },
+  {
+    "slug": "mb-a-gb",
+    "tab": "datos",
+    "from": "mb",
+    "to": "gb"
+  },
+  {
+    "slug": "gb-a-mb",
+    "tab": "datos",
+    "from": "gb",
+    "to": "mb"
+  },
+  {
+    "slug": "gb-a-tb",
+    "tab": "datos",
+    "from": "gb",
+    "to": "tb"
+  },
+  {
+    "slug": "tb-a-gb",
+    "tab": "datos",
+    "from": "tb",
+    "to": "gb"
+  },
+  {
+    "slug": "tb-a-pb",
+    "tab": "datos",
+    "from": "tb",
+    "to": "pb"
+  },
+  {
+    "slug": "pb-a-tb",
+    "tab": "datos",
+    "from": "pb",
+    "to": "tb"
+  },
+  {
+    "slug": "grados-a-radianes",
+    "tab": "angulos",
+    "from": "deg",
+    "to": "rad"
+  },
+  {
+    "slug": "radianes-a-grados",
+    "tab": "angulos",
+    "from": "rad",
+    "to": "deg"
+  },
+  {
+    "slug": "grados-a-gradianes",
+    "tab": "angulos",
+    "from": "deg",
+    "to": "grad"
+  },
+  {
+    "slug": "gradianes-a-grados",
+    "tab": "angulos",
+    "from": "grad",
+    "to": "deg"
+  },
+  {
+    "slug": "hz-a-khz",
+    "tab": "frecuencia",
+    "from": "hz",
+    "to": "khz"
+  },
+  {
+    "slug": "khz-a-hz",
+    "tab": "frecuencia",
+    "from": "khz",
+    "to": "hz"
+  },
+  {
+    "slug": "khz-a-mhz",
+    "tab": "frecuencia",
+    "from": "khz",
+    "to": "mhz"
+  },
+  {
+    "slug": "mhz-a-khz",
+    "tab": "frecuencia",
+    "from": "mhz",
+    "to": "khz"
+  },
+  {
+    "slug": "mhz-a-ghz",
+    "tab": "frecuencia",
+    "from": "mhz",
+    "to": "ghz"
+  },
+  {
+    "slug": "ghz-a-mhz",
+    "tab": "frecuencia",
+    "from": "ghz",
+    "to": "mhz"
+  },
+  {
+    "slug": "kg-m3-a-g-cm3",
+    "tab": "densidad",
+    "from": "kgm3",
+    "to": "gcm3"
+  },
+  {
+    "slug": "g-cm3-a-kg-m3",
+    "tab": "densidad",
+    "from": "gcm3",
+    "to": "kgm3"
+  },
+  {
+    "slug": "lb-ft3-a-kg-m3",
+    "tab": "densidad",
+    "from": "lbft3",
+    "to": "kgm3"
+  },
+  {
+    "slug": "kg-m3-a-lb-ft3",
+    "tab": "densidad",
+    "from": "kgm3",
+    "to": "lbft3"
+  }
+]
