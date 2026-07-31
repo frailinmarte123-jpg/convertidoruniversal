@@ -190,6 +190,7 @@ function buildMeta() {
   ].join('\n');
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+  fs.writeFileSync(path.join(OUT, 'ads.txt'), 'google.com, pub-2394878225224723, DIRECT, f08c47fec0942fa0\n');
 
   // Necesario para que GitHub Pages NO procese el sitio con Jekyll
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
