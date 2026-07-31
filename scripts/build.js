@@ -344,10 +344,16 @@ function buildMeta() {
     ...conversions.map(c => urlEntry(`${SITE_URL}/${c.slug}/`, '0.7')),
     '</urlset>',
   ].join('\n');
-  fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
-  fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
-  fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
-  fs.writeFileSync(path.join(OUT, 'CNAME'), SITE_URL.replace(/^https?:\/\//, '') + '\n');
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
+
+fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
+fs.writeFileSync(path.join(OUT, 'ads.txt'), 'google.com, pub-2394878225224723, DIRECT, f08c47fec0942fa0\n');
+
+fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
+
+fs.writeFileSync(path.join(OUT, 'CNAME'), SITE_URL.replace(/^https?:\/\//, '') + '\n');
+
 }
 
 function copyAssets() {
