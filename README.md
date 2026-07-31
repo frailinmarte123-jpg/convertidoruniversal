@@ -1,57 +1,81 @@
-# Conversor Universal — arquitectura estática para SEO
+# Conversor Universal — arquitectura estática para SEO (≈1,000 páginas)
 
 Este proyecto genera, a partir de **un único CSS, un único JS y una lista de conversiones**,
 un sitio 100% estático con **una URL real por conversión** (`/metros-a-pies/`, `/kg-a-libras/`, etc.),
 listo para GitHub Pages (con o sin dominio personalizado).
 
+Actualmente genera **1,002 páginas de conversión** (todas las combinaciones válidas entre
+17 categorías: longitud, peso, temperatura, área, volumen, tiempo, velocidad, combustible,
+presión, energía, potencia, electricidad, datos digitales, ángulos, frecuencia, densidad
+y monedas), cada una con:
+
+- `<title>` y `<meta description>` únicos, calculados con el valor real de esa conversión.
+- `<link rel="canonical">`, Open Graph y Twitter Card.
+- JSON-LD: `BreadcrumbList` + `FAQPage` con **4 preguntas y respuestas reales** por página
+  (cuánto equivale, cómo convertir con fórmula, para qué se usa, cómo hacer el inverso).
+- Tabla de referencia con valores reales (no placeholders).
+- Explicación con la fórmula exacta de esa conversión.
+- Un párrafo "acerca de la categoría" (reutilizado dentro de cada categoría, no por cada
+  página individual — evita contenido vacío sin inflar cada URL con texto repetido disfrazado).
+- Enlaces internos a otras conversiones de la **misma categoría** y a conversiones
+  representativas de **categorías relacionadas** (p. ej. Longitud enlaza a Área, Volumen
+  y Velocidad).
+- La calculadora interactiva completa, con las unidades correctas preseleccionadas.
+
 ## Por qué ya no da 404 al recargar
 
-Antes la URL se cambiaba solo en el navegador (`history.replaceState`), pero esa ruta no
-existía como archivo → GitHub Pages devolvía 404 al recargar o entrar directo por el link.
-
-Ahora **cada conversión es una carpeta real con su propio `index.html`**
-(`docs/metros-a-pies/index.html`). GitHub Pages sirve automáticamente `carpeta/index.html`
-tanto para `/metros-a-pies` como para `/metros-a-pies/` — sin necesidad de reglas de
-reescritura, `.htaccess`, ni el truco del `404.html` para SPAs.
+Cada conversión es una **carpeta real con su propio `index.html`** (`docs/metros-a-pies/index.html`).
+GitHub Pages sirve automáticamente `carpeta/index.html` tanto para `/metros-a-pies` como
+para `/metros-a-pies/` — sin reglas de reescritura ni trucos de SPA.
 
 ## Estructura del proyecto
 
 ```
 assets/
-  style.css          ← ÚNICO CSS (el mismo que ya tenías, con unas pocas clases extra para el bloque SEO)
-  app.js             ← ÚNICO JS (el mismo motor de conversión; funciona igual en el navegador
-                        y además se puede `require()` desde Node para el build — cero duplicación)
+  style.css          ← ÚNICO CSS (el mismo de siempre + clases para FAQ/enlaces relacionados)
+  app.js             ← ÚNICO JS (mismo motor; se usa en el navegador Y se `require()` desde
+                        Node para el build — cero duplicación de fórmulas ni de unidades)
 data/
-  conversions.json   ← LISTA MAESTRA de conversiones a publicar (edítala para agregar/quitar)
+  conversions.json   ← LISTA MAESTRA (1002 conversiones). Edítala para agregar/quitar.
 templates/
-  page.html          ← ÚNICA plantilla HTML (placeholders {{...}}), la usan el home y cada conversión
+  page.html          ← ÚNICA plantilla HTML (placeholders {{...}})
 scripts/
-  build.js                  ← genera /docs (home + 1 carpeta por conversión + sitemap + robots + CNAME)
-  build-conversions-list.js ← genera data/conversions.json desde una lista curada (uso manual, NO se
-                               corre en CI para no pisar tus ediciones manuales del JSON)
-docs/                ← SALIDA DEL BUILD. Esto es lo que GitHub Pages publica. No se edita a mano.
-.github/workflows/deploy.yml  ← build + deploy automático a GitHub Pages en cada push a main
+  build.js                  ← genera /docs: home + 1 carpeta por conversión + FAQs +
+                               enlaces relacionados + sitemap + robots + CNAME
+  build-conversions-list.js ← genera data/conversions.json con TODAS las combinaciones
+                               válidas por categoría (uso manual, no se corre en CI)
+docs/                ← SALIDA DEL BUILD (esto es lo que GitHub Pages publica)
+.github/workflows/deploy.yml  ← build + deploy automático (push a main + cron diario)
 ```
 
-## Cómo agregar/quitar conversiones (requisito de escalabilidad)
+## De dónde salen las 1,002 conversiones
 
-Edita `data/conversions.json`. Cada entrada es:
+`scripts/build-conversions-list.js` toma cada categoría de `assets/app.js` y genera
+**todas las combinaciones ordenadas posibles** entre sus unidades (A→B y B→A), respetando
+qué unidades sí se pueden convertir entre sí:
 
-```json
-{ "slug": "metros-a-pies", "tab": "longitud", "from": "m", "to": "ft" }
-```
+- Casi todas las categorías: todas sus unidades son un solo grupo (p. ej. en Longitud,
+  cualquier unidad se puede convertir a cualquier otra).
+- **Electricidad** es la excepción: Voltios solo convierte con Milivoltios, Amperios solo
+  con Miliamperios, Ohmios solo con Kiloohmios — nunca se mezclan voltios con amperios,
+  porque no son la misma magnitud física. Esto está controlado por `SUBGROUPS` dentro de
+  `build-conversions-list.js`.
+- **Monedas** es su propia categoría con 18 divisas (USD, EUR, GBP, DOP, COP, ARS, etc.),
+  con 306 pares posibles.
 
-- `tab`: el id de categoría tal como está en `CATEGORIES`/`TAB_DEFS` dentro de `assets/app.js`
-  (`longitud`, `peso`, `temperatura`, `area`, `volumen`, `tiempo`, `velocidad`, `combustible`,
-  `presion`, `energia`, `potencia`, `datos`, `angulos`, `frecuencia`, `densidad`, etc.)
-- `from` / `to`: los códigos de unidad tal como están definidos ahí mismo (p. ej. `m`, `ft`, `kg`, `c`, `f`...).
-- `slug`: la URL amigable. Si no sabes cuál poner, corre `node scripts/build.js` una vez con un
-  slug cualquiera: si `from`/`to` no existen en `app.js`, o si el slug no se puede generar,
-  el mismo `build-conversions-list.js` lanza un error explicando qué falta — así nunca hay
-  una página con datos incorrectos.
+Para agregar más (llegar a 2,000, 5,000...): agrega más unidades a `CATEGORIES` en
+`assets/app.js` (con su `code`, `label`, `factor` y `aliases`) y su entrada correspondiente
+en `SLUG_WORDS`, y vuelve a correr `node scripts/build-conversions-list.js`. El build es
+lineal en el número de conversiones, así que escala sin cambios de arquitectura.
 
-No hay límite de cuántas puedes agregar: el build es lineal en el número de conversiones,
-así que escala a cientos o miles de entradas sin cambios de código.
+## Tasas de moneda: en vivo en el build + en vivo en la calculadora
+
+`scripts/build.js` intenta obtener tasas de cambio reales al momento de generar el sitio
+(API gratuita, sin key). Si lo logra, los números "de referencia" en cada página de moneda
+(título, tabla, FAQ) usan esa tasa real del día del build. Si el build no tiene acceso a
+internet (poco probable en GitHub Actions), usa una tabla de respaldo aproximada.
+**La calculadora interactiva de cada página siempre intenta obtener la tasa en vivo desde
+el navegador del visitante**, independientemente de lo que se haya generado en el build.
 
 ## Build local
 
@@ -65,38 +89,27 @@ npm run serve         # sirve /docs en http://localhost:8080 para probar antes d
 1. Sube este proyecto a un repo de GitHub.
 2. En **Settings → Pages**, en "Build and deployment" elige **Source: GitHub Actions**
    (no "Deploy from a branch").
-3. Con cada `git push` a `main`, el workflow en `.github/workflows/deploy.yml`:
-   - corre `node scripts/build.js` (usando el mismo `assets/app.js` y `assets/style.css`),
-   - publica el contenido de `docs/` como el sitio.
-4. Dominio personalizado: el build ya genera `docs/CNAME` con el dominio configurado en
-   `SITE_URL` (ver `scripts/build.js` o la variable de entorno `SITE_URL` en el workflow).
-   Asegúrate de que tu DNS siga apuntando a GitHub Pages (esto no cambia respecto a como
-   ya lo tenías configurado).
+3. El workflow en `.github/workflows/deploy.yml` corre:
+   - en cada `git push` a `main`,
+   - y además **todos los días por cron** (para refrescar tasas de moneda y `lastmod`
+     del sitemap aunque no hayas tocado el código).
+4. Dominio personalizado: el build genera `docs/CNAME` con el dominio de `SITE_URL`
+   (variable de entorno en el workflow). Tu DNS sigue apuntando a GitHub Pages igual
+   que ya lo tenías configurado.
 
 ### Alternativa sin Actions (más simple, menos automática)
 
-Si prefieres no usar Actions: corre `npm run build` en tu máquina, haz commit de la carpeta
-`docs/` generada, y en **Settings → Pages** elige **Source: Deploy from a branch → main → /docs**.
-Tendrás que repetir "build + commit" cada vez que cambies algo.
-
-## Qué genera cada página de conversión
-
-- `<title>` y `<meta name="description">` únicos.
-- `<link rel="canonical">` apuntando a su propia URL.
-- Open Graph (`og:title`, `og:description`, `og:url`, `og:type`, `og:site_name`) y Twitter Card.
-- Datos estructurados JSON-LD: `BreadcrumbList` (Inicio → Categoría → Conversión) y `FAQPage`
-  con la pregunta "¿Cuántos X son 1 Y?" respondida con el valor real calculado por `app.js`.
-- Una tabla de referencia con valores reales (1, 2, 5, 10, 25, 50, 100...) — contenido
-  visible sin depender de JavaScript, ideal para rastreadores.
-- Enlaces internos a otras conversiones de la misma categoría.
-- La calculadora interactiva completa debajo, ya con las unidades correctas preseleccionadas
-  (vía `window.PRESET`, leído por `assets/app.js`).
-- El mismo `<head>`, mismo `style.css`, mismo `app.js`, mismo diseño visual que el resto del sitio.
+Corre `npm run build`, haz commit de `docs/`, y en **Settings → Pages** elige
+**Source: Deploy from a branch → main → /docs**. Tendrás que repetir "build + commit"
+cada vez que cambies algo (y no tendrás el refresco automático de tasas por cron).
 
 ## Notas
 
-- `docs/.nojekyll` evita que GitHub Pages procese el sitio con Jekyll (innecesario aquí y
-  puede causar problemas con carpetas/archivos que empiecen con `_` en el futuro).
-- Si cambias el dominio, actualiza `SITE_URL` en `.github/workflows/deploy.yml` (o la variable
-  de entorno al correr `node scripts/build.js` localmente) — el build regenera `CNAME`,
-  `sitemap.xml` y todos los `canonical`/`og:url` automáticamente.
+- `docs/.nojekyll` evita que GitHub Pages procese el sitio con Jekyll.
+- `sitemap.xml` incluye `lastmod` con la fecha del build más reciente — se regenera solo
+  en cada corrida (push o cron).
+- Si cambias el dominio, actualiza `SITE_URL` en `.github/workflows/deploy.yml` — el build
+  regenera `CNAME`, `sitemap.xml` y todos los `canonical`/`og:url` automáticamente.
+- Un control de calidad rápido (`title`, `canonical`, OG, JSON-LD válido con 4 preguntas,
+  `PRESET`, assets enlazados) corrió sobre las 1,002 páginas generadas sin errores antes
+  de esta entrega.

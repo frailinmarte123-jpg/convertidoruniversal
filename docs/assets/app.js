@@ -15,6 +15,9 @@ const CATEGORIES = [
       { code: 'mi', label: 'Millas',       aliases: ['mi','milla','millas','mile','miles'], factor: 1609.344 },
       { code: 'nm', label: 'Nanómetros',   aliases: ['nm','nanometro','nanometros','nanómetro','nanómetros'], factor: 1e-9 },
       { code: 'um', label: 'Micrómetros',  aliases: ['um','micrometro','micrometros','micrómetro','micrómetros','micra','micras'], factor: 1e-6 },
+      { code: 'nmi', label: 'Millas náuticas', aliases: ['nmi','milla nautica','millas nauticas','milla náutica','millas náuticas','nautical mile'], factor: 1852 },
+      { code: 'league', label: 'Leguas', aliases: ['league','leagues','legua','leguas'], factor: 4828.032 },
+      { code: 'fathom', label: 'Brazas', aliases: ['fathom','fathoms','braza','brazas'], factor: 1.8288 },
     ]
   },
   {
@@ -26,6 +29,8 @@ const CATEGORIES = [
       { code: 'oz', label: 'Onzas',      aliases: ['oz','onza','onzas','ounce','ounces'], factor: 0.0283495231 },
       { code: 't',  label: 'Toneladas',  aliases: ['t','ton','tons','tonelada','toneladas'], factor: 1000 },
       { code: 'ct', label: 'Quilates',   aliases: ['ct','quilate','quilates','carat','carats'], factor: 0.0002 },
+      { code: 'st', label: 'Stone',      aliases: ['st','stone','stones'], factor: 6.35029318 },
+      { code: 'gr', label: 'Granos',     aliases: ['gr','grano','granos','grain','grains'], factor: 0.00006479891 },
     ]
   },
   {
@@ -39,6 +44,7 @@ const CATEGORIES = [
       { code: 'mi2', label: 'Millas cuadradas',     aliases: ['mi2','millas cuadradas','milla cuadrada','mi²'], factor: 2589988.110336 },
       { code: 'ha',  label: 'Hectáreas',            aliases: ['ha','hectarea','hectareas','hectárea','hectáreas'], factor: 10000 },
       { code: 'acre',label: 'Acres',                aliases: ['acre','acres'], factor: 4046.8564224 },
+      { code: 'yd2', label: 'Yardas cuadradas',      aliases: ['yd2','yardas cuadradas','yarda cuadrada','yd²'], factor: 0.83612736 },
     ]
   },
   {
@@ -56,6 +62,7 @@ const CATEGORIES = [
       { code: 'tsp',    label: 'Cucharaditas',      aliases: ['tsp','cucharadita','cucharaditas'], factor: 0.00492892159 },
       { code: 'pt',     label: 'Pintas',            aliases: ['pt','pinta','pintas','pint'], factor: 0.473176473 },
       { code: 'qt',     label: 'Cuartos',           aliases: ['qt','cuarto','cuartos','quart'], factor: 0.946352946 },
+      { code: 'bbl',    label: 'Barriles',          aliases: ['bbl','barril','barriles','barrel'], factor: 158.987294928 },
     ]
   },
   {
@@ -69,6 +76,8 @@ const CATEGORIES = [
       { code: 'week',  label: 'Semanas',      aliases: ['week','semana','semanas'], factor: 604800 },
       { code: 'month', label: 'Meses',        aliases: ['month','mes','meses'], factor: 2629800 },
       { code: 'year',  label: 'Años',         aliases: ['year','ano','anos','año','años'], factor: 31557600 },
+      { code: 'decade',label: 'Décadas',      aliases: ['decade','decades','decada','decadas','década','décadas'], factor: 315576000 },
+      { code: 'century',label: 'Siglos',      aliases: ['century','centuries','siglo','siglos'], factor: 3155760000 },
     ]
   },
   {
@@ -99,6 +108,7 @@ const CATEGORIES = [
       { code: 'cal', label: 'Calorías', aliases: ['cal','caloria','calorias','caloría','calorías'], factor: 4.184 },
       { code: 'kwh', label: 'kWh', aliases: ['kwh'], factor: 3600000 },
       { code: 'btu', label: 'BTU', aliases: ['btu'], factor: 1055.05585262 },
+      { code: 'wh',  label: 'Watt-hora', aliases: ['wh','watt hora','watt-hora','watts hora'], factor: 3600 },
     ]
   },
   {
@@ -199,22 +209,23 @@ function fuelFromL100(l100, unit) {
 /* ===================== ENRUTAMIENTO: URLs AMIGABLES (dinámicas) ===================== */
 // Palabra usada en la URL para cada unidad, por categoría/pestaña.
 const SLUG_WORDS = {
-  longitud: { m:'metros', ft:'pies', cm:'centimetros', mm:'milimetros', km:'kilometros', yd:'yardas', in:'pulgadas', mi:'millas', nm:'nanometros', um:'micrometros' },
-  peso: { kg:'kilogramos', g:'gramos', lb:'libras', oz:'onzas', t:'toneladas', ct:'quilates' },
+  longitud: { m:'metros', ft:'pies', cm:'centimetros', mm:'milimetros', km:'kilometros', yd:'yardas', in:'pulgadas', mi:'millas', nm:'nanometros', um:'micrometros', nmi:'millas-nauticas', league:'leguas', fathom:'brazas' },
+  peso: { kg:'kilogramos', g:'gramos', lb:'libras', oz:'onzas', t:'toneladas', ct:'quilates', st:'stone', gr:'granos' },
   temperatura: { c:'celsius', f:'fahrenheit', k:'kelvin' },
-  area: { m2:'metros-cuadrados', ft2:'pies-cuadrados', cm2:'centimetros-cuadrados', in2:'pulgadas-cuadradas', km2:'kilometros-cuadrados', mi2:'millas-cuadradas', ha:'hectareas', acre:'acres' },
-  volumen: { L:'litros', mL:'mililitros', m3:'metros-cubicos', ft3:'pies-cubicos', galus:'galones-us', galuk:'galones-uk', floz:'onzas-liquidas', cup:'tazas', tbsp:'cucharadas', tsp:'cucharaditas', pt:'pintas', qt:'cuartos' },
-  tiempo: { ms:'milisegundos', s:'segundos', min:'minutos', h:'horas', day:'dias', week:'semanas', month:'meses', year:'anos' },
+  area: { m2:'metros-cuadrados', ft2:'pies-cuadrados', cm2:'centimetros-cuadrados', in2:'pulgadas-cuadradas', km2:'kilometros-cuadrados', mi2:'millas-cuadradas', ha:'hectareas', acre:'acres', yd2:'yardas-cuadradas' },
+  volumen: { L:'litros', mL:'mililitros', m3:'metros-cubicos', ft3:'pies-cubicos', galus:'galones-us', galuk:'galones-uk', floz:'onzas-liquidas', cup:'tazas', tbsp:'cucharadas', tsp:'cucharaditas', pt:'pintas', qt:'cuartos', bbl:'barriles' },
+  tiempo: { ms:'milisegundos', s:'segundos', min:'minutos', h:'horas', day:'dias', week:'semanas', month:'meses', year:'anos', decade:'decadas', century:'siglos' },
   velocidad: { ms:'metros-por-segundo', kmh:'kilometros-por-hora', mph:'millas-por-hora', knot:'nudos', fts:'pies-por-segundo', mach:'mach' },
   combustible: { mpg:'mpg', l100km:'litros-100km', kml:'kilometros-litro' },
   presion: { kpa:'kilopascales', psi:'psi', bar:'bar', atm:'atmosferas', mmhg:'mmhg' },
-  energia: { j:'joules', cal:'calorias', kwh:'kwh', btu:'btu' },
+  energia: { j:'joules', cal:'calorias', kwh:'kwh', btu:'btu', wh:'watt-hora' },
   potencia: { w:'watts', kw:'kilowatts', hp:'hp', btuh:'btu-h' },
   electricidad: { v:'voltios', mv:'milivoltios', a:'amperios', ma:'miliamperios', ohm:'ohmios', kohm:'kiloohmios' },
   datos: { bit:'bits', byte:'bytes', kb:'kb', mb:'mb', gb:'gb', tb:'tb', pb:'pb' },
   angulos: { deg:'grados', rad:'radianes', grad:'gradianes' },
   frecuencia: { hz:'hz', khz:'khz', mhz:'mhz', ghz:'ghz' },
   densidad: { kgm3:'kg-m3', gcm3:'g-cm3', lbft3:'lb-ft3' },
+  monedas: { USD:'usd', EUR:'eur', GBP:'gbp', CAD:'cad', MXN:'mxn', JPY:'jpy', DOP:'dop', COP:'cop', ARS:'ars', CLP:'clp', PEN:'pen', BRL:'brl', CHF:'chf', CNY:'cny', INR:'inr', AUD:'aud', SEK:'sek', NOK:'nok' },
 };
 
 function slugFor(tabId, fromCode, toCode) {
@@ -632,7 +643,12 @@ function renderDatosExtra(container) {
 }
 
 /* ===================== MONEDAS ===================== */
-const STATIC_RATES = { USD: 1, EUR: 0.92, GBP: 0.78, CAD: 1.37, MXN: 18.5, JPY: 156, DOP: 60 };
+const STATIC_RATES = {
+  USD: 1, EUR: 0.92, GBP: 0.78, CAD: 1.37, MXN: 18.5, JPY: 156, DOP: 60,
+  COP: 4100, ARS: 1300, CLP: 950, PEN: 3.75, BRL: 5.4, CHF: 0.88, CNY: 7.25,
+  INR: 84, AUD: 1.52, SEK: 10.4, NOK: 10.6,
+};
+const CURRENCY_LIST = Object.keys(STATIC_RATES);
 let liveRates = null, ratesTimestamp = null;
 async function fetchRates() {
   try {
@@ -641,11 +657,11 @@ async function fetchRates() {
     if (data && data.rates) { liveRates = data.rates; ratesTimestamp = data.time_last_update_utc || new Date().toString(); }
   } catch (e) { liveRates = null; }
 }
-function renderMonedasPanel(container) {
+function renderMonedasPanel(container, preset) {
   const wrap = el('div', 'panel-linear');
   const status = el('p', 'panel-note', 'Cargando tasas de cambio en vivo…');
   wrap.appendChild(status);
-  const currencies = ['USD','EUR','GBP','CAD','MXN','JPY','DOP'];
+  const currencies = CURRENCY_LIST;
   const row = el('div', 'convert-row');
   const colA = el('div', 'convert-col');
   const inA = el('input', 'num-input'); inA.type = 'text'; inA.value = '100';
@@ -657,12 +673,15 @@ function renderMonedasPanel(container) {
   const selB = el('select', 'unit-select'); currencies.forEach(c => selB.appendChild(el('option', null, c)).value = c);
   selB.value = 'DOP';
   colB.appendChild(inB); colB.appendChild(selB);
+  if (preset && preset.from) selA.value = preset.from;
+  if (preset && preset.to) selB.value = preset.to;
   row.appendChild(colA); row.appendChild(swapBtn); row.appendChild(colB);
   wrap.appendChild(row);
 
   function rates() { return liveRates || STATIC_RATES; }
   function recalcFromA() {
     const v = parseFloat(inA.value.replace(',', '.'));
+    updateUrlSlug('monedas', selA.value, selB.value);
     if (isNaN(v)) return;
     const r = rates();
     const usd = v / r[selA.value];
@@ -670,6 +689,7 @@ function renderMonedasPanel(container) {
   }
   function recalcFromB() {
     const v = parseFloat(inB.value.replace(',', '.'));
+    updateUrlSlug('monedas', selA.value, selB.value);
     if (isNaN(v)) return;
     const r = rates();
     const usd = v / r[selB.value];
@@ -1206,7 +1226,7 @@ function renderPanel(preset) {
   } else if (t.kind === 'fuel') {
     container.appendChild(renderFuelPanel(preset));
   } else if (t.kind === 'custom') {
-    t.render(container);
+    t.render(container, preset);
   }
 }
 
@@ -1246,5 +1266,6 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     CATEGORIES, TEMP_UNITS, FUEL_UNITS, TAB_DEFS, SLUG_WORDS,
     convertLinear, convertTemp, convertFuel, fmt, slugFor,
+    STATIC_RATES, CURRENCY_LIST,
   };
 }

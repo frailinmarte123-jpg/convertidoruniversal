@@ -6,22 +6,10 @@
     "to": "ft"
   },
   {
-    "slug": "pies-a-metros",
-    "tab": "longitud",
-    "from": "ft",
-    "to": "m"
-  },
-  {
     "slug": "metros-a-centimetros",
     "tab": "longitud",
     "from": "m",
     "to": "cm"
-  },
-  {
-    "slug": "centimetros-a-metros",
-    "tab": "longitud",
-    "from": "cm",
-    "to": "m"
   },
   {
     "slug": "metros-a-milimetros",
@@ -30,22 +18,10 @@
     "to": "mm"
   },
   {
-    "slug": "milimetros-a-metros",
-    "tab": "longitud",
-    "from": "mm",
-    "to": "m"
-  },
-  {
     "slug": "metros-a-kilometros",
     "tab": "longitud",
     "from": "m",
     "to": "km"
-  },
-  {
-    "slug": "kilometros-a-metros",
-    "tab": "longitud",
-    "from": "km",
-    "to": "m"
   },
   {
     "slug": "metros-a-yardas",
@@ -54,22 +30,10 @@
     "to": "yd"
   },
   {
-    "slug": "yardas-a-metros",
-    "tab": "longitud",
-    "from": "yd",
-    "to": "m"
-  },
-  {
     "slug": "metros-a-pulgadas",
     "tab": "longitud",
     "from": "m",
     "to": "in"
-  },
-  {
-    "slug": "pulgadas-a-metros",
-    "tab": "longitud",
-    "from": "in",
-    "to": "m"
   },
   {
     "slug": "metros-a-millas",
@@ -78,76 +42,40 @@
     "to": "mi"
   },
   {
-    "slug": "millas-a-metros",
+    "slug": "metros-a-nanometros",
     "tab": "longitud",
-    "from": "mi",
+    "from": "m",
+    "to": "nm"
+  },
+  {
+    "slug": "metros-a-micrometros",
+    "tab": "longitud",
+    "from": "m",
+    "to": "um"
+  },
+  {
+    "slug": "metros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "nmi"
+  },
+  {
+    "slug": "metros-a-leguas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "league"
+  },
+  {
+    "slug": "metros-a-brazas",
+    "tab": "longitud",
+    "from": "m",
+    "to": "fathom"
+  },
+  {
+    "slug": "pies-a-metros",
+    "tab": "longitud",
+    "from": "ft",
     "to": "m"
-  },
-  {
-    "slug": "pies-a-pulgadas",
-    "tab": "longitud",
-    "from": "ft",
-    "to": "in"
-  },
-  {
-    "slug": "pulgadas-a-pies",
-    "tab": "longitud",
-    "from": "in",
-    "to": "ft"
-  },
-  {
-    "slug": "pies-a-yardas",
-    "tab": "longitud",
-    "from": "ft",
-    "to": "yd"
-  },
-  {
-    "slug": "yardas-a-pies",
-    "tab": "longitud",
-    "from": "yd",
-    "to": "ft"
-  },
-  {
-    "slug": "pies-a-millas",
-    "tab": "longitud",
-    "from": "ft",
-    "to": "mi"
-  },
-  {
-    "slug": "millas-a-pies",
-    "tab": "longitud",
-    "from": "mi",
-    "to": "ft"
-  },
-  {
-    "slug": "kilometros-a-millas",
-    "tab": "longitud",
-    "from": "km",
-    "to": "mi"
-  },
-  {
-    "slug": "millas-a-kilometros",
-    "tab": "longitud",
-    "from": "mi",
-    "to": "km"
-  },
-  {
-    "slug": "centimetros-a-pulgadas",
-    "tab": "longitud",
-    "from": "cm",
-    "to": "in"
-  },
-  {
-    "slug": "pulgadas-a-centimetros",
-    "tab": "longitud",
-    "from": "in",
-    "to": "cm"
-  },
-  {
-    "slug": "centimetros-a-pies",
-    "tab": "longitud",
-    "from": "cm",
-    "to": "ft"
   },
   {
     "slug": "pies-a-centimetros",
@@ -156,10 +84,370 @@
     "to": "cm"
   },
   {
+    "slug": "pies-a-milimetros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "mm"
+  },
+  {
+    "slug": "pies-a-kilometros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "km"
+  },
+  {
+    "slug": "pies-a-yardas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "yd"
+  },
+  {
+    "slug": "pies-a-pulgadas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "in"
+  },
+  {
+    "slug": "pies-a-millas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "mi"
+  },
+  {
+    "slug": "pies-a-nanometros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "nm"
+  },
+  {
+    "slug": "pies-a-micrometros",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "um"
+  },
+  {
+    "slug": "pies-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "nmi"
+  },
+  {
+    "slug": "pies-a-leguas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "league"
+  },
+  {
+    "slug": "pies-a-brazas",
+    "tab": "longitud",
+    "from": "ft",
+    "to": "fathom"
+  },
+  {
+    "slug": "centimetros-a-metros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "m"
+  },
+  {
+    "slug": "centimetros-a-pies",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "ft"
+  },
+  {
+    "slug": "centimetros-a-milimetros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "mm"
+  },
+  {
+    "slug": "centimetros-a-kilometros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "km"
+  },
+  {
+    "slug": "centimetros-a-yardas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "yd"
+  },
+  {
+    "slug": "centimetros-a-pulgadas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "in"
+  },
+  {
+    "slug": "centimetros-a-millas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "mi"
+  },
+  {
+    "slug": "centimetros-a-nanometros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "nm"
+  },
+  {
+    "slug": "centimetros-a-micrometros",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "um"
+  },
+  {
+    "slug": "centimetros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "nmi"
+  },
+  {
+    "slug": "centimetros-a-leguas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "league"
+  },
+  {
+    "slug": "centimetros-a-brazas",
+    "tab": "longitud",
+    "from": "cm",
+    "to": "fathom"
+  },
+  {
+    "slug": "milimetros-a-metros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "m"
+  },
+  {
+    "slug": "milimetros-a-pies",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "ft"
+  },
+  {
+    "slug": "milimetros-a-centimetros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "cm"
+  },
+  {
+    "slug": "milimetros-a-kilometros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "km"
+  },
+  {
+    "slug": "milimetros-a-yardas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "yd"
+  },
+  {
     "slug": "milimetros-a-pulgadas",
     "tab": "longitud",
     "from": "mm",
     "to": "in"
+  },
+  {
+    "slug": "milimetros-a-millas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "mi"
+  },
+  {
+    "slug": "milimetros-a-nanometros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "nm"
+  },
+  {
+    "slug": "milimetros-a-micrometros",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "um"
+  },
+  {
+    "slug": "milimetros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "nmi"
+  },
+  {
+    "slug": "milimetros-a-leguas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "league"
+  },
+  {
+    "slug": "milimetros-a-brazas",
+    "tab": "longitud",
+    "from": "mm",
+    "to": "fathom"
+  },
+  {
+    "slug": "kilometros-a-metros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "m"
+  },
+  {
+    "slug": "kilometros-a-pies",
+    "tab": "longitud",
+    "from": "km",
+    "to": "ft"
+  },
+  {
+    "slug": "kilometros-a-centimetros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "cm"
+  },
+  {
+    "slug": "kilometros-a-milimetros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "mm"
+  },
+  {
+    "slug": "kilometros-a-yardas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "yd"
+  },
+  {
+    "slug": "kilometros-a-pulgadas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "in"
+  },
+  {
+    "slug": "kilometros-a-millas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "mi"
+  },
+  {
+    "slug": "kilometros-a-nanometros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "nm"
+  },
+  {
+    "slug": "kilometros-a-micrometros",
+    "tab": "longitud",
+    "from": "km",
+    "to": "um"
+  },
+  {
+    "slug": "kilometros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "nmi"
+  },
+  {
+    "slug": "kilometros-a-leguas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "league"
+  },
+  {
+    "slug": "kilometros-a-brazas",
+    "tab": "longitud",
+    "from": "km",
+    "to": "fathom"
+  },
+  {
+    "slug": "yardas-a-metros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "m"
+  },
+  {
+    "slug": "yardas-a-pies",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "ft"
+  },
+  {
+    "slug": "yardas-a-centimetros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "cm"
+  },
+  {
+    "slug": "yardas-a-milimetros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "mm"
+  },
+  {
+    "slug": "yardas-a-kilometros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "km"
+  },
+  {
+    "slug": "yardas-a-pulgadas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "in"
+  },
+  {
+    "slug": "yardas-a-millas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "mi"
+  },
+  {
+    "slug": "yardas-a-nanometros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "nm"
+  },
+  {
+    "slug": "yardas-a-micrometros",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "um"
+  },
+  {
+    "slug": "yardas-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "nmi"
+  },
+  {
+    "slug": "yardas-a-leguas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "league"
+  },
+  {
+    "slug": "yardas-a-brazas",
+    "tab": "longitud",
+    "from": "yd",
+    "to": "fathom"
+  },
+  {
+    "slug": "pulgadas-a-metros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "m"
+  },
+  {
+    "slug": "pulgadas-a-pies",
+    "tab": "longitud",
+    "from": "in",
+    "to": "ft"
+  },
+  {
+    "slug": "pulgadas-a-centimetros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "cm"
   },
   {
     "slug": "pulgadas-a-milimetros",
@@ -168,10 +456,82 @@
     "to": "mm"
   },
   {
-    "slug": "yardas-a-millas",
+    "slug": "pulgadas-a-kilometros",
     "tab": "longitud",
-    "from": "yd",
+    "from": "in",
+    "to": "km"
+  },
+  {
+    "slug": "pulgadas-a-yardas",
+    "tab": "longitud",
+    "from": "in",
+    "to": "yd"
+  },
+  {
+    "slug": "pulgadas-a-millas",
+    "tab": "longitud",
+    "from": "in",
     "to": "mi"
+  },
+  {
+    "slug": "pulgadas-a-nanometros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "nm"
+  },
+  {
+    "slug": "pulgadas-a-micrometros",
+    "tab": "longitud",
+    "from": "in",
+    "to": "um"
+  },
+  {
+    "slug": "pulgadas-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "in",
+    "to": "nmi"
+  },
+  {
+    "slug": "pulgadas-a-leguas",
+    "tab": "longitud",
+    "from": "in",
+    "to": "league"
+  },
+  {
+    "slug": "pulgadas-a-brazas",
+    "tab": "longitud",
+    "from": "in",
+    "to": "fathom"
+  },
+  {
+    "slug": "millas-a-metros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "m"
+  },
+  {
+    "slug": "millas-a-pies",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "ft"
+  },
+  {
+    "slug": "millas-a-centimetros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "cm"
+  },
+  {
+    "slug": "millas-a-milimetros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "mm"
+  },
+  {
+    "slug": "millas-a-kilometros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "km"
   },
   {
     "slug": "millas-a-yardas",
@@ -186,9 +546,81 @@
     "to": "in"
   },
   {
-    "slug": "pulgadas-a-millas",
+    "slug": "millas-a-nanometros",
     "tab": "longitud",
-    "from": "in",
+    "from": "mi",
+    "to": "nm"
+  },
+  {
+    "slug": "millas-a-micrometros",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "um"
+  },
+  {
+    "slug": "millas-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "nmi"
+  },
+  {
+    "slug": "millas-a-leguas",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "league"
+  },
+  {
+    "slug": "millas-a-brazas",
+    "tab": "longitud",
+    "from": "mi",
+    "to": "fathom"
+  },
+  {
+    "slug": "nanometros-a-metros",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "m"
+  },
+  {
+    "slug": "nanometros-a-pies",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "ft"
+  },
+  {
+    "slug": "nanometros-a-centimetros",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "cm"
+  },
+  {
+    "slug": "nanometros-a-milimetros",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "mm"
+  },
+  {
+    "slug": "nanometros-a-kilometros",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "km"
+  },
+  {
+    "slug": "nanometros-a-yardas",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "yd"
+  },
+  {
+    "slug": "nanometros-a-pulgadas",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "in"
+  },
+  {
+    "slug": "nanometros-a-millas",
+    "tab": "longitud",
+    "from": "nm",
     "to": "mi"
   },
   {
@@ -198,10 +630,40 @@
     "to": "um"
   },
   {
-    "slug": "micrometros-a-nanometros",
+    "slug": "nanometros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "nmi"
+  },
+  {
+    "slug": "nanometros-a-leguas",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "league"
+  },
+  {
+    "slug": "nanometros-a-brazas",
+    "tab": "longitud",
+    "from": "nm",
+    "to": "fathom"
+  },
+  {
+    "slug": "micrometros-a-metros",
     "tab": "longitud",
     "from": "um",
-    "to": "nm"
+    "to": "m"
+  },
+  {
+    "slug": "micrometros-a-pies",
+    "tab": "longitud",
+    "from": "um",
+    "to": "ft"
+  },
+  {
+    "slug": "micrometros-a-centimetros",
+    "tab": "longitud",
+    "from": "um",
+    "to": "cm"
   },
   {
     "slug": "micrometros-a-milimetros",
@@ -210,22 +672,268 @@
     "to": "mm"
   },
   {
-    "slug": "milimetros-a-micrometros",
+    "slug": "micrometros-a-kilometros",
     "tab": "longitud",
-    "from": "mm",
+    "from": "um",
+    "to": "km"
+  },
+  {
+    "slug": "micrometros-a-yardas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "yd"
+  },
+  {
+    "slug": "micrometros-a-pulgadas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "in"
+  },
+  {
+    "slug": "micrometros-a-millas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "mi"
+  },
+  {
+    "slug": "micrometros-a-nanometros",
+    "tab": "longitud",
+    "from": "um",
+    "to": "nm"
+  },
+  {
+    "slug": "micrometros-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "nmi"
+  },
+  {
+    "slug": "micrometros-a-leguas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "league"
+  },
+  {
+    "slug": "micrometros-a-brazas",
+    "tab": "longitud",
+    "from": "um",
+    "to": "fathom"
+  },
+  {
+    "slug": "millas-nauticas-a-metros",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "m"
+  },
+  {
+    "slug": "millas-nauticas-a-pies",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "ft"
+  },
+  {
+    "slug": "millas-nauticas-a-centimetros",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "cm"
+  },
+  {
+    "slug": "millas-nauticas-a-milimetros",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "mm"
+  },
+  {
+    "slug": "millas-nauticas-a-kilometros",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "km"
+  },
+  {
+    "slug": "millas-nauticas-a-yardas",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "yd"
+  },
+  {
+    "slug": "millas-nauticas-a-pulgadas",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "in"
+  },
+  {
+    "slug": "millas-nauticas-a-millas",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "mi"
+  },
+  {
+    "slug": "millas-nauticas-a-nanometros",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "nm"
+  },
+  {
+    "slug": "millas-nauticas-a-micrometros",
+    "tab": "longitud",
+    "from": "nmi",
     "to": "um"
   },
   {
-    "slug": "kilogramos-a-libras",
-    "tab": "peso",
-    "from": "kg",
-    "to": "lb"
+    "slug": "millas-nauticas-a-leguas",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "league"
   },
   {
-    "slug": "libras-a-kilogramos",
-    "tab": "peso",
-    "from": "lb",
-    "to": "kg"
+    "slug": "millas-nauticas-a-brazas",
+    "tab": "longitud",
+    "from": "nmi",
+    "to": "fathom"
+  },
+  {
+    "slug": "leguas-a-metros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "m"
+  },
+  {
+    "slug": "leguas-a-pies",
+    "tab": "longitud",
+    "from": "league",
+    "to": "ft"
+  },
+  {
+    "slug": "leguas-a-centimetros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "cm"
+  },
+  {
+    "slug": "leguas-a-milimetros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "mm"
+  },
+  {
+    "slug": "leguas-a-kilometros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "km"
+  },
+  {
+    "slug": "leguas-a-yardas",
+    "tab": "longitud",
+    "from": "league",
+    "to": "yd"
+  },
+  {
+    "slug": "leguas-a-pulgadas",
+    "tab": "longitud",
+    "from": "league",
+    "to": "in"
+  },
+  {
+    "slug": "leguas-a-millas",
+    "tab": "longitud",
+    "from": "league",
+    "to": "mi"
+  },
+  {
+    "slug": "leguas-a-nanometros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "nm"
+  },
+  {
+    "slug": "leguas-a-micrometros",
+    "tab": "longitud",
+    "from": "league",
+    "to": "um"
+  },
+  {
+    "slug": "leguas-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "league",
+    "to": "nmi"
+  },
+  {
+    "slug": "leguas-a-brazas",
+    "tab": "longitud",
+    "from": "league",
+    "to": "fathom"
+  },
+  {
+    "slug": "brazas-a-metros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "m"
+  },
+  {
+    "slug": "brazas-a-pies",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "ft"
+  },
+  {
+    "slug": "brazas-a-centimetros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "cm"
+  },
+  {
+    "slug": "brazas-a-milimetros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "mm"
+  },
+  {
+    "slug": "brazas-a-kilometros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "km"
+  },
+  {
+    "slug": "brazas-a-yardas",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "yd"
+  },
+  {
+    "slug": "brazas-a-pulgadas",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "in"
+  },
+  {
+    "slug": "brazas-a-millas",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "mi"
+  },
+  {
+    "slug": "brazas-a-nanometros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "nm"
+  },
+  {
+    "slug": "brazas-a-micrometros",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "um"
+  },
+  {
+    "slug": "brazas-a-millas-nauticas",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "nmi"
+  },
+  {
+    "slug": "brazas-a-leguas",
+    "tab": "longitud",
+    "from": "fathom",
+    "to": "league"
   },
   {
     "slug": "kilogramos-a-gramos",
@@ -234,10 +942,10 @@
     "to": "g"
   },
   {
-    "slug": "gramos-a-kilogramos",
+    "slug": "kilogramos-a-libras",
     "tab": "peso",
-    "from": "g",
-    "to": "kg"
+    "from": "kg",
+    "to": "lb"
   },
   {
     "slug": "kilogramos-a-onzas",
@@ -246,40 +954,34 @@
     "to": "oz"
   },
   {
-    "slug": "onzas-a-kilogramos",
-    "tab": "peso",
-    "from": "oz",
-    "to": "kg"
-  },
-  {
     "slug": "kilogramos-a-toneladas",
     "tab": "peso",
     "from": "kg",
     "to": "t"
   },
   {
-    "slug": "toneladas-a-kilogramos",
+    "slug": "kilogramos-a-quilates",
     "tab": "peso",
-    "from": "t",
+    "from": "kg",
+    "to": "ct"
+  },
+  {
+    "slug": "kilogramos-a-stone",
+    "tab": "peso",
+    "from": "kg",
+    "to": "st"
+  },
+  {
+    "slug": "kilogramos-a-granos",
+    "tab": "peso",
+    "from": "kg",
+    "to": "gr"
+  },
+  {
+    "slug": "gramos-a-kilogramos",
+    "tab": "peso",
+    "from": "g",
     "to": "kg"
-  },
-  {
-    "slug": "libras-a-onzas",
-    "tab": "peso",
-    "from": "lb",
-    "to": "oz"
-  },
-  {
-    "slug": "onzas-a-libras",
-    "tab": "peso",
-    "from": "oz",
-    "to": "lb"
-  },
-  {
-    "slug": "libras-a-gramos",
-    "tab": "peso",
-    "from": "lb",
-    "to": "g"
   },
   {
     "slug": "gramos-a-libras",
@@ -288,34 +990,16 @@
     "to": "lb"
   },
   {
-    "slug": "libras-a-toneladas",
-    "tab": "peso",
-    "from": "lb",
-    "to": "t"
-  },
-  {
-    "slug": "toneladas-a-libras",
-    "tab": "peso",
-    "from": "t",
-    "to": "lb"
-  },
-  {
-    "slug": "onzas-a-gramos",
-    "tab": "peso",
-    "from": "oz",
-    "to": "g"
-  },
-  {
     "slug": "gramos-a-onzas",
     "tab": "peso",
     "from": "g",
     "to": "oz"
   },
   {
-    "slug": "quilates-a-gramos",
+    "slug": "gramos-a-toneladas",
     "tab": "peso",
-    "from": "ct",
-    "to": "g"
+    "from": "g",
+    "to": "t"
   },
   {
     "slug": "gramos-a-quilates",
@@ -324,16 +1008,274 @@
     "to": "ct"
   },
   {
+    "slug": "gramos-a-stone",
+    "tab": "peso",
+    "from": "g",
+    "to": "st"
+  },
+  {
+    "slug": "gramos-a-granos",
+    "tab": "peso",
+    "from": "g",
+    "to": "gr"
+  },
+  {
+    "slug": "libras-a-kilogramos",
+    "tab": "peso",
+    "from": "lb",
+    "to": "kg"
+  },
+  {
+    "slug": "libras-a-gramos",
+    "tab": "peso",
+    "from": "lb",
+    "to": "g"
+  },
+  {
+    "slug": "libras-a-onzas",
+    "tab": "peso",
+    "from": "lb",
+    "to": "oz"
+  },
+  {
+    "slug": "libras-a-toneladas",
+    "tab": "peso",
+    "from": "lb",
+    "to": "t"
+  },
+  {
+    "slug": "libras-a-quilates",
+    "tab": "peso",
+    "from": "lb",
+    "to": "ct"
+  },
+  {
+    "slug": "libras-a-stone",
+    "tab": "peso",
+    "from": "lb",
+    "to": "st"
+  },
+  {
+    "slug": "libras-a-granos",
+    "tab": "peso",
+    "from": "lb",
+    "to": "gr"
+  },
+  {
+    "slug": "onzas-a-kilogramos",
+    "tab": "peso",
+    "from": "oz",
+    "to": "kg"
+  },
+  {
+    "slug": "onzas-a-gramos",
+    "tab": "peso",
+    "from": "oz",
+    "to": "g"
+  },
+  {
+    "slug": "onzas-a-libras",
+    "tab": "peso",
+    "from": "oz",
+    "to": "lb"
+  },
+  {
+    "slug": "onzas-a-toneladas",
+    "tab": "peso",
+    "from": "oz",
+    "to": "t"
+  },
+  {
+    "slug": "onzas-a-quilates",
+    "tab": "peso",
+    "from": "oz",
+    "to": "ct"
+  },
+  {
+    "slug": "onzas-a-stone",
+    "tab": "peso",
+    "from": "oz",
+    "to": "st"
+  },
+  {
+    "slug": "onzas-a-granos",
+    "tab": "peso",
+    "from": "oz",
+    "to": "gr"
+  },
+  {
+    "slug": "toneladas-a-kilogramos",
+    "tab": "peso",
+    "from": "t",
+    "to": "kg"
+  },
+  {
+    "slug": "toneladas-a-gramos",
+    "tab": "peso",
+    "from": "t",
+    "to": "g"
+  },
+  {
+    "slug": "toneladas-a-libras",
+    "tab": "peso",
+    "from": "t",
+    "to": "lb"
+  },
+  {
+    "slug": "toneladas-a-onzas",
+    "tab": "peso",
+    "from": "t",
+    "to": "oz"
+  },
+  {
+    "slug": "toneladas-a-quilates",
+    "tab": "peso",
+    "from": "t",
+    "to": "ct"
+  },
+  {
+    "slug": "toneladas-a-stone",
+    "tab": "peso",
+    "from": "t",
+    "to": "st"
+  },
+  {
+    "slug": "toneladas-a-granos",
+    "tab": "peso",
+    "from": "t",
+    "to": "gr"
+  },
+  {
+    "slug": "quilates-a-kilogramos",
+    "tab": "peso",
+    "from": "ct",
+    "to": "kg"
+  },
+  {
+    "slug": "quilates-a-gramos",
+    "tab": "peso",
+    "from": "ct",
+    "to": "g"
+  },
+  {
+    "slug": "quilates-a-libras",
+    "tab": "peso",
+    "from": "ct",
+    "to": "lb"
+  },
+  {
+    "slug": "quilates-a-onzas",
+    "tab": "peso",
+    "from": "ct",
+    "to": "oz"
+  },
+  {
+    "slug": "quilates-a-toneladas",
+    "tab": "peso",
+    "from": "ct",
+    "to": "t"
+  },
+  {
+    "slug": "quilates-a-stone",
+    "tab": "peso",
+    "from": "ct",
+    "to": "st"
+  },
+  {
+    "slug": "quilates-a-granos",
+    "tab": "peso",
+    "from": "ct",
+    "to": "gr"
+  },
+  {
+    "slug": "stone-a-kilogramos",
+    "tab": "peso",
+    "from": "st",
+    "to": "kg"
+  },
+  {
+    "slug": "stone-a-gramos",
+    "tab": "peso",
+    "from": "st",
+    "to": "g"
+  },
+  {
+    "slug": "stone-a-libras",
+    "tab": "peso",
+    "from": "st",
+    "to": "lb"
+  },
+  {
+    "slug": "stone-a-onzas",
+    "tab": "peso",
+    "from": "st",
+    "to": "oz"
+  },
+  {
+    "slug": "stone-a-toneladas",
+    "tab": "peso",
+    "from": "st",
+    "to": "t"
+  },
+  {
+    "slug": "stone-a-quilates",
+    "tab": "peso",
+    "from": "st",
+    "to": "ct"
+  },
+  {
+    "slug": "stone-a-granos",
+    "tab": "peso",
+    "from": "st",
+    "to": "gr"
+  },
+  {
+    "slug": "granos-a-kilogramos",
+    "tab": "peso",
+    "from": "gr",
+    "to": "kg"
+  },
+  {
+    "slug": "granos-a-gramos",
+    "tab": "peso",
+    "from": "gr",
+    "to": "g"
+  },
+  {
+    "slug": "granos-a-libras",
+    "tab": "peso",
+    "from": "gr",
+    "to": "lb"
+  },
+  {
+    "slug": "granos-a-onzas",
+    "tab": "peso",
+    "from": "gr",
+    "to": "oz"
+  },
+  {
+    "slug": "granos-a-toneladas",
+    "tab": "peso",
+    "from": "gr",
+    "to": "t"
+  },
+  {
+    "slug": "granos-a-quilates",
+    "tab": "peso",
+    "from": "gr",
+    "to": "ct"
+  },
+  {
+    "slug": "granos-a-stone",
+    "tab": "peso",
+    "from": "gr",
+    "to": "st"
+  },
+  {
     "slug": "celsius-a-fahrenheit",
     "tab": "temperatura",
     "from": "c",
     "to": "f"
-  },
-  {
-    "slug": "fahrenheit-a-celsius",
-    "tab": "temperatura",
-    "from": "f",
-    "to": "c"
   },
   {
     "slug": "celsius-a-kelvin",
@@ -342,9 +1284,9 @@
     "to": "k"
   },
   {
-    "slug": "kelvin-a-celsius",
+    "slug": "fahrenheit-a-celsius",
     "tab": "temperatura",
-    "from": "k",
+    "from": "f",
     "to": "c"
   },
   {
@@ -352,6 +1294,12 @@
     "tab": "temperatura",
     "from": "f",
     "to": "k"
+  },
+  {
+    "slug": "kelvin-a-celsius",
+    "tab": "temperatura",
+    "from": "k",
+    "to": "c"
   },
   {
     "slug": "kelvin-a-fahrenheit",
@@ -366,10 +1314,28 @@
     "to": "ft2"
   },
   {
-    "slug": "pies-cuadrados-a-metros-cuadrados",
+    "slug": "metros-cuadrados-a-centimetros-cuadrados",
     "tab": "area",
-    "from": "ft2",
-    "to": "m2"
+    "from": "m2",
+    "to": "cm2"
+  },
+  {
+    "slug": "metros-cuadrados-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "m2",
+    "to": "in2"
+  },
+  {
+    "slug": "metros-cuadrados-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "m2",
+    "to": "km2"
+  },
+  {
+    "slug": "metros-cuadrados-a-millas-cuadradas",
+    "tab": "area",
+    "from": "m2",
+    "to": "mi2"
   },
   {
     "slug": "metros-cuadrados-a-hectareas",
@@ -378,46 +1344,76 @@
     "to": "ha"
   },
   {
-    "slug": "hectareas-a-metros-cuadrados",
-    "tab": "area",
-    "from": "ha",
-    "to": "m2"
-  },
-  {
     "slug": "metros-cuadrados-a-acres",
     "tab": "area",
     "from": "m2",
     "to": "acre"
   },
   {
-    "slug": "acres-a-metros-cuadrados",
+    "slug": "metros-cuadrados-a-yardas-cuadradas",
     "tab": "area",
-    "from": "acre",
+    "from": "m2",
+    "to": "yd2"
+  },
+  {
+    "slug": "pies-cuadrados-a-metros-cuadrados",
+    "tab": "area",
+    "from": "ft2",
     "to": "m2"
   },
   {
-    "slug": "kilometros-cuadrados-a-millas-cuadradas",
+    "slug": "pies-cuadrados-a-centimetros-cuadrados",
     "tab": "area",
-    "from": "km2",
-    "to": "mi2"
+    "from": "ft2",
+    "to": "cm2"
   },
   {
-    "slug": "millas-cuadradas-a-kilometros-cuadrados",
+    "slug": "pies-cuadrados-a-pulgadas-cuadradas",
     "tab": "area",
-    "from": "mi2",
+    "from": "ft2",
+    "to": "in2"
+  },
+  {
+    "slug": "pies-cuadrados-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "ft2",
     "to": "km2"
   },
   {
-    "slug": "hectareas-a-acres",
+    "slug": "pies-cuadrados-a-millas-cuadradas",
     "tab": "area",
-    "from": "ha",
+    "from": "ft2",
+    "to": "mi2"
+  },
+  {
+    "slug": "pies-cuadrados-a-hectareas",
+    "tab": "area",
+    "from": "ft2",
+    "to": "ha"
+  },
+  {
+    "slug": "pies-cuadrados-a-acres",
+    "tab": "area",
+    "from": "ft2",
     "to": "acre"
   },
   {
-    "slug": "acres-a-hectareas",
+    "slug": "pies-cuadrados-a-yardas-cuadradas",
     "tab": "area",
-    "from": "acre",
-    "to": "ha"
+    "from": "ft2",
+    "to": "yd2"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-metros-cuadrados",
+    "tab": "area",
+    "from": "cm2",
+    "to": "m2"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-pies-cuadrados",
+    "tab": "area",
+    "from": "cm2",
+    "to": "ft2"
   },
   {
     "slug": "centimetros-cuadrados-a-pulgadas-cuadradas",
@@ -426,10 +1422,322 @@
     "to": "in2"
   },
   {
+    "slug": "centimetros-cuadrados-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "cm2",
+    "to": "km2"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-millas-cuadradas",
+    "tab": "area",
+    "from": "cm2",
+    "to": "mi2"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-hectareas",
+    "tab": "area",
+    "from": "cm2",
+    "to": "ha"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-acres",
+    "tab": "area",
+    "from": "cm2",
+    "to": "acre"
+  },
+  {
+    "slug": "centimetros-cuadrados-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "cm2",
+    "to": "yd2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-metros-cuadrados",
+    "tab": "area",
+    "from": "in2",
+    "to": "m2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-pies-cuadrados",
+    "tab": "area",
+    "from": "in2",
+    "to": "ft2"
+  },
+  {
     "slug": "pulgadas-cuadradas-a-centimetros-cuadrados",
     "tab": "area",
     "from": "in2",
     "to": "cm2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "in2",
+    "to": "km2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-millas-cuadradas",
+    "tab": "area",
+    "from": "in2",
+    "to": "mi2"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-hectareas",
+    "tab": "area",
+    "from": "in2",
+    "to": "ha"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-acres",
+    "tab": "area",
+    "from": "in2",
+    "to": "acre"
+  },
+  {
+    "slug": "pulgadas-cuadradas-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "in2",
+    "to": "yd2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-metros-cuadrados",
+    "tab": "area",
+    "from": "km2",
+    "to": "m2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-pies-cuadrados",
+    "tab": "area",
+    "from": "km2",
+    "to": "ft2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "km2",
+    "to": "cm2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "km2",
+    "to": "in2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-millas-cuadradas",
+    "tab": "area",
+    "from": "km2",
+    "to": "mi2"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-hectareas",
+    "tab": "area",
+    "from": "km2",
+    "to": "ha"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-acres",
+    "tab": "area",
+    "from": "km2",
+    "to": "acre"
+  },
+  {
+    "slug": "kilometros-cuadrados-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "km2",
+    "to": "yd2"
+  },
+  {
+    "slug": "millas-cuadradas-a-metros-cuadrados",
+    "tab": "area",
+    "from": "mi2",
+    "to": "m2"
+  },
+  {
+    "slug": "millas-cuadradas-a-pies-cuadrados",
+    "tab": "area",
+    "from": "mi2",
+    "to": "ft2"
+  },
+  {
+    "slug": "millas-cuadradas-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "mi2",
+    "to": "cm2"
+  },
+  {
+    "slug": "millas-cuadradas-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "mi2",
+    "to": "in2"
+  },
+  {
+    "slug": "millas-cuadradas-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "mi2",
+    "to": "km2"
+  },
+  {
+    "slug": "millas-cuadradas-a-hectareas",
+    "tab": "area",
+    "from": "mi2",
+    "to": "ha"
+  },
+  {
+    "slug": "millas-cuadradas-a-acres",
+    "tab": "area",
+    "from": "mi2",
+    "to": "acre"
+  },
+  {
+    "slug": "millas-cuadradas-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "mi2",
+    "to": "yd2"
+  },
+  {
+    "slug": "hectareas-a-metros-cuadrados",
+    "tab": "area",
+    "from": "ha",
+    "to": "m2"
+  },
+  {
+    "slug": "hectareas-a-pies-cuadrados",
+    "tab": "area",
+    "from": "ha",
+    "to": "ft2"
+  },
+  {
+    "slug": "hectareas-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "ha",
+    "to": "cm2"
+  },
+  {
+    "slug": "hectareas-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "ha",
+    "to": "in2"
+  },
+  {
+    "slug": "hectareas-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "ha",
+    "to": "km2"
+  },
+  {
+    "slug": "hectareas-a-millas-cuadradas",
+    "tab": "area",
+    "from": "ha",
+    "to": "mi2"
+  },
+  {
+    "slug": "hectareas-a-acres",
+    "tab": "area",
+    "from": "ha",
+    "to": "acre"
+  },
+  {
+    "slug": "hectareas-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "ha",
+    "to": "yd2"
+  },
+  {
+    "slug": "acres-a-metros-cuadrados",
+    "tab": "area",
+    "from": "acre",
+    "to": "m2"
+  },
+  {
+    "slug": "acres-a-pies-cuadrados",
+    "tab": "area",
+    "from": "acre",
+    "to": "ft2"
+  },
+  {
+    "slug": "acres-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "acre",
+    "to": "cm2"
+  },
+  {
+    "slug": "acres-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "acre",
+    "to": "in2"
+  },
+  {
+    "slug": "acres-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "acre",
+    "to": "km2"
+  },
+  {
+    "slug": "acres-a-millas-cuadradas",
+    "tab": "area",
+    "from": "acre",
+    "to": "mi2"
+  },
+  {
+    "slug": "acres-a-hectareas",
+    "tab": "area",
+    "from": "acre",
+    "to": "ha"
+  },
+  {
+    "slug": "acres-a-yardas-cuadradas",
+    "tab": "area",
+    "from": "acre",
+    "to": "yd2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-metros-cuadrados",
+    "tab": "area",
+    "from": "yd2",
+    "to": "m2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-pies-cuadrados",
+    "tab": "area",
+    "from": "yd2",
+    "to": "ft2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-centimetros-cuadrados",
+    "tab": "area",
+    "from": "yd2",
+    "to": "cm2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-pulgadas-cuadradas",
+    "tab": "area",
+    "from": "yd2",
+    "to": "in2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-kilometros-cuadrados",
+    "tab": "area",
+    "from": "yd2",
+    "to": "km2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-millas-cuadradas",
+    "tab": "area",
+    "from": "yd2",
+    "to": "mi2"
+  },
+  {
+    "slug": "yardas-cuadradas-a-hectareas",
+    "tab": "area",
+    "from": "yd2",
+    "to": "ha"
+  },
+  {
+    "slug": "yardas-cuadradas-a-acres",
+    "tab": "area",
+    "from": "yd2",
+    "to": "acre"
   },
   {
     "slug": "litros-a-mililitros",
@@ -438,46 +1746,10 @@
     "to": "mL"
   },
   {
-    "slug": "mililitros-a-litros",
-    "tab": "volumen",
-    "from": "mL",
-    "to": "L"
-  },
-  {
-    "slug": "litros-a-galones-us",
-    "tab": "volumen",
-    "from": "L",
-    "to": "galus"
-  },
-  {
-    "slug": "galones-us-a-litros",
-    "tab": "volumen",
-    "from": "galus",
-    "to": "L"
-  },
-  {
-    "slug": "litros-a-galones-uk",
-    "tab": "volumen",
-    "from": "L",
-    "to": "galuk"
-  },
-  {
-    "slug": "galones-uk-a-litros",
-    "tab": "volumen",
-    "from": "galuk",
-    "to": "L"
-  },
-  {
     "slug": "litros-a-metros-cubicos",
     "tab": "volumen",
     "from": "L",
     "to": "m3"
-  },
-  {
-    "slug": "metros-cubicos-a-litros",
-    "tab": "volumen",
-    "from": "m3",
-    "to": "L"
   },
   {
     "slug": "litros-a-pies-cubicos",
@@ -486,10 +1758,16 @@
     "to": "ft3"
   },
   {
-    "slug": "pies-cubicos-a-litros",
+    "slug": "litros-a-galones-us",
     "tab": "volumen",
-    "from": "ft3",
-    "to": "L"
+    "from": "L",
+    "to": "galus"
+  },
+  {
+    "slug": "litros-a-galones-uk",
+    "tab": "volumen",
+    "from": "L",
+    "to": "galuk"
   },
   {
     "slug": "litros-a-onzas-liquidas",
@@ -498,10 +1776,76 @@
     "to": "floz"
   },
   {
-    "slug": "onzas-liquidas-a-litros",
+    "slug": "litros-a-tazas",
     "tab": "volumen",
-    "from": "floz",
+    "from": "L",
+    "to": "cup"
+  },
+  {
+    "slug": "litros-a-cucharadas",
+    "tab": "volumen",
+    "from": "L",
+    "to": "tbsp"
+  },
+  {
+    "slug": "litros-a-cucharaditas",
+    "tab": "volumen",
+    "from": "L",
+    "to": "tsp"
+  },
+  {
+    "slug": "litros-a-pintas",
+    "tab": "volumen",
+    "from": "L",
+    "to": "pt"
+  },
+  {
+    "slug": "litros-a-cuartos",
+    "tab": "volumen",
+    "from": "L",
+    "to": "qt"
+  },
+  {
+    "slug": "litros-a-barriles",
+    "tab": "volumen",
+    "from": "L",
+    "to": "bbl"
+  },
+  {
+    "slug": "mililitros-a-litros",
+    "tab": "volumen",
+    "from": "mL",
     "to": "L"
+  },
+  {
+    "slug": "mililitros-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "m3"
+  },
+  {
+    "slug": "mililitros-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "ft3"
+  },
+  {
+    "slug": "mililitros-a-galones-us",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "galus"
+  },
+  {
+    "slug": "mililitros-a-galones-uk",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "galuk"
+  },
+  {
+    "slug": "mililitros-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "floz"
   },
   {
     "slug": "mililitros-a-tazas",
@@ -510,52 +1854,238 @@
     "to": "cup"
   },
   {
-    "slug": "tazas-a-mililitros",
+    "slug": "mililitros-a-cucharadas",
     "tab": "volumen",
-    "from": "cup",
-    "to": "mL"
-  },
-  {
-    "slug": "tazas-a-cucharadas",
-    "tab": "volumen",
-    "from": "cup",
+    "from": "mL",
     "to": "tbsp"
   },
   {
-    "slug": "cucharadas-a-tazas",
+    "slug": "mililitros-a-cucharaditas",
     "tab": "volumen",
-    "from": "tbsp",
-    "to": "cup"
-  },
-  {
-    "slug": "tazas-a-cucharaditas",
-    "tab": "volumen",
-    "from": "cup",
+    "from": "mL",
     "to": "tsp"
   },
   {
-    "slug": "cucharaditas-a-tazas",
+    "slug": "mililitros-a-pintas",
     "tab": "volumen",
-    "from": "tsp",
-    "to": "cup"
-  },
-  {
-    "slug": "pintas-a-cuartos",
-    "tab": "volumen",
-    "from": "pt",
-    "to": "qt"
-  },
-  {
-    "slug": "cuartos-a-pintas",
-    "tab": "volumen",
-    "from": "qt",
+    "from": "mL",
     "to": "pt"
   },
   {
-    "slug": "cuartos-a-galones-us",
+    "slug": "mililitros-a-cuartos",
     "tab": "volumen",
-    "from": "qt",
+    "from": "mL",
+    "to": "qt"
+  },
+  {
+    "slug": "mililitros-a-barriles",
+    "tab": "volumen",
+    "from": "mL",
+    "to": "bbl"
+  },
+  {
+    "slug": "metros-cubicos-a-litros",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "L"
+  },
+  {
+    "slug": "metros-cubicos-a-mililitros",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "mL"
+  },
+  {
+    "slug": "metros-cubicos-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "ft3"
+  },
+  {
+    "slug": "metros-cubicos-a-galones-us",
+    "tab": "volumen",
+    "from": "m3",
     "to": "galus"
+  },
+  {
+    "slug": "metros-cubicos-a-galones-uk",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "galuk"
+  },
+  {
+    "slug": "metros-cubicos-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "floz"
+  },
+  {
+    "slug": "metros-cubicos-a-tazas",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "cup"
+  },
+  {
+    "slug": "metros-cubicos-a-cucharadas",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "tbsp"
+  },
+  {
+    "slug": "metros-cubicos-a-cucharaditas",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "tsp"
+  },
+  {
+    "slug": "metros-cubicos-a-pintas",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "pt"
+  },
+  {
+    "slug": "metros-cubicos-a-cuartos",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "qt"
+  },
+  {
+    "slug": "metros-cubicos-a-barriles",
+    "tab": "volumen",
+    "from": "m3",
+    "to": "bbl"
+  },
+  {
+    "slug": "pies-cubicos-a-litros",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "L"
+  },
+  {
+    "slug": "pies-cubicos-a-mililitros",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "mL"
+  },
+  {
+    "slug": "pies-cubicos-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "m3"
+  },
+  {
+    "slug": "pies-cubicos-a-galones-us",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "galus"
+  },
+  {
+    "slug": "pies-cubicos-a-galones-uk",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "galuk"
+  },
+  {
+    "slug": "pies-cubicos-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "floz"
+  },
+  {
+    "slug": "pies-cubicos-a-tazas",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "cup"
+  },
+  {
+    "slug": "pies-cubicos-a-cucharadas",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "tbsp"
+  },
+  {
+    "slug": "pies-cubicos-a-cucharaditas",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "tsp"
+  },
+  {
+    "slug": "pies-cubicos-a-pintas",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "pt"
+  },
+  {
+    "slug": "pies-cubicos-a-cuartos",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "qt"
+  },
+  {
+    "slug": "pies-cubicos-a-barriles",
+    "tab": "volumen",
+    "from": "ft3",
+    "to": "bbl"
+  },
+  {
+    "slug": "galones-us-a-litros",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "L"
+  },
+  {
+    "slug": "galones-us-a-mililitros",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "mL"
+  },
+  {
+    "slug": "galones-us-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "m3"
+  },
+  {
+    "slug": "galones-us-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "ft3"
+  },
+  {
+    "slug": "galones-us-a-galones-uk",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "galuk"
+  },
+  {
+    "slug": "galones-us-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "floz"
+  },
+  {
+    "slug": "galones-us-a-tazas",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "cup"
+  },
+  {
+    "slug": "galones-us-a-cucharadas",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "tbsp"
+  },
+  {
+    "slug": "galones-us-a-cucharaditas",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "tsp"
+  },
+  {
+    "slug": "galones-us-a-pintas",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "pt"
   },
   {
     "slug": "galones-us-a-cuartos",
@@ -564,10 +2094,700 @@
     "to": "qt"
   },
   {
+    "slug": "galones-us-a-barriles",
+    "tab": "volumen",
+    "from": "galus",
+    "to": "bbl"
+  },
+  {
+    "slug": "galones-uk-a-litros",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "L"
+  },
+  {
+    "slug": "galones-uk-a-mililitros",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "mL"
+  },
+  {
+    "slug": "galones-uk-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "m3"
+  },
+  {
+    "slug": "galones-uk-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "ft3"
+  },
+  {
+    "slug": "galones-uk-a-galones-us",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "galus"
+  },
+  {
+    "slug": "galones-uk-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "floz"
+  },
+  {
+    "slug": "galones-uk-a-tazas",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "cup"
+  },
+  {
+    "slug": "galones-uk-a-cucharadas",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "tbsp"
+  },
+  {
+    "slug": "galones-uk-a-cucharaditas",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "tsp"
+  },
+  {
+    "slug": "galones-uk-a-pintas",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "pt"
+  },
+  {
+    "slug": "galones-uk-a-cuartos",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "qt"
+  },
+  {
+    "slug": "galones-uk-a-barriles",
+    "tab": "volumen",
+    "from": "galuk",
+    "to": "bbl"
+  },
+  {
+    "slug": "onzas-liquidas-a-litros",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "L"
+  },
+  {
+    "slug": "onzas-liquidas-a-mililitros",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "mL"
+  },
+  {
+    "slug": "onzas-liquidas-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "m3"
+  },
+  {
+    "slug": "onzas-liquidas-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "ft3"
+  },
+  {
+    "slug": "onzas-liquidas-a-galones-us",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "galus"
+  },
+  {
+    "slug": "onzas-liquidas-a-galones-uk",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "galuk"
+  },
+  {
+    "slug": "onzas-liquidas-a-tazas",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "cup"
+  },
+  {
+    "slug": "onzas-liquidas-a-cucharadas",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "tbsp"
+  },
+  {
+    "slug": "onzas-liquidas-a-cucharaditas",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "tsp"
+  },
+  {
+    "slug": "onzas-liquidas-a-pintas",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "pt"
+  },
+  {
+    "slug": "onzas-liquidas-a-cuartos",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "qt"
+  },
+  {
+    "slug": "onzas-liquidas-a-barriles",
+    "tab": "volumen",
+    "from": "floz",
+    "to": "bbl"
+  },
+  {
+    "slug": "tazas-a-litros",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "L"
+  },
+  {
+    "slug": "tazas-a-mililitros",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "mL"
+  },
+  {
+    "slug": "tazas-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "m3"
+  },
+  {
+    "slug": "tazas-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "ft3"
+  },
+  {
+    "slug": "tazas-a-galones-us",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "galus"
+  },
+  {
+    "slug": "tazas-a-galones-uk",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "galuk"
+  },
+  {
+    "slug": "tazas-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "floz"
+  },
+  {
+    "slug": "tazas-a-cucharadas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "tbsp"
+  },
+  {
+    "slug": "tazas-a-cucharaditas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "tsp"
+  },
+  {
+    "slug": "tazas-a-pintas",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "pt"
+  },
+  {
+    "slug": "tazas-a-cuartos",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "qt"
+  },
+  {
+    "slug": "tazas-a-barriles",
+    "tab": "volumen",
+    "from": "cup",
+    "to": "bbl"
+  },
+  {
+    "slug": "cucharadas-a-litros",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "L"
+  },
+  {
+    "slug": "cucharadas-a-mililitros",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "mL"
+  },
+  {
+    "slug": "cucharadas-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "m3"
+  },
+  {
+    "slug": "cucharadas-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "ft3"
+  },
+  {
+    "slug": "cucharadas-a-galones-us",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "galus"
+  },
+  {
+    "slug": "cucharadas-a-galones-uk",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "galuk"
+  },
+  {
+    "slug": "cucharadas-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "floz"
+  },
+  {
+    "slug": "cucharadas-a-tazas",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "cup"
+  },
+  {
+    "slug": "cucharadas-a-cucharaditas",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "tsp"
+  },
+  {
+    "slug": "cucharadas-a-pintas",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "pt"
+  },
+  {
+    "slug": "cucharadas-a-cuartos",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "qt"
+  },
+  {
+    "slug": "cucharadas-a-barriles",
+    "tab": "volumen",
+    "from": "tbsp",
+    "to": "bbl"
+  },
+  {
+    "slug": "cucharaditas-a-litros",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "L"
+  },
+  {
+    "slug": "cucharaditas-a-mililitros",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "mL"
+  },
+  {
+    "slug": "cucharaditas-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "m3"
+  },
+  {
+    "slug": "cucharaditas-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "ft3"
+  },
+  {
+    "slug": "cucharaditas-a-galones-us",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "galus"
+  },
+  {
+    "slug": "cucharaditas-a-galones-uk",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "galuk"
+  },
+  {
+    "slug": "cucharaditas-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "floz"
+  },
+  {
+    "slug": "cucharaditas-a-tazas",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "cup"
+  },
+  {
+    "slug": "cucharaditas-a-cucharadas",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "tbsp"
+  },
+  {
+    "slug": "cucharaditas-a-pintas",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "pt"
+  },
+  {
+    "slug": "cucharaditas-a-cuartos",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "qt"
+  },
+  {
+    "slug": "cucharaditas-a-barriles",
+    "tab": "volumen",
+    "from": "tsp",
+    "to": "bbl"
+  },
+  {
+    "slug": "pintas-a-litros",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "L"
+  },
+  {
+    "slug": "pintas-a-mililitros",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "mL"
+  },
+  {
+    "slug": "pintas-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "m3"
+  },
+  {
+    "slug": "pintas-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "ft3"
+  },
+  {
+    "slug": "pintas-a-galones-us",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "galus"
+  },
+  {
+    "slug": "pintas-a-galones-uk",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "galuk"
+  },
+  {
+    "slug": "pintas-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "floz"
+  },
+  {
+    "slug": "pintas-a-tazas",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "cup"
+  },
+  {
+    "slug": "pintas-a-cucharadas",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "tbsp"
+  },
+  {
+    "slug": "pintas-a-cucharaditas",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "tsp"
+  },
+  {
+    "slug": "pintas-a-cuartos",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "qt"
+  },
+  {
+    "slug": "pintas-a-barriles",
+    "tab": "volumen",
+    "from": "pt",
+    "to": "bbl"
+  },
+  {
+    "slug": "cuartos-a-litros",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "L"
+  },
+  {
+    "slug": "cuartos-a-mililitros",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "mL"
+  },
+  {
+    "slug": "cuartos-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "m3"
+  },
+  {
+    "slug": "cuartos-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "ft3"
+  },
+  {
+    "slug": "cuartos-a-galones-us",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "galus"
+  },
+  {
+    "slug": "cuartos-a-galones-uk",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "galuk"
+  },
+  {
+    "slug": "cuartos-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "floz"
+  },
+  {
+    "slug": "cuartos-a-tazas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "cup"
+  },
+  {
+    "slug": "cuartos-a-cucharadas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "tbsp"
+  },
+  {
+    "slug": "cuartos-a-cucharaditas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "tsp"
+  },
+  {
+    "slug": "cuartos-a-pintas",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "pt"
+  },
+  {
+    "slug": "cuartos-a-barriles",
+    "tab": "volumen",
+    "from": "qt",
+    "to": "bbl"
+  },
+  {
+    "slug": "barriles-a-litros",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "L"
+  },
+  {
+    "slug": "barriles-a-mililitros",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "mL"
+  },
+  {
+    "slug": "barriles-a-metros-cubicos",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "m3"
+  },
+  {
+    "slug": "barriles-a-pies-cubicos",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "ft3"
+  },
+  {
+    "slug": "barriles-a-galones-us",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "galus"
+  },
+  {
+    "slug": "barriles-a-galones-uk",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "galuk"
+  },
+  {
+    "slug": "barriles-a-onzas-liquidas",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "floz"
+  },
+  {
+    "slug": "barriles-a-tazas",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "cup"
+  },
+  {
+    "slug": "barriles-a-cucharadas",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "tbsp"
+  },
+  {
+    "slug": "barriles-a-cucharaditas",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "tsp"
+  },
+  {
+    "slug": "barriles-a-pintas",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "pt"
+  },
+  {
+    "slug": "barriles-a-cuartos",
+    "tab": "volumen",
+    "from": "bbl",
+    "to": "qt"
+  },
+  {
+    "slug": "milisegundos-a-segundos",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "s"
+  },
+  {
+    "slug": "milisegundos-a-minutos",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "min"
+  },
+  {
+    "slug": "milisegundos-a-horas",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "h"
+  },
+  {
+    "slug": "milisegundos-a-dias",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "day"
+  },
+  {
+    "slug": "milisegundos-a-semanas",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "week"
+  },
+  {
+    "slug": "milisegundos-a-meses",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "month"
+  },
+  {
+    "slug": "milisegundos-a-anos",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "year"
+  },
+  {
+    "slug": "milisegundos-a-decadas",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "decade"
+  },
+  {
+    "slug": "milisegundos-a-siglos",
+    "tab": "tiempo",
+    "from": "ms",
+    "to": "century"
+  },
+  {
+    "slug": "segundos-a-milisegundos",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "ms"
+  },
+  {
     "slug": "segundos-a-minutos",
     "tab": "tiempo",
     "from": "s",
     "to": "min"
+  },
+  {
+    "slug": "segundos-a-horas",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "h"
+  },
+  {
+    "slug": "segundos-a-dias",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "day"
+  },
+  {
+    "slug": "segundos-a-semanas",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "week"
+  },
+  {
+    "slug": "segundos-a-meses",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "month"
+  },
+  {
+    "slug": "segundos-a-anos",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "year"
+  },
+  {
+    "slug": "segundos-a-decadas",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "decade"
+  },
+  {
+    "slug": "segundos-a-siglos",
+    "tab": "tiempo",
+    "from": "s",
+    "to": "century"
+  },
+  {
+    "slug": "minutos-a-milisegundos",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "ms"
   },
   {
     "slug": "minutos-a-segundos",
@@ -582,6 +2802,54 @@
     "to": "h"
   },
   {
+    "slug": "minutos-a-dias",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "day"
+  },
+  {
+    "slug": "minutos-a-semanas",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "week"
+  },
+  {
+    "slug": "minutos-a-meses",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "month"
+  },
+  {
+    "slug": "minutos-a-anos",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "year"
+  },
+  {
+    "slug": "minutos-a-decadas",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "decade"
+  },
+  {
+    "slug": "minutos-a-siglos",
+    "tab": "tiempo",
+    "from": "min",
+    "to": "century"
+  },
+  {
+    "slug": "horas-a-milisegundos",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "ms"
+  },
+  {
+    "slug": "horas-a-segundos",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "s"
+  },
+  {
     "slug": "horas-a-minutos",
     "tab": "tiempo",
     "from": "h",
@@ -592,6 +2860,54 @@
     "tab": "tiempo",
     "from": "h",
     "to": "day"
+  },
+  {
+    "slug": "horas-a-semanas",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "week"
+  },
+  {
+    "slug": "horas-a-meses",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "month"
+  },
+  {
+    "slug": "horas-a-anos",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "year"
+  },
+  {
+    "slug": "horas-a-decadas",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "decade"
+  },
+  {
+    "slug": "horas-a-siglos",
+    "tab": "tiempo",
+    "from": "h",
+    "to": "century"
+  },
+  {
+    "slug": "dias-a-milisegundos",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "ms"
+  },
+  {
+    "slug": "dias-a-segundos",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "s"
+  },
+  {
+    "slug": "dias-a-minutos",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "min"
   },
   {
     "slug": "dias-a-horas",
@@ -606,6 +2922,54 @@
     "to": "week"
   },
   {
+    "slug": "dias-a-meses",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "month"
+  },
+  {
+    "slug": "dias-a-anos",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "year"
+  },
+  {
+    "slug": "dias-a-decadas",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "decade"
+  },
+  {
+    "slug": "dias-a-siglos",
+    "tab": "tiempo",
+    "from": "day",
+    "to": "century"
+  },
+  {
+    "slug": "semanas-a-milisegundos",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "ms"
+  },
+  {
+    "slug": "semanas-a-segundos",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "s"
+  },
+  {
+    "slug": "semanas-a-minutos",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "min"
+  },
+  {
+    "slug": "semanas-a-horas",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "h"
+  },
+  {
     "slug": "semanas-a-dias",
     "tab": "tiempo",
     "from": "week",
@@ -616,6 +2980,54 @@
     "tab": "tiempo",
     "from": "week",
     "to": "month"
+  },
+  {
+    "slug": "semanas-a-anos",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "year"
+  },
+  {
+    "slug": "semanas-a-decadas",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "decade"
+  },
+  {
+    "slug": "semanas-a-siglos",
+    "tab": "tiempo",
+    "from": "week",
+    "to": "century"
+  },
+  {
+    "slug": "meses-a-milisegundos",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "ms"
+  },
+  {
+    "slug": "meses-a-segundos",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "s"
+  },
+  {
+    "slug": "meses-a-minutos",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "min"
+  },
+  {
+    "slug": "meses-a-horas",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "h"
+  },
+  {
+    "slug": "meses-a-dias",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "day"
   },
   {
     "slug": "meses-a-semanas",
@@ -630,21 +3042,213 @@
     "to": "year"
   },
   {
+    "slug": "meses-a-decadas",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "decade"
+  },
+  {
+    "slug": "meses-a-siglos",
+    "tab": "tiempo",
+    "from": "month",
+    "to": "century"
+  },
+  {
+    "slug": "anos-a-milisegundos",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "ms"
+  },
+  {
+    "slug": "anos-a-segundos",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "s"
+  },
+  {
+    "slug": "anos-a-minutos",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "min"
+  },
+  {
+    "slug": "anos-a-horas",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "h"
+  },
+  {
+    "slug": "anos-a-dias",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "day"
+  },
+  {
+    "slug": "anos-a-semanas",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "week"
+  },
+  {
     "slug": "anos-a-meses",
     "tab": "tiempo",
     "from": "year",
     "to": "month"
   },
   {
-    "slug": "milisegundos-a-segundos",
+    "slug": "anos-a-decadas",
     "tab": "tiempo",
-    "from": "ms",
+    "from": "year",
+    "to": "decade"
+  },
+  {
+    "slug": "anos-a-siglos",
+    "tab": "tiempo",
+    "from": "year",
+    "to": "century"
+  },
+  {
+    "slug": "decadas-a-milisegundos",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "ms"
+  },
+  {
+    "slug": "decadas-a-segundos",
+    "tab": "tiempo",
+    "from": "decade",
     "to": "s"
   },
   {
-    "slug": "segundos-a-milisegundos",
+    "slug": "decadas-a-minutos",
     "tab": "tiempo",
-    "from": "s",
+    "from": "decade",
+    "to": "min"
+  },
+  {
+    "slug": "decadas-a-horas",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "h"
+  },
+  {
+    "slug": "decadas-a-dias",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "day"
+  },
+  {
+    "slug": "decadas-a-semanas",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "week"
+  },
+  {
+    "slug": "decadas-a-meses",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "month"
+  },
+  {
+    "slug": "decadas-a-anos",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "year"
+  },
+  {
+    "slug": "decadas-a-siglos",
+    "tab": "tiempo",
+    "from": "decade",
+    "to": "century"
+  },
+  {
+    "slug": "siglos-a-milisegundos",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "ms"
+  },
+  {
+    "slug": "siglos-a-segundos",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "s"
+  },
+  {
+    "slug": "siglos-a-minutos",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "min"
+  },
+  {
+    "slug": "siglos-a-horas",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "h"
+  },
+  {
+    "slug": "siglos-a-dias",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "day"
+  },
+  {
+    "slug": "siglos-a-semanas",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "week"
+  },
+  {
+    "slug": "siglos-a-meses",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "month"
+  },
+  {
+    "slug": "siglos-a-anos",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "year"
+  },
+  {
+    "slug": "siglos-a-decadas",
+    "tab": "tiempo",
+    "from": "century",
+    "to": "decade"
+  },
+  {
+    "slug": "metros-por-segundo-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "kmh"
+  },
+  {
+    "slug": "metros-por-segundo-a-millas-por-hora",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "mph"
+  },
+  {
+    "slug": "metros-por-segundo-a-nudos",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "knot"
+  },
+  {
+    "slug": "metros-por-segundo-a-pies-por-segundo",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "fts"
+  },
+  {
+    "slug": "metros-por-segundo-a-mach",
+    "tab": "velocidad",
+    "from": "ms",
+    "to": "mach"
+  },
+  {
+    "slug": "kilometros-por-hora-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "kmh",
     "to": "ms"
   },
   {
@@ -654,21 +3258,33 @@
     "to": "mph"
   },
   {
-    "slug": "millas-por-hora-a-kilometros-por-hora",
-    "tab": "velocidad",
-    "from": "mph",
-    "to": "kmh"
-  },
-  {
-    "slug": "kilometros-por-hora-a-metros-por-segundo",
+    "slug": "kilometros-por-hora-a-nudos",
     "tab": "velocidad",
     "from": "kmh",
+    "to": "knot"
+  },
+  {
+    "slug": "kilometros-por-hora-a-pies-por-segundo",
+    "tab": "velocidad",
+    "from": "kmh",
+    "to": "fts"
+  },
+  {
+    "slug": "kilometros-por-hora-a-mach",
+    "tab": "velocidad",
+    "from": "kmh",
+    "to": "mach"
+  },
+  {
+    "slug": "millas-por-hora-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "mph",
     "to": "ms"
   },
   {
-    "slug": "metros-por-segundo-a-kilometros-por-hora",
+    "slug": "millas-por-hora-a-kilometros-por-hora",
     "tab": "velocidad",
-    "from": "ms",
+    "from": "mph",
     "to": "kmh"
   },
   {
@@ -678,21 +3294,81 @@
     "to": "knot"
   },
   {
+    "slug": "millas-por-hora-a-pies-por-segundo",
+    "tab": "velocidad",
+    "from": "mph",
+    "to": "fts"
+  },
+  {
+    "slug": "millas-por-hora-a-mach",
+    "tab": "velocidad",
+    "from": "mph",
+    "to": "mach"
+  },
+  {
+    "slug": "nudos-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "knot",
+    "to": "ms"
+  },
+  {
+    "slug": "nudos-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "knot",
+    "to": "kmh"
+  },
+  {
     "slug": "nudos-a-millas-por-hora",
     "tab": "velocidad",
     "from": "knot",
     "to": "mph"
   },
   {
-    "slug": "metros-por-segundo-a-pies-por-segundo",
+    "slug": "nudos-a-pies-por-segundo",
     "tab": "velocidad",
-    "from": "ms",
+    "from": "knot",
     "to": "fts"
+  },
+  {
+    "slug": "nudos-a-mach",
+    "tab": "velocidad",
+    "from": "knot",
+    "to": "mach"
   },
   {
     "slug": "pies-por-segundo-a-metros-por-segundo",
     "tab": "velocidad",
     "from": "fts",
+    "to": "ms"
+  },
+  {
+    "slug": "pies-por-segundo-a-kilometros-por-hora",
+    "tab": "velocidad",
+    "from": "fts",
+    "to": "kmh"
+  },
+  {
+    "slug": "pies-por-segundo-a-millas-por-hora",
+    "tab": "velocidad",
+    "from": "fts",
+    "to": "mph"
+  },
+  {
+    "slug": "pies-por-segundo-a-nudos",
+    "tab": "velocidad",
+    "from": "fts",
+    "to": "knot"
+  },
+  {
+    "slug": "pies-por-segundo-a-mach",
+    "tab": "velocidad",
+    "from": "fts",
+    "to": "mach"
+  },
+  {
+    "slug": "mach-a-metros-por-segundo",
+    "tab": "velocidad",
+    "from": "mach",
     "to": "ms"
   },
   {
@@ -702,22 +3378,22 @@
     "to": "kmh"
   },
   {
-    "slug": "kilometros-por-hora-a-mach",
-    "tab": "velocidad",
-    "from": "kmh",
-    "to": "mach"
-  },
-  {
     "slug": "mach-a-millas-por-hora",
     "tab": "velocidad",
     "from": "mach",
     "to": "mph"
   },
   {
-    "slug": "millas-por-hora-a-mach",
+    "slug": "mach-a-nudos",
     "tab": "velocidad",
-    "from": "mph",
-    "to": "mach"
+    "from": "mach",
+    "to": "knot"
+  },
+  {
+    "slug": "mach-a-pies-por-segundo",
+    "tab": "velocidad",
+    "from": "mach",
+    "to": "fts"
   },
   {
     "slug": "mpg-a-litros-100km",
@@ -726,28 +3402,16 @@
     "to": "l100km"
   },
   {
-    "slug": "litros-100km-a-mpg",
-    "tab": "combustible",
-    "from": "l100km",
-    "to": "mpg"
-  },
-  {
-    "slug": "kilometros-litro-a-mpg",
-    "tab": "combustible",
-    "from": "kml",
-    "to": "mpg"
-  },
-  {
     "slug": "mpg-a-kilometros-litro",
     "tab": "combustible",
     "from": "mpg",
     "to": "kml"
   },
   {
-    "slug": "kilometros-litro-a-litros-100km",
+    "slug": "litros-100km-a-mpg",
     "tab": "combustible",
-    "from": "kml",
-    "to": "l100km"
+    "from": "l100km",
+    "to": "mpg"
   },
   {
     "slug": "litros-100km-a-kilometros-litro",
@@ -756,22 +3420,16 @@
     "to": "kml"
   },
   {
-    "slug": "psi-a-bar",
-    "tab": "presion",
-    "from": "psi",
-    "to": "bar"
+    "slug": "kilometros-litro-a-mpg",
+    "tab": "combustible",
+    "from": "kml",
+    "to": "mpg"
   },
   {
-    "slug": "bar-a-psi",
-    "tab": "presion",
-    "from": "bar",
-    "to": "psi"
-  },
-  {
-    "slug": "psi-a-kilopascales",
-    "tab": "presion",
-    "from": "psi",
-    "to": "kpa"
+    "slug": "kilometros-litro-a-litros-100km",
+    "tab": "combustible",
+    "from": "kml",
+    "to": "l100km"
   },
   {
     "slug": "kilopascales-a-psi",
@@ -780,16 +3438,46 @@
     "to": "psi"
   },
   {
+    "slug": "kilopascales-a-bar",
+    "tab": "presion",
+    "from": "kpa",
+    "to": "bar"
+  },
+  {
+    "slug": "kilopascales-a-atmosferas",
+    "tab": "presion",
+    "from": "kpa",
+    "to": "atm"
+  },
+  {
+    "slug": "kilopascales-a-mmhg",
+    "tab": "presion",
+    "from": "kpa",
+    "to": "mmhg"
+  },
+  {
+    "slug": "psi-a-kilopascales",
+    "tab": "presion",
+    "from": "psi",
+    "to": "kpa"
+  },
+  {
+    "slug": "psi-a-bar",
+    "tab": "presion",
+    "from": "psi",
+    "to": "bar"
+  },
+  {
     "slug": "psi-a-atmosferas",
     "tab": "presion",
     "from": "psi",
     "to": "atm"
   },
   {
-    "slug": "atmosferas-a-psi",
+    "slug": "psi-a-mmhg",
     "tab": "presion",
-    "from": "atm",
-    "to": "psi"
+    "from": "psi",
+    "to": "mmhg"
   },
   {
     "slug": "bar-a-kilopascales",
@@ -798,10 +3486,10 @@
     "to": "kpa"
   },
   {
-    "slug": "kilopascales-a-bar",
+    "slug": "bar-a-psi",
     "tab": "presion",
-    "from": "kpa",
-    "to": "bar"
+    "from": "bar",
+    "to": "psi"
   },
   {
     "slug": "bar-a-atmosferas",
@@ -810,9 +3498,51 @@
     "to": "atm"
   },
   {
+    "slug": "bar-a-mmhg",
+    "tab": "presion",
+    "from": "bar",
+    "to": "mmhg"
+  },
+  {
+    "slug": "atmosferas-a-kilopascales",
+    "tab": "presion",
+    "from": "atm",
+    "to": "kpa"
+  },
+  {
+    "slug": "atmosferas-a-psi",
+    "tab": "presion",
+    "from": "atm",
+    "to": "psi"
+  },
+  {
     "slug": "atmosferas-a-bar",
     "tab": "presion",
     "from": "atm",
+    "to": "bar"
+  },
+  {
+    "slug": "atmosferas-a-mmhg",
+    "tab": "presion",
+    "from": "atm",
+    "to": "mmhg"
+  },
+  {
+    "slug": "mmhg-a-kilopascales",
+    "tab": "presion",
+    "from": "mmhg",
+    "to": "kpa"
+  },
+  {
+    "slug": "mmhg-a-psi",
+    "tab": "presion",
+    "from": "mmhg",
+    "to": "psi"
+  },
+  {
+    "slug": "mmhg-a-bar",
+    "tab": "presion",
+    "from": "mmhg",
     "to": "bar"
   },
   {
@@ -822,22 +3552,10 @@
     "to": "atm"
   },
   {
-    "slug": "atmosferas-a-mmhg",
-    "tab": "presion",
-    "from": "atm",
-    "to": "mmhg"
-  },
-  {
     "slug": "joules-a-calorias",
     "tab": "energia",
     "from": "j",
     "to": "cal"
-  },
-  {
-    "slug": "calorias-a-joules",
-    "tab": "energia",
-    "from": "cal",
-    "to": "j"
   },
   {
     "slug": "joules-a-kwh",
@@ -846,9 +3564,21 @@
     "to": "kwh"
   },
   {
-    "slug": "kwh-a-joules",
+    "slug": "joules-a-btu",
     "tab": "energia",
-    "from": "kwh",
+    "from": "j",
+    "to": "btu"
+  },
+  {
+    "slug": "joules-a-watt-hora",
+    "tab": "energia",
+    "from": "j",
+    "to": "wh"
+  },
+  {
+    "slug": "calorias-a-joules",
+    "tab": "energia",
+    "from": "cal",
     "to": "j"
   },
   {
@@ -858,10 +3588,40 @@
     "to": "kwh"
   },
   {
+    "slug": "calorias-a-btu",
+    "tab": "energia",
+    "from": "cal",
+    "to": "btu"
+  },
+  {
+    "slug": "calorias-a-watt-hora",
+    "tab": "energia",
+    "from": "cal",
+    "to": "wh"
+  },
+  {
+    "slug": "kwh-a-joules",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "j"
+  },
+  {
     "slug": "kwh-a-calorias",
     "tab": "energia",
     "from": "kwh",
     "to": "cal"
+  },
+  {
+    "slug": "kwh-a-btu",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "btu"
+  },
+  {
+    "slug": "kwh-a-watt-hora",
+    "tab": "energia",
+    "from": "kwh",
+    "to": "wh"
   },
   {
     "slug": "btu-a-joules",
@@ -870,10 +3630,10 @@
     "to": "j"
   },
   {
-    "slug": "joules-a-btu",
+    "slug": "btu-a-calorias",
     "tab": "energia",
-    "from": "j",
-    "to": "btu"
+    "from": "btu",
+    "to": "cal"
   },
   {
     "slug": "btu-a-kwh",
@@ -882,9 +3642,33 @@
     "to": "kwh"
   },
   {
-    "slug": "kwh-a-btu",
+    "slug": "btu-a-watt-hora",
     "tab": "energia",
-    "from": "kwh",
+    "from": "btu",
+    "to": "wh"
+  },
+  {
+    "slug": "watt-hora-a-joules",
+    "tab": "energia",
+    "from": "wh",
+    "to": "j"
+  },
+  {
+    "slug": "watt-hora-a-calorias",
+    "tab": "energia",
+    "from": "wh",
+    "to": "cal"
+  },
+  {
+    "slug": "watt-hora-a-kwh",
+    "tab": "energia",
+    "from": "wh",
+    "to": "kwh"
+  },
+  {
+    "slug": "watt-hora-a-btu",
+    "tab": "energia",
+    "from": "wh",
     "to": "btu"
   },
   {
@@ -894,40 +3678,10 @@
     "to": "kw"
   },
   {
-    "slug": "kilowatts-a-watts",
-    "tab": "potencia",
-    "from": "kw",
-    "to": "w"
-  },
-  {
-    "slug": "hp-a-watts",
-    "tab": "potencia",
-    "from": "hp",
-    "to": "w"
-  },
-  {
     "slug": "watts-a-hp",
     "tab": "potencia",
     "from": "w",
     "to": "hp"
-  },
-  {
-    "slug": "hp-a-kilowatts",
-    "tab": "potencia",
-    "from": "hp",
-    "to": "kw"
-  },
-  {
-    "slug": "kilowatts-a-hp",
-    "tab": "potencia",
-    "from": "kw",
-    "to": "hp"
-  },
-  {
-    "slug": "btu-h-a-watts",
-    "tab": "potencia",
-    "from": "btuh",
-    "to": "w"
   },
   {
     "slug": "watts-a-btu-h",
@@ -936,10 +3690,130 @@
     "to": "btuh"
   },
   {
+    "slug": "kilowatts-a-watts",
+    "tab": "potencia",
+    "from": "kw",
+    "to": "w"
+  },
+  {
+    "slug": "kilowatts-a-hp",
+    "tab": "potencia",
+    "from": "kw",
+    "to": "hp"
+  },
+  {
+    "slug": "kilowatts-a-btu-h",
+    "tab": "potencia",
+    "from": "kw",
+    "to": "btuh"
+  },
+  {
+    "slug": "hp-a-watts",
+    "tab": "potencia",
+    "from": "hp",
+    "to": "w"
+  },
+  {
+    "slug": "hp-a-kilowatts",
+    "tab": "potencia",
+    "from": "hp",
+    "to": "kw"
+  },
+  {
+    "slug": "hp-a-btu-h",
+    "tab": "potencia",
+    "from": "hp",
+    "to": "btuh"
+  },
+  {
+    "slug": "btu-h-a-watts",
+    "tab": "potencia",
+    "from": "btuh",
+    "to": "w"
+  },
+  {
+    "slug": "btu-h-a-kilowatts",
+    "tab": "potencia",
+    "from": "btuh",
+    "to": "kw"
+  },
+  {
+    "slug": "btu-h-a-hp",
+    "tab": "potencia",
+    "from": "btuh",
+    "to": "hp"
+  },
+  {
+    "slug": "voltios-a-milivoltios",
+    "tab": "electricidad",
+    "from": "v",
+    "to": "mv"
+  },
+  {
+    "slug": "milivoltios-a-voltios",
+    "tab": "electricidad",
+    "from": "mv",
+    "to": "v"
+  },
+  {
+    "slug": "amperios-a-miliamperios",
+    "tab": "electricidad",
+    "from": "a",
+    "to": "ma"
+  },
+  {
+    "slug": "miliamperios-a-amperios",
+    "tab": "electricidad",
+    "from": "ma",
+    "to": "a"
+  },
+  {
+    "slug": "ohmios-a-kiloohmios",
+    "tab": "electricidad",
+    "from": "ohm",
+    "to": "kohm"
+  },
+  {
+    "slug": "kiloohmios-a-ohmios",
+    "tab": "electricidad",
+    "from": "kohm",
+    "to": "ohm"
+  },
+  {
     "slug": "bits-a-bytes",
     "tab": "datos",
     "from": "bit",
     "to": "byte"
+  },
+  {
+    "slug": "bits-a-kb",
+    "tab": "datos",
+    "from": "bit",
+    "to": "kb"
+  },
+  {
+    "slug": "bits-a-mb",
+    "tab": "datos",
+    "from": "bit",
+    "to": "mb"
+  },
+  {
+    "slug": "bits-a-gb",
+    "tab": "datos",
+    "from": "bit",
+    "to": "gb"
+  },
+  {
+    "slug": "bits-a-tb",
+    "tab": "datos",
+    "from": "bit",
+    "to": "tb"
+  },
+  {
+    "slug": "bits-a-pb",
+    "tab": "datos",
+    "from": "bit",
+    "to": "pb"
   },
   {
     "slug": "bytes-a-bits",
@@ -948,10 +3822,82 @@
     "to": "bit"
   },
   {
+    "slug": "bytes-a-kb",
+    "tab": "datos",
+    "from": "byte",
+    "to": "kb"
+  },
+  {
+    "slug": "bytes-a-mb",
+    "tab": "datos",
+    "from": "byte",
+    "to": "mb"
+  },
+  {
+    "slug": "bytes-a-gb",
+    "tab": "datos",
+    "from": "byte",
+    "to": "gb"
+  },
+  {
+    "slug": "bytes-a-tb",
+    "tab": "datos",
+    "from": "byte",
+    "to": "tb"
+  },
+  {
+    "slug": "bytes-a-pb",
+    "tab": "datos",
+    "from": "byte",
+    "to": "pb"
+  },
+  {
+    "slug": "kb-a-bits",
+    "tab": "datos",
+    "from": "kb",
+    "to": "bit"
+  },
+  {
+    "slug": "kb-a-bytes",
+    "tab": "datos",
+    "from": "kb",
+    "to": "byte"
+  },
+  {
     "slug": "kb-a-mb",
     "tab": "datos",
     "from": "kb",
     "to": "mb"
+  },
+  {
+    "slug": "kb-a-gb",
+    "tab": "datos",
+    "from": "kb",
+    "to": "gb"
+  },
+  {
+    "slug": "kb-a-tb",
+    "tab": "datos",
+    "from": "kb",
+    "to": "tb"
+  },
+  {
+    "slug": "kb-a-pb",
+    "tab": "datos",
+    "from": "kb",
+    "to": "pb"
+  },
+  {
+    "slug": "mb-a-bits",
+    "tab": "datos",
+    "from": "mb",
+    "to": "bit"
+  },
+  {
+    "slug": "mb-a-bytes",
+    "tab": "datos",
+    "from": "mb",
+    "to": "byte"
   },
   {
     "slug": "mb-a-kb",
@@ -966,6 +3912,36 @@
     "to": "gb"
   },
   {
+    "slug": "mb-a-tb",
+    "tab": "datos",
+    "from": "mb",
+    "to": "tb"
+  },
+  {
+    "slug": "mb-a-pb",
+    "tab": "datos",
+    "from": "mb",
+    "to": "pb"
+  },
+  {
+    "slug": "gb-a-bits",
+    "tab": "datos",
+    "from": "gb",
+    "to": "bit"
+  },
+  {
+    "slug": "gb-a-bytes",
+    "tab": "datos",
+    "from": "gb",
+    "to": "byte"
+  },
+  {
+    "slug": "gb-a-kb",
+    "tab": "datos",
+    "from": "gb",
+    "to": "kb"
+  },
+  {
     "slug": "gb-a-mb",
     "tab": "datos",
     "from": "gb",
@@ -976,6 +3952,36 @@
     "tab": "datos",
     "from": "gb",
     "to": "tb"
+  },
+  {
+    "slug": "gb-a-pb",
+    "tab": "datos",
+    "from": "gb",
+    "to": "pb"
+  },
+  {
+    "slug": "tb-a-bits",
+    "tab": "datos",
+    "from": "tb",
+    "to": "bit"
+  },
+  {
+    "slug": "tb-a-bytes",
+    "tab": "datos",
+    "from": "tb",
+    "to": "byte"
+  },
+  {
+    "slug": "tb-a-kb",
+    "tab": "datos",
+    "from": "tb",
+    "to": "kb"
+  },
+  {
+    "slug": "tb-a-mb",
+    "tab": "datos",
+    "from": "tb",
+    "to": "mb"
   },
   {
     "slug": "tb-a-gb",
@@ -990,6 +3996,36 @@
     "to": "pb"
   },
   {
+    "slug": "pb-a-bits",
+    "tab": "datos",
+    "from": "pb",
+    "to": "bit"
+  },
+  {
+    "slug": "pb-a-bytes",
+    "tab": "datos",
+    "from": "pb",
+    "to": "byte"
+  },
+  {
+    "slug": "pb-a-kb",
+    "tab": "datos",
+    "from": "pb",
+    "to": "kb"
+  },
+  {
+    "slug": "pb-a-mb",
+    "tab": "datos",
+    "from": "pb",
+    "to": "mb"
+  },
+  {
+    "slug": "pb-a-gb",
+    "tab": "datos",
+    "from": "pb",
+    "to": "gb"
+  },
+  {
     "slug": "pb-a-tb",
     "tab": "datos",
     "from": "pb",
@@ -1002,15 +4038,21 @@
     "to": "rad"
   },
   {
+    "slug": "grados-a-gradianes",
+    "tab": "angulos",
+    "from": "deg",
+    "to": "grad"
+  },
+  {
     "slug": "radianes-a-grados",
     "tab": "angulos",
     "from": "rad",
     "to": "deg"
   },
   {
-    "slug": "grados-a-gradianes",
+    "slug": "radianes-a-gradianes",
     "tab": "angulos",
-    "from": "deg",
+    "from": "rad",
     "to": "grad"
   },
   {
@@ -1020,10 +4062,28 @@
     "to": "deg"
   },
   {
+    "slug": "gradianes-a-radianes",
+    "tab": "angulos",
+    "from": "grad",
+    "to": "rad"
+  },
+  {
     "slug": "hz-a-khz",
     "tab": "frecuencia",
     "from": "hz",
     "to": "khz"
+  },
+  {
+    "slug": "hz-a-mhz",
+    "tab": "frecuencia",
+    "from": "hz",
+    "to": "mhz"
+  },
+  {
+    "slug": "hz-a-ghz",
+    "tab": "frecuencia",
+    "from": "hz",
+    "to": "ghz"
   },
   {
     "slug": "khz-a-hz",
@@ -1038,6 +4098,18 @@
     "to": "mhz"
   },
   {
+    "slug": "khz-a-ghz",
+    "tab": "frecuencia",
+    "from": "khz",
+    "to": "ghz"
+  },
+  {
+    "slug": "mhz-a-hz",
+    "tab": "frecuencia",
+    "from": "mhz",
+    "to": "hz"
+  },
+  {
     "slug": "mhz-a-khz",
     "tab": "frecuencia",
     "from": "mhz",
@@ -1048,6 +4120,18 @@
     "tab": "frecuencia",
     "from": "mhz",
     "to": "ghz"
+  },
+  {
+    "slug": "ghz-a-hz",
+    "tab": "frecuencia",
+    "from": "ghz",
+    "to": "hz"
+  },
+  {
+    "slug": "ghz-a-khz",
+    "tab": "frecuencia",
+    "from": "ghz",
+    "to": "khz"
   },
   {
     "slug": "ghz-a-mhz",
@@ -1062,10 +4146,22 @@
     "to": "gcm3"
   },
   {
+    "slug": "kg-m3-a-lb-ft3",
+    "tab": "densidad",
+    "from": "kgm3",
+    "to": "lbft3"
+  },
+  {
     "slug": "g-cm3-a-kg-m3",
     "tab": "densidad",
     "from": "gcm3",
     "to": "kgm3"
+  },
+  {
+    "slug": "g-cm3-a-lb-ft3",
+    "tab": "densidad",
+    "from": "gcm3",
+    "to": "lbft3"
   },
   {
     "slug": "lb-ft3-a-kg-m3",
@@ -1074,9 +4170,1845 @@
     "to": "kgm3"
   },
   {
-    "slug": "kg-m3-a-lb-ft3",
+    "slug": "lb-ft3-a-g-cm3",
     "tab": "densidad",
-    "from": "kgm3",
-    "to": "lbft3"
+    "from": "lbft3",
+    "to": "gcm3"
+  },
+  {
+    "slug": "usd-a-eur",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "EUR"
+  },
+  {
+    "slug": "usd-a-gbp",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "GBP"
+  },
+  {
+    "slug": "usd-a-cad",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "CAD"
+  },
+  {
+    "slug": "usd-a-mxn",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "MXN"
+  },
+  {
+    "slug": "usd-a-jpy",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "JPY"
+  },
+  {
+    "slug": "usd-a-dop",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "DOP"
+  },
+  {
+    "slug": "usd-a-cop",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "COP"
+  },
+  {
+    "slug": "usd-a-ars",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "ARS"
+  },
+  {
+    "slug": "usd-a-clp",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "CLP"
+  },
+  {
+    "slug": "usd-a-pen",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "PEN"
+  },
+  {
+    "slug": "usd-a-brl",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "BRL"
+  },
+  {
+    "slug": "usd-a-chf",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "CHF"
+  },
+  {
+    "slug": "usd-a-cny",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "CNY"
+  },
+  {
+    "slug": "usd-a-inr",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "INR"
+  },
+  {
+    "slug": "usd-a-aud",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "AUD"
+  },
+  {
+    "slug": "usd-a-sek",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "SEK"
+  },
+  {
+    "slug": "usd-a-nok",
+    "tab": "monedas",
+    "from": "USD",
+    "to": "NOK"
+  },
+  {
+    "slug": "eur-a-usd",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "USD"
+  },
+  {
+    "slug": "eur-a-gbp",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "GBP"
+  },
+  {
+    "slug": "eur-a-cad",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "CAD"
+  },
+  {
+    "slug": "eur-a-mxn",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "MXN"
+  },
+  {
+    "slug": "eur-a-jpy",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "JPY"
+  },
+  {
+    "slug": "eur-a-dop",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "DOP"
+  },
+  {
+    "slug": "eur-a-cop",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "COP"
+  },
+  {
+    "slug": "eur-a-ars",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "ARS"
+  },
+  {
+    "slug": "eur-a-clp",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "CLP"
+  },
+  {
+    "slug": "eur-a-pen",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "PEN"
+  },
+  {
+    "slug": "eur-a-brl",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "BRL"
+  },
+  {
+    "slug": "eur-a-chf",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "CHF"
+  },
+  {
+    "slug": "eur-a-cny",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "CNY"
+  },
+  {
+    "slug": "eur-a-inr",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "INR"
+  },
+  {
+    "slug": "eur-a-aud",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "AUD"
+  },
+  {
+    "slug": "eur-a-sek",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "SEK"
+  },
+  {
+    "slug": "eur-a-nok",
+    "tab": "monedas",
+    "from": "EUR",
+    "to": "NOK"
+  },
+  {
+    "slug": "gbp-a-usd",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "USD"
+  },
+  {
+    "slug": "gbp-a-eur",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "EUR"
+  },
+  {
+    "slug": "gbp-a-cad",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "CAD"
+  },
+  {
+    "slug": "gbp-a-mxn",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "MXN"
+  },
+  {
+    "slug": "gbp-a-jpy",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "JPY"
+  },
+  {
+    "slug": "gbp-a-dop",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "DOP"
+  },
+  {
+    "slug": "gbp-a-cop",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "COP"
+  },
+  {
+    "slug": "gbp-a-ars",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "ARS"
+  },
+  {
+    "slug": "gbp-a-clp",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "CLP"
+  },
+  {
+    "slug": "gbp-a-pen",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "PEN"
+  },
+  {
+    "slug": "gbp-a-brl",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "BRL"
+  },
+  {
+    "slug": "gbp-a-chf",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "CHF"
+  },
+  {
+    "slug": "gbp-a-cny",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "CNY"
+  },
+  {
+    "slug": "gbp-a-inr",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "INR"
+  },
+  {
+    "slug": "gbp-a-aud",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "AUD"
+  },
+  {
+    "slug": "gbp-a-sek",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "SEK"
+  },
+  {
+    "slug": "gbp-a-nok",
+    "tab": "monedas",
+    "from": "GBP",
+    "to": "NOK"
+  },
+  {
+    "slug": "cad-a-usd",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "USD"
+  },
+  {
+    "slug": "cad-a-eur",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "EUR"
+  },
+  {
+    "slug": "cad-a-gbp",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "GBP"
+  },
+  {
+    "slug": "cad-a-mxn",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "MXN"
+  },
+  {
+    "slug": "cad-a-jpy",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "JPY"
+  },
+  {
+    "slug": "cad-a-dop",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "DOP"
+  },
+  {
+    "slug": "cad-a-cop",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "COP"
+  },
+  {
+    "slug": "cad-a-ars",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "ARS"
+  },
+  {
+    "slug": "cad-a-clp",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "CLP"
+  },
+  {
+    "slug": "cad-a-pen",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "PEN"
+  },
+  {
+    "slug": "cad-a-brl",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "BRL"
+  },
+  {
+    "slug": "cad-a-chf",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "CHF"
+  },
+  {
+    "slug": "cad-a-cny",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "CNY"
+  },
+  {
+    "slug": "cad-a-inr",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "INR"
+  },
+  {
+    "slug": "cad-a-aud",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "AUD"
+  },
+  {
+    "slug": "cad-a-sek",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "SEK"
+  },
+  {
+    "slug": "cad-a-nok",
+    "tab": "monedas",
+    "from": "CAD",
+    "to": "NOK"
+  },
+  {
+    "slug": "mxn-a-usd",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "USD"
+  },
+  {
+    "slug": "mxn-a-eur",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "EUR"
+  },
+  {
+    "slug": "mxn-a-gbp",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "GBP"
+  },
+  {
+    "slug": "mxn-a-cad",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "CAD"
+  },
+  {
+    "slug": "mxn-a-jpy",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "JPY"
+  },
+  {
+    "slug": "mxn-a-dop",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "DOP"
+  },
+  {
+    "slug": "mxn-a-cop",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "COP"
+  },
+  {
+    "slug": "mxn-a-ars",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "ARS"
+  },
+  {
+    "slug": "mxn-a-clp",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "CLP"
+  },
+  {
+    "slug": "mxn-a-pen",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "PEN"
+  },
+  {
+    "slug": "mxn-a-brl",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "BRL"
+  },
+  {
+    "slug": "mxn-a-chf",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "CHF"
+  },
+  {
+    "slug": "mxn-a-cny",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "CNY"
+  },
+  {
+    "slug": "mxn-a-inr",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "INR"
+  },
+  {
+    "slug": "mxn-a-aud",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "AUD"
+  },
+  {
+    "slug": "mxn-a-sek",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "SEK"
+  },
+  {
+    "slug": "mxn-a-nok",
+    "tab": "monedas",
+    "from": "MXN",
+    "to": "NOK"
+  },
+  {
+    "slug": "jpy-a-usd",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "USD"
+  },
+  {
+    "slug": "jpy-a-eur",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "EUR"
+  },
+  {
+    "slug": "jpy-a-gbp",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "GBP"
+  },
+  {
+    "slug": "jpy-a-cad",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "CAD"
+  },
+  {
+    "slug": "jpy-a-mxn",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "MXN"
+  },
+  {
+    "slug": "jpy-a-dop",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "DOP"
+  },
+  {
+    "slug": "jpy-a-cop",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "COP"
+  },
+  {
+    "slug": "jpy-a-ars",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "ARS"
+  },
+  {
+    "slug": "jpy-a-clp",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "CLP"
+  },
+  {
+    "slug": "jpy-a-pen",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "PEN"
+  },
+  {
+    "slug": "jpy-a-brl",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "BRL"
+  },
+  {
+    "slug": "jpy-a-chf",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "CHF"
+  },
+  {
+    "slug": "jpy-a-cny",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "CNY"
+  },
+  {
+    "slug": "jpy-a-inr",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "INR"
+  },
+  {
+    "slug": "jpy-a-aud",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "AUD"
+  },
+  {
+    "slug": "jpy-a-sek",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "SEK"
+  },
+  {
+    "slug": "jpy-a-nok",
+    "tab": "monedas",
+    "from": "JPY",
+    "to": "NOK"
+  },
+  {
+    "slug": "dop-a-usd",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "USD"
+  },
+  {
+    "slug": "dop-a-eur",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "EUR"
+  },
+  {
+    "slug": "dop-a-gbp",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "GBP"
+  },
+  {
+    "slug": "dop-a-cad",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "CAD"
+  },
+  {
+    "slug": "dop-a-mxn",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "MXN"
+  },
+  {
+    "slug": "dop-a-jpy",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "JPY"
+  },
+  {
+    "slug": "dop-a-cop",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "COP"
+  },
+  {
+    "slug": "dop-a-ars",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "ARS"
+  },
+  {
+    "slug": "dop-a-clp",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "CLP"
+  },
+  {
+    "slug": "dop-a-pen",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "PEN"
+  },
+  {
+    "slug": "dop-a-brl",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "BRL"
+  },
+  {
+    "slug": "dop-a-chf",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "CHF"
+  },
+  {
+    "slug": "dop-a-cny",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "CNY"
+  },
+  {
+    "slug": "dop-a-inr",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "INR"
+  },
+  {
+    "slug": "dop-a-aud",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "AUD"
+  },
+  {
+    "slug": "dop-a-sek",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "SEK"
+  },
+  {
+    "slug": "dop-a-nok",
+    "tab": "monedas",
+    "from": "DOP",
+    "to": "NOK"
+  },
+  {
+    "slug": "cop-a-usd",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "USD"
+  },
+  {
+    "slug": "cop-a-eur",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "EUR"
+  },
+  {
+    "slug": "cop-a-gbp",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "GBP"
+  },
+  {
+    "slug": "cop-a-cad",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "CAD"
+  },
+  {
+    "slug": "cop-a-mxn",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "MXN"
+  },
+  {
+    "slug": "cop-a-jpy",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "JPY"
+  },
+  {
+    "slug": "cop-a-dop",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "DOP"
+  },
+  {
+    "slug": "cop-a-ars",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "ARS"
+  },
+  {
+    "slug": "cop-a-clp",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "CLP"
+  },
+  {
+    "slug": "cop-a-pen",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "PEN"
+  },
+  {
+    "slug": "cop-a-brl",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "BRL"
+  },
+  {
+    "slug": "cop-a-chf",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "CHF"
+  },
+  {
+    "slug": "cop-a-cny",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "CNY"
+  },
+  {
+    "slug": "cop-a-inr",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "INR"
+  },
+  {
+    "slug": "cop-a-aud",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "AUD"
+  },
+  {
+    "slug": "cop-a-sek",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "SEK"
+  },
+  {
+    "slug": "cop-a-nok",
+    "tab": "monedas",
+    "from": "COP",
+    "to": "NOK"
+  },
+  {
+    "slug": "ars-a-usd",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "USD"
+  },
+  {
+    "slug": "ars-a-eur",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "EUR"
+  },
+  {
+    "slug": "ars-a-gbp",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "GBP"
+  },
+  {
+    "slug": "ars-a-cad",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "CAD"
+  },
+  {
+    "slug": "ars-a-mxn",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "MXN"
+  },
+  {
+    "slug": "ars-a-jpy",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "JPY"
+  },
+  {
+    "slug": "ars-a-dop",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "DOP"
+  },
+  {
+    "slug": "ars-a-cop",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "COP"
+  },
+  {
+    "slug": "ars-a-clp",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "CLP"
+  },
+  {
+    "slug": "ars-a-pen",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "PEN"
+  },
+  {
+    "slug": "ars-a-brl",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "BRL"
+  },
+  {
+    "slug": "ars-a-chf",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "CHF"
+  },
+  {
+    "slug": "ars-a-cny",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "CNY"
+  },
+  {
+    "slug": "ars-a-inr",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "INR"
+  },
+  {
+    "slug": "ars-a-aud",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "AUD"
+  },
+  {
+    "slug": "ars-a-sek",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "SEK"
+  },
+  {
+    "slug": "ars-a-nok",
+    "tab": "monedas",
+    "from": "ARS",
+    "to": "NOK"
+  },
+  {
+    "slug": "clp-a-usd",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "USD"
+  },
+  {
+    "slug": "clp-a-eur",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "EUR"
+  },
+  {
+    "slug": "clp-a-gbp",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "GBP"
+  },
+  {
+    "slug": "clp-a-cad",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "CAD"
+  },
+  {
+    "slug": "clp-a-mxn",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "MXN"
+  },
+  {
+    "slug": "clp-a-jpy",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "JPY"
+  },
+  {
+    "slug": "clp-a-dop",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "DOP"
+  },
+  {
+    "slug": "clp-a-cop",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "COP"
+  },
+  {
+    "slug": "clp-a-ars",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "ARS"
+  },
+  {
+    "slug": "clp-a-pen",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "PEN"
+  },
+  {
+    "slug": "clp-a-brl",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "BRL"
+  },
+  {
+    "slug": "clp-a-chf",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "CHF"
+  },
+  {
+    "slug": "clp-a-cny",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "CNY"
+  },
+  {
+    "slug": "clp-a-inr",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "INR"
+  },
+  {
+    "slug": "clp-a-aud",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "AUD"
+  },
+  {
+    "slug": "clp-a-sek",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "SEK"
+  },
+  {
+    "slug": "clp-a-nok",
+    "tab": "monedas",
+    "from": "CLP",
+    "to": "NOK"
+  },
+  {
+    "slug": "pen-a-usd",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "USD"
+  },
+  {
+    "slug": "pen-a-eur",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "EUR"
+  },
+  {
+    "slug": "pen-a-gbp",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "GBP"
+  },
+  {
+    "slug": "pen-a-cad",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "CAD"
+  },
+  {
+    "slug": "pen-a-mxn",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "MXN"
+  },
+  {
+    "slug": "pen-a-jpy",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "JPY"
+  },
+  {
+    "slug": "pen-a-dop",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "DOP"
+  },
+  {
+    "slug": "pen-a-cop",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "COP"
+  },
+  {
+    "slug": "pen-a-ars",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "ARS"
+  },
+  {
+    "slug": "pen-a-clp",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "CLP"
+  },
+  {
+    "slug": "pen-a-brl",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "BRL"
+  },
+  {
+    "slug": "pen-a-chf",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "CHF"
+  },
+  {
+    "slug": "pen-a-cny",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "CNY"
+  },
+  {
+    "slug": "pen-a-inr",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "INR"
+  },
+  {
+    "slug": "pen-a-aud",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "AUD"
+  },
+  {
+    "slug": "pen-a-sek",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "SEK"
+  },
+  {
+    "slug": "pen-a-nok",
+    "tab": "monedas",
+    "from": "PEN",
+    "to": "NOK"
+  },
+  {
+    "slug": "brl-a-usd",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "USD"
+  },
+  {
+    "slug": "brl-a-eur",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "EUR"
+  },
+  {
+    "slug": "brl-a-gbp",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "GBP"
+  },
+  {
+    "slug": "brl-a-cad",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "CAD"
+  },
+  {
+    "slug": "brl-a-mxn",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "MXN"
+  },
+  {
+    "slug": "brl-a-jpy",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "JPY"
+  },
+  {
+    "slug": "brl-a-dop",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "DOP"
+  },
+  {
+    "slug": "brl-a-cop",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "COP"
+  },
+  {
+    "slug": "brl-a-ars",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "ARS"
+  },
+  {
+    "slug": "brl-a-clp",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "CLP"
+  },
+  {
+    "slug": "brl-a-pen",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "PEN"
+  },
+  {
+    "slug": "brl-a-chf",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "CHF"
+  },
+  {
+    "slug": "brl-a-cny",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "CNY"
+  },
+  {
+    "slug": "brl-a-inr",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "INR"
+  },
+  {
+    "slug": "brl-a-aud",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "AUD"
+  },
+  {
+    "slug": "brl-a-sek",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "SEK"
+  },
+  {
+    "slug": "brl-a-nok",
+    "tab": "monedas",
+    "from": "BRL",
+    "to": "NOK"
+  },
+  {
+    "slug": "chf-a-usd",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "USD"
+  },
+  {
+    "slug": "chf-a-eur",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "EUR"
+  },
+  {
+    "slug": "chf-a-gbp",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "GBP"
+  },
+  {
+    "slug": "chf-a-cad",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "CAD"
+  },
+  {
+    "slug": "chf-a-mxn",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "MXN"
+  },
+  {
+    "slug": "chf-a-jpy",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "JPY"
+  },
+  {
+    "slug": "chf-a-dop",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "DOP"
+  },
+  {
+    "slug": "chf-a-cop",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "COP"
+  },
+  {
+    "slug": "chf-a-ars",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "ARS"
+  },
+  {
+    "slug": "chf-a-clp",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "CLP"
+  },
+  {
+    "slug": "chf-a-pen",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "PEN"
+  },
+  {
+    "slug": "chf-a-brl",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "BRL"
+  },
+  {
+    "slug": "chf-a-cny",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "CNY"
+  },
+  {
+    "slug": "chf-a-inr",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "INR"
+  },
+  {
+    "slug": "chf-a-aud",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "AUD"
+  },
+  {
+    "slug": "chf-a-sek",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "SEK"
+  },
+  {
+    "slug": "chf-a-nok",
+    "tab": "monedas",
+    "from": "CHF",
+    "to": "NOK"
+  },
+  {
+    "slug": "cny-a-usd",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "USD"
+  },
+  {
+    "slug": "cny-a-eur",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "EUR"
+  },
+  {
+    "slug": "cny-a-gbp",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "GBP"
+  },
+  {
+    "slug": "cny-a-cad",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "CAD"
+  },
+  {
+    "slug": "cny-a-mxn",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "MXN"
+  },
+  {
+    "slug": "cny-a-jpy",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "JPY"
+  },
+  {
+    "slug": "cny-a-dop",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "DOP"
+  },
+  {
+    "slug": "cny-a-cop",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "COP"
+  },
+  {
+    "slug": "cny-a-ars",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "ARS"
+  },
+  {
+    "slug": "cny-a-clp",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "CLP"
+  },
+  {
+    "slug": "cny-a-pen",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "PEN"
+  },
+  {
+    "slug": "cny-a-brl",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "BRL"
+  },
+  {
+    "slug": "cny-a-chf",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "CHF"
+  },
+  {
+    "slug": "cny-a-inr",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "INR"
+  },
+  {
+    "slug": "cny-a-aud",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "AUD"
+  },
+  {
+    "slug": "cny-a-sek",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "SEK"
+  },
+  {
+    "slug": "cny-a-nok",
+    "tab": "monedas",
+    "from": "CNY",
+    "to": "NOK"
+  },
+  {
+    "slug": "inr-a-usd",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "USD"
+  },
+  {
+    "slug": "inr-a-eur",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "EUR"
+  },
+  {
+    "slug": "inr-a-gbp",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "GBP"
+  },
+  {
+    "slug": "inr-a-cad",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "CAD"
+  },
+  {
+    "slug": "inr-a-mxn",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "MXN"
+  },
+  {
+    "slug": "inr-a-jpy",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "JPY"
+  },
+  {
+    "slug": "inr-a-dop",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "DOP"
+  },
+  {
+    "slug": "inr-a-cop",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "COP"
+  },
+  {
+    "slug": "inr-a-ars",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "ARS"
+  },
+  {
+    "slug": "inr-a-clp",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "CLP"
+  },
+  {
+    "slug": "inr-a-pen",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "PEN"
+  },
+  {
+    "slug": "inr-a-brl",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "BRL"
+  },
+  {
+    "slug": "inr-a-chf",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "CHF"
+  },
+  {
+    "slug": "inr-a-cny",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "CNY"
+  },
+  {
+    "slug": "inr-a-aud",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "AUD"
+  },
+  {
+    "slug": "inr-a-sek",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "SEK"
+  },
+  {
+    "slug": "inr-a-nok",
+    "tab": "monedas",
+    "from": "INR",
+    "to": "NOK"
+  },
+  {
+    "slug": "aud-a-usd",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "USD"
+  },
+  {
+    "slug": "aud-a-eur",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "EUR"
+  },
+  {
+    "slug": "aud-a-gbp",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "GBP"
+  },
+  {
+    "slug": "aud-a-cad",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "CAD"
+  },
+  {
+    "slug": "aud-a-mxn",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "MXN"
+  },
+  {
+    "slug": "aud-a-jpy",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "JPY"
+  },
+  {
+    "slug": "aud-a-dop",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "DOP"
+  },
+  {
+    "slug": "aud-a-cop",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "COP"
+  },
+  {
+    "slug": "aud-a-ars",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "ARS"
+  },
+  {
+    "slug": "aud-a-clp",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "CLP"
+  },
+  {
+    "slug": "aud-a-pen",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "PEN"
+  },
+  {
+    "slug": "aud-a-brl",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "BRL"
+  },
+  {
+    "slug": "aud-a-chf",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "CHF"
+  },
+  {
+    "slug": "aud-a-cny",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "CNY"
+  },
+  {
+    "slug": "aud-a-inr",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "INR"
+  },
+  {
+    "slug": "aud-a-sek",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "SEK"
+  },
+  {
+    "slug": "aud-a-nok",
+    "tab": "monedas",
+    "from": "AUD",
+    "to": "NOK"
+  },
+  {
+    "slug": "sek-a-usd",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "USD"
+  },
+  {
+    "slug": "sek-a-eur",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "EUR"
+  },
+  {
+    "slug": "sek-a-gbp",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "GBP"
+  },
+  {
+    "slug": "sek-a-cad",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "CAD"
+  },
+  {
+    "slug": "sek-a-mxn",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "MXN"
+  },
+  {
+    "slug": "sek-a-jpy",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "JPY"
+  },
+  {
+    "slug": "sek-a-dop",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "DOP"
+  },
+  {
+    "slug": "sek-a-cop",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "COP"
+  },
+  {
+    "slug": "sek-a-ars",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "ARS"
+  },
+  {
+    "slug": "sek-a-clp",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "CLP"
+  },
+  {
+    "slug": "sek-a-pen",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "PEN"
+  },
+  {
+    "slug": "sek-a-brl",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "BRL"
+  },
+  {
+    "slug": "sek-a-chf",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "CHF"
+  },
+  {
+    "slug": "sek-a-cny",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "CNY"
+  },
+  {
+    "slug": "sek-a-inr",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "INR"
+  },
+  {
+    "slug": "sek-a-aud",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "AUD"
+  },
+  {
+    "slug": "sek-a-nok",
+    "tab": "monedas",
+    "from": "SEK",
+    "to": "NOK"
+  },
+  {
+    "slug": "nok-a-usd",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "USD"
+  },
+  {
+    "slug": "nok-a-eur",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "EUR"
+  },
+  {
+    "slug": "nok-a-gbp",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "GBP"
+  },
+  {
+    "slug": "nok-a-cad",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "CAD"
+  },
+  {
+    "slug": "nok-a-mxn",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "MXN"
+  },
+  {
+    "slug": "nok-a-jpy",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "JPY"
+  },
+  {
+    "slug": "nok-a-dop",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "DOP"
+  },
+  {
+    "slug": "nok-a-cop",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "COP"
+  },
+  {
+    "slug": "nok-a-ars",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "ARS"
+  },
+  {
+    "slug": "nok-a-clp",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "CLP"
+  },
+  {
+    "slug": "nok-a-pen",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "PEN"
+  },
+  {
+    "slug": "nok-a-brl",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "BRL"
+  },
+  {
+    "slug": "nok-a-chf",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "CHF"
+  },
+  {
+    "slug": "nok-a-cny",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "CNY"
+  },
+  {
+    "slug": "nok-a-inr",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "INR"
+  },
+  {
+    "slug": "nok-a-aud",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "AUD"
+  },
+  {
+    "slug": "nok-a-sek",
+    "tab": "monedas",
+    "from": "NOK",
+    "to": "SEK"
   }
 ]
