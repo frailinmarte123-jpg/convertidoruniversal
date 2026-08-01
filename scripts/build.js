@@ -2,12 +2,8 @@
 // Genera el sitio ESTÁTICO completo en /docs a partir de:
 //   - assets/app.js          (motor de conversión real, reutilizado tal cual)
 //   - assets/style.css       (único CSS, reutilizado tal cual)
-//   - data/conversions.json  (lista maestra: ahora ~1000 conversiones)
+//   - data/conversions.json  (lista maestra: ~1000 conversiones)
 //   - templates/page.html    (único template)
-//
-// Cada página trae: título/description únicos, canonical, Open Graph, JSON-LD
-// (BreadcrumbList + FAQPage con 4 preguntas reales), tabla de referencia, explicación
-// con fórmula, contexto de uso, enlaces a la misma categoría y a categorías relacionadas.
 
 const fs = require('fs');
 const path = require('path');
@@ -17,6 +13,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'docs');
 const SITE_URL = (process.env.SITE_URL || 'https://convertidoruniversal.lat').replace(/\/+$/, '');
 const SITE_NAME = 'Conversor Universal';
+const ADSENSE_PUBLISHER_ID = process.env.ADSENSE_PUBLISHER_ID || 'pub-2394878225224723';
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const conversions = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/conversions.json'), 'utf-8'));
@@ -37,7 +34,35 @@ async function fetchBuildRates() {
 }
 
 // ============================================================================
-// 2) Contenido: contexto de uso, "acerca de" por categoría, relaciones cruzadas
+// 2) Etiquetas: versión "limpia" para prosa + forma singular
+// ============================================================================
+// Algunas etiquetas del selector llevan paréntesis/abreviaturas útiles en un <select>
+// pero incómodas en una oración ("Metros/segundo (m/s)"). Para el texto de las páginas
+// usamos una versión más natural.
+const DISPLAY_LABEL_OVERRIDE = {
+  'velocidad:ms': 'Metros por segundo', 'velocidad:kmh': 'Kilómetros por hora',
+  'velocidad:mph': 'Millas por hora', 'velocidad:fts': 'Pies por segundo',
+  'combustible:mpg': 'MPG', 'presion:kpa': 'Kilopascales', 'presion:atm': 'Atmósferas',
+};
+
+// Forma singular (solo donde de verdad cambia; las abreviaturas quedan igual).
+const SINGULAR = {
+  longitud: { m: 'Metro', ft: 'Pie', cm: 'Centímetro', mm: 'Milímetro', km: 'Kilómetro', yd: 'Yarda', in: 'Pulgada', mi: 'Milla', nm: 'Nanómetro', um: 'Micrómetro', nmi: 'Milla náutica', league: 'Legua', fathom: 'Braza' },
+  peso: { kg: 'Kilogramo', g: 'Gramo', lb: 'Libra', oz: 'Onza', t: 'Tonelada', ct: 'Quilate', gr: 'Grano' },
+  area: { m2: 'Metro cuadrado', ft2: 'Pie cuadrado', cm2: 'Centímetro cuadrado', in2: 'Pulgada cuadrada', km2: 'Kilómetro cuadrado', mi2: 'Milla cuadrada', ha: 'Hectárea', acre: 'Acre', yd2: 'Yarda cuadrada' },
+  volumen: { L: 'Litro', mL: 'Mililitro', m3: 'Metro cúbico', ft3: 'Pie cúbico', galus: 'Galón (US)', galuk: 'Galón (UK)', floz: 'Onza líquida', cup: 'Taza', tbsp: 'Cucharada', tsp: 'Cucharadita', pt: 'Pinta', qt: 'Cuarto', bbl: 'Barril' },
+  tiempo: { ms: 'Milisegundo', s: 'Segundo', min: 'Minuto', h: 'Hora', day: 'Día', week: 'Semana', month: 'Mes', year: 'Año', decade: 'Década', century: 'Siglo' },
+  velocidad: { ms: 'Metro por segundo', kmh: 'Kilómetro por hora', mph: 'Milla por hora', knot: 'Nudo', fts: 'Pie por segundo' },
+  presion: { atm: 'Atmósfera', kpa: 'Kilopascal' },
+  energia: { j: 'Joule', cal: 'Caloría' },
+  potencia: { w: 'Watt', kw: 'Kilowatt' },
+  electricidad: { v: 'Voltio', mv: 'Milivoltio', a: 'Amperio', ma: 'Miliamperio', ohm: 'Ohmio', kohm: 'Kiloohmio' },
+  datos: { bit: 'Bit', byte: 'Byte' },
+  angulos: { deg: 'Grado', rad: 'Radián', grad: 'Gradián' },
+};
+
+// ============================================================================
+// 3) Contenido: contexto de uso, "acerca de" y ejemplo cotidiano por categoría
 // ============================================================================
 const CATEGORY_CONTEXT = {
   longitud: ['medir distancias en el hogar o la oficina', 'proyectos de construcción y carpintería', 'planificar rutas y viajes', 'trabajos de costura, manualidades y diseño'],
@@ -79,6 +104,26 @@ const CATEGORY_ABOUT = {
   monedas: 'El tipo de cambio indica cuánto vale una moneda en términos de otra. A diferencia de las unidades físicas, cambia constantemente según los mercados financieros globales.',
 };
 
+const ANCHOR_EXAMPLE = {
+  longitud: 'una puerta estándar mide unos 2 metros de alto',
+  peso: 'una bolsa de azúcar típica pesa 1 kilogramo',
+  temperatura: 'el agua se congela a 0 °C (32 °F) y hierve a 100 °C (212 °F)',
+  area: 'una cancha de baloncesto mide unos 420 metros cuadrados',
+  volumen: 'una botella de refresco típica contiene 2 litros',
+  tiempo: 'una clase escolar suele durar 1 hora',
+  velocidad: 'el límite de velocidad en ciudad suele ser 50 km/h',
+  combustible: 'un auto compacto puede rendir unos 15 km/L',
+  presion: 'una llanta de auto se infla normalmente a unos 32 PSI',
+  energia: 'una manzana mediana aporta unas 95 calorías',
+  potencia: 'una plancha eléctrica típica consume unos 1200 watts',
+  electricidad: 'una batería AA típica entrega 1.5 voltios',
+  datos: 'una canción en MP3 pesa aproximadamente 4 MB',
+  angulos: 'un ángulo recto mide 90 grados',
+  frecuencia: 'la corriente eléctrica doméstica es de 50 o 60 Hz según el país',
+  densidad: 'el agua tiene una densidad de 1000 kg/m³ (1 g/cm³)',
+  monedas: 'los precios y tasas de cambio varían a diario según el mercado',
+};
+
 const MAGNITUDE_NAME = {
   longitud: 'longitud o distancia', peso: 'masa (peso)', temperatura: 'temperatura', area: 'área o superficie',
   volumen: 'volumen o capacidad', tiempo: 'tiempo', velocidad: 'velocidad', combustible: 'eficiencia de combustible',
@@ -86,28 +131,14 @@ const MAGNITUDE_NAME = {
   angulos: 'ángulos', frecuencia: 'frecuencia', densidad: 'densidad', monedas: 'valor monetario (divisas)',
 };
 
-// Categorías relacionadas (enlaces internos ENTRE categorías, no solo dentro de la misma)
 const CATEGORY_RELATIONS = {
-  longitud: ['area', 'volumen', 'velocidad'],
-  peso: ['densidad', 'volumen'],
-  temperatura: [],
-  area: ['longitud', 'volumen'],
-  volumen: ['longitud', 'densidad', 'combustible'],
-  tiempo: ['velocidad', 'frecuencia'],
-  velocidad: ['longitud', 'tiempo', 'combustible'],
-  combustible: ['volumen', 'velocidad'],
-  presion: ['energia', 'densidad'],
-  energia: ['potencia', 'presion'],
-  potencia: ['energia', 'electricidad'],
-  electricidad: ['potencia'],
-  datos: ['frecuencia'],
-  angulos: [],
-  frecuencia: ['tiempo', 'datos'],
-  densidad: ['peso', 'volumen'],
-  monedas: [],
+  longitud: ['area', 'volumen', 'velocidad'], peso: ['densidad', 'volumen'], temperatura: [],
+  area: ['longitud', 'volumen'], volumen: ['longitud', 'densidad', 'combustible'], tiempo: ['velocidad', 'frecuencia'],
+  velocidad: ['longitud', 'tiempo', 'combustible'], combustible: ['volumen', 'velocidad'], presion: ['energia', 'densidad'],
+  energia: ['potencia', 'presion'], potencia: ['energia', 'electricidad'], electricidad: ['potencia'], datos: ['frecuencia'],
+  angulos: [], frecuencia: ['tiempo', 'datos'], densidad: ['peso', 'volumen'], monedas: [],
 };
 
-// Una conversión representativa por categoría, para enlazar desde otras categorías
 const REPRESENTATIVE = {
   longitud: 'metros-a-pies', peso: 'kilogramos-a-libras', temperatura: 'celsius-a-fahrenheit',
   area: 'metros-cuadrados-a-pies-cuadrados', volumen: 'litros-a-galones-us', tiempo: 'horas-a-minutos',
@@ -128,14 +159,20 @@ const FUEL_FORMULAS = {
 };
 
 // ============================================================================
-// 3) Utilidades que reutilizan el motor real (cero duplicación de fórmulas)
+// 4) Utilidades
 // ============================================================================
-function labelOf(tab, code) {
+function rawLabelOf(tab, code) {
   if (tab === 'temperatura') return engine.TEMP_UNITS.find(u => u.code === code).label;
   if (tab === 'combustible') return engine.FUEL_UNITS.find(u => u.code === code).label;
   if (tab === 'monedas') return code;
   const cat = engine.CATEGORIES.find(c => c.id === tab);
   return cat.units.find(u => u.code === code).label;
+}
+function labelOf(tab, code) {
+  return DISPLAY_LABEL_OVERRIDE[`${tab}:${code}`] || rawLabelOf(tab, code);
+}
+function singularOf(tab, code) {
+  return (SINGULAR[tab] && SINGULAR[tab][code]) || labelOf(tab, code);
 }
 function tabLabel(tab) {
   if (tab === 'monedas') return 'Monedas';
@@ -151,25 +188,29 @@ function sampleValues(tab) {
   if (tab === 'temperatura') return [-40, -18, 0, 20, 37, 100];
   if (tab === 'combustible') return [10, 20, 30, 40, 50];
   if (tab === 'angulos') return [1, 30, 45, 90, 180, 360];
-  if (tab === 'monedas') return [1, 10, 50, 100, 500, 1000];
-  return [1, 2, 5, 10, 25, 50, 100];
+  if (tab === 'monedas') return [1, 10, 50, 100, 500, 1000, 5000, 10000];
+  return [1, 2, 5, 10, 25, 50, 100, 250, 500, 1000, 10000];
 }
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
-// hash determinístico simple (para elegir el mismo par de "usos" siempre, sin aleatoriedad real)
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 function hashStr(s) {
   let h = 0;
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
   return h;
 }
+// "1 Kilogramo" en singular, "5 Kilogramos" en plural — evita el error de "1 Metros".
+function numWithUnit(n, tab, code) {
+  const label = n === 1 ? singularOf(tab, code) : labelOf(tab, code);
+  return `${engine.fmt(n)} ${label}`;
+}
 function formulaText(tab, from, to, labelFrom, labelTo, exampleResult) {
   if (tab === 'temperatura') return TEMP_FORMULAS[`${from}-${to}`];
   if (tab === 'combustible') return FUEL_FORMULAS[`${from}-${to}`];
-  if (tab === 'monedas') return `${labelTo} = ${labelFrom} × tasa de cambio actual (variable; usa la calculadora en vivo de arriba)`;
+  if (tab === 'monedas') return `${labelTo} = ${labelFrom} × tasa de cambio actual (variable)`;
   return `${labelTo} = ${labelFrom} × ${engine.fmt(exampleResult)}`;
 }
-
 function fill(tpl, vars) {
   return tpl.replace(/{{(\w+)}}/g, (_, key) => (key in vars ? vars[key] : ''));
 }
@@ -180,7 +221,30 @@ function writePage(slug, html) {
 }
 
 // ============================================================================
-// 4) Home
+// 5) Variedad de títulos y descripciones (para no repetir el mismo patrón 1000 veces)
+// ============================================================================
+function buildTitle(h, labelFrom, labelTo, from, to) {
+  const variants = [
+    `${labelFrom} a ${labelTo} — ${SITE_NAME}`,
+    `${labelFrom} a ${labelTo} (${from} → ${to}) | Conversor Gratis`,
+    `Convertir ${labelFrom} a ${labelTo} | ${SITE_NAME}`,
+  ];
+  return variants[h % variants.length];
+}
+function buildDescription(h, tab, labelFrom, labelTo, singFrom, exampleResult, isCurrency) {
+  if (isCurrency) {
+    return `Convierte ${labelFrom} a ${labelTo}. Tasa de referencia: 1 ${labelFrom} ≈ ${engine.fmt(exampleResult)} ${labelTo} (actualizada ${BUILD_DATE}). Calculadora en vivo gratuita.`;
+  }
+  const variants = [
+    `Convierte ${labelFrom} a ${labelTo} al instante. 1 ${singFrom} = ${engine.fmt(exampleResult)} ${labelTo}. Calculadora online gratuita y precisa.`,
+    `¿Cuántos ${labelTo.toLowerCase()} hay en 1 ${singFrom.toLowerCase()}? Tabla, fórmula y calculadora gratis de ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}.`,
+    `Tabla, fórmula y calculadora para convertir ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()} al instante, con ejemplos y preguntas frecuentes.`,
+  ];
+  return variants[h % variants.length];
+}
+
+// ============================================================================
+// 6) Home
 // ============================================================================
 function buildHome() {
   const title = `${SITE_NAME} — Convierte unidades, monedas y más`;
@@ -195,13 +259,13 @@ function buildHome() {
     JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
     ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Conversor <span>Universal</span>`,
     SUBTITLE: `Escribe en lenguaje natural o usa los conversores por categoría — ${conversions.length}+ conversiones listas.`,
-    SEO_BLOCK: '', RELATED_BLOCK: '', PRESET_SCRIPT: '',
+    TOC_BLOCK: '', INTRO_BLOCK: '', LEARN_BLOCK: '', RELATED_BLOCK: '', FAQ_BLOCK: '', PRESET_SCRIPT: '',
   });
   writePage('', html);
 }
 
 // ============================================================================
-// 5) Una página por conversión
+// 7) Una página por conversión
 // ============================================================================
 function buildConversionPages(rates) {
   const bySlug = new Map(conversions.map(c => [c.slug, c]));
@@ -210,55 +274,97 @@ function buildConversionPages(rates) {
     const { slug, tab, from, to } = conv;
     const labelFrom = labelOf(tab, from);
     const labelTo = labelOf(tab, to);
+    const singFrom = singularOf(tab, from);
+    const singTo = singularOf(tab, to);
     const catLabel = tabLabel(tab);
     const magnitude = MAGNITUDE_NAME[tab];
+    const isCurrency = tab === 'monedas';
+    const h = hashStr(slug);
 
     const exampleResult = convert(tab, from, to, 1, rates);
     const rows = sampleValues(tab)
-      .map(v => `<tr><td>${engine.fmt(v)} ${esc(labelFrom)}</td><td>= ${engine.fmt(convert(tab, from, to, v, rates))} ${esc(labelTo)}</td></tr>`)
+      .map(v => `<tr><td>${numWithUnit(v, tab, from)}</td><td>= ${engine.fmt(convert(tab, from, to, v, rates))} ${esc(labelTo)}</td></tr>`)
       .join('');
 
-    const h = hashStr(slug);
     const ctx = CATEGORY_CONTEXT[tab] || [];
-    const ctxA = ctx.length ? ctx[h % ctx.length] : null;
-    const ctxB = ctx.length > 1 ? ctx[(h + 1) % ctx.length] : null;
+    const ctxIntroA = ctx.length ? ctx[h % ctx.length] : null;
+    const ctxIntroB = ctx.length > 1 ? ctx[(h + 1) % ctx.length] : null;
+    // Offset distinto para el bloque "Aprende más", así no repite literalmente las mismas frases.
+    const ctxLearnA = ctx.length > 2 ? ctx[(h + 2) % ctx.length] : ctxIntroA;
+    const ctxLearnB = ctx.length > 3 ? ctx[(h + 3) % ctx.length] : ctxIntroB;
+
     const formula = formulaText(tab, from, to, labelFrom, labelTo, exampleResult);
-    const isCurrency = tab === 'monedas';
 
-    const title = `Convertir ${labelFrom} a ${labelTo} — ${SITE_NAME}`;
-    const description = isCurrency
-      ? `Convierte ${labelFrom} a ${labelTo}. Tasa de referencia: 1 ${labelFrom} ≈ ${engine.fmt(exampleResult)} ${labelTo} (actualizada ${BUILD_DATE}). Calculadora en vivo gratuita.`
-      : `Convierte ${labelFrom} a ${labelTo} al instante. 1 ${labelFrom} = ${engine.fmt(exampleResult)} ${labelTo}. Calculadora online gratuita y precisa.`;
+    const title = buildTitle(h, labelFrom, labelTo, from, to);
+    const description = buildDescription(h, tab, labelFrom, labelTo, singFrom, exampleResult, isCurrency);
     const canonical = `${SITE_URL}/${slug}/`;
+    const h1 = cap(`Convertir ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}`);
 
-    // -------- FAQs (4 por página): {q, aHtml, aText} --------
+    // -------- Tabla de contenidos --------
+    const tocBlock = `    <nav class="toc" aria-label="Contenido de esta página">
+      <a href="#calculadora">Calculadora</a>
+      <a href="#tabla">Tabla</a>
+      <a href="#formula">Fórmula</a>
+      <a href="#explicacion">Explicación</a>
+      <a href="#relacionadas">Relacionadas</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </nav>\n`;
+
+    // -------- Bloque de introducción: equivalencia + fórmula destacada + tabla --------
+    const introBlock = `    <section id="intro" class="content-section">
+      <p class="seo-intro">${cap(numWithUnit(1, tab, from))} equivale a ${engine.fmt(exampleResult)} ${esc(labelTo)}${isCurrency ? ` <em>(referencia ${BUILD_DATE})</em>` : ''}. ${ctxIntroA ? `Esta conversión de ${esc(magnitude)} se usa frecuentemente para ${esc(ctxIntroA)}${ctxIntroB ? ` y ${esc(ctxIntroB)}` : ''}.` : ''}</p>
+      ${formula ? `<div id="formula" class="formula-box">
+        <p class="formula-label">Fórmula</p>
+        <p class="formula-text">${esc(formula)}</p>
+      </div>` : ''}
+      <table id="tabla" class="seo-table">${rows}</table>
+    </section>\n`;
+
+    // -------- Bloque "Aprende más" --------
+    let scaleSentence;
+    if (exampleResult > 1) {
+      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más pequeña que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}. ${cap(labelTo.toLowerCase())} suele usarse para medir cantidades menores, mientras que ${labelFrom.toLowerCase()} es más práctico para cantidades mayores.`;
+    } else if (exampleResult < 1) {
+      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más grande que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a solo ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}. ${cap(labelFrom.toLowerCase())} suele usarse para cantidades pequeñas, mientras que ${labelTo.toLowerCase()} es más práctico para cantidades mayores.`;
+    } else {
+      scaleSentence = `Ambas unidades pertenecen a la misma magnitud (${magnitude}), aunque provienen de sistemas o contextos distintos.`;
+    }
+
+    const learnBlock = `    <section id="explicacion" class="content-section">
+      <h2 class="section-title">Aprende más sobre esta conversión</h2>
+      <p class="learn-p"><strong>¿Qué diferencia hay entre ${esc(singFrom.toLowerCase())} y ${esc(singTo.toLowerCase())}?</strong> ${scaleSentence}</p>
+      <p class="learn-p">${cap(magnitude)} es una magnitud presente en ${ctxLearnA || 'muchos contextos cotidianos'}${ctxLearnB ? ` y en ${ctxLearnB}` : ''}.</p>
+      <p class="learn-p">Como referencia: ${esc(ANCHOR_EXAMPLE[tab] || '')}.</p>
+      <p class="learn-p seo-about">${esc(CATEGORY_ABOUT[tab] || '')}</p>
+    </section>\n`;
+
+    // -------- FAQs (4, al final de la página) --------
     const reverseSlug = engine.slugFor(tab, to, from);
     const faqs = [
       {
-        q: `¿Cuántos ${labelTo} son 1 ${labelFrom}?`,
+        q: `¿Cuántos ${labelTo.toLowerCase()} son 1 ${singFrom.toLowerCase()}?`,
         aText: isCurrency
           ? `1 ${labelFrom} equivale aproximadamente a ${engine.fmt(exampleResult)} ${labelTo} (tasa de referencia del ${BUILD_DATE}; el valor exacto cambia a diario).`
-          : `1 ${labelFrom} equivale a ${engine.fmt(exampleResult)} ${labelTo}.`,
+          : `1 ${singFrom} equivale a ${engine.fmt(exampleResult)} ${labelTo}.`,
       },
       {
-        q: `¿Cómo convertir ${labelFrom} a ${labelTo}?`,
+        q: `¿Cómo convertir ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}?`,
         aText: isCurrency
-          ? `Multiplica la cantidad en ${labelFrom} por la tasa de cambio actual hacia ${labelTo}. La tasa varía a diario; usa la calculadora en vivo de esta página para el valor exacto.`
-          : `Para convertir, multiplica la cantidad en ${labelFrom} por ${engine.fmt(exampleResult)}. Fórmula: ${formula}.`,
+          ? `Multiplica la cantidad en ${labelFrom.toLowerCase()} por la tasa de cambio actual hacia ${labelTo.toLowerCase()}. La tasa varía a diario; usa la calculadora en vivo de esta página para el valor exacto.`
+          : `Multiplica la cantidad en ${labelFrom.toLowerCase()} por ${engine.fmt(exampleResult)}. Fórmula: ${formula}.`,
       },
       {
-        q: `¿Para qué se usa la conversión de ${labelFrom} a ${labelTo}?`,
-        aText: ctxA
-          ? `Esta conversión es útil, por ejemplo, en ${ctxA}${ctxB ? ` y en ${ctxB}` : ''}.`
+        q: `¿Para qué se usa la conversión de ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}?`,
+        aText: ctxIntroA
+          ? `Esta conversión es útil, por ejemplo, en ${ctxIntroA}${ctxIntroB ? ` y en ${ctxIntroB}` : ''}.`
           : `Esta conversión es útil en distintos contextos cotidianos y profesionales relacionados con ${magnitude}.`,
       },
       {
-        q: `¿Cómo hago la conversión inversa, de ${labelTo} a ${labelFrom}?`,
+        q: `¿Cómo hago la conversión inversa, de ${labelTo.toLowerCase()} a ${labelFrom.toLowerCase()}?`,
         aTextPlain: `Puedes usar el conversor de ${labelTo} a ${labelFrom}, disponible en este mismo sitio.`,
         aHtmlLink: reverseSlug,
       },
     ];
-
     const faqHtml = faqs.map(f => {
       const answer = f.aHtmlLink
         ? `Puedes usar el conversor de <a href="/${f.aHtmlLink}/">${esc(labelTo)} a ${esc(labelFrom)}</a>, disponible en este mismo sitio.`
@@ -284,46 +390,52 @@ function buildConversionPages(rates) {
       },
     ];
 
-    // -------- enlaces relacionados: misma categoría + categorías relacionadas --------
-    const sameCat = conversions.filter(c => c.tab === tab && c.slug !== slug).slice(0, 6);
+    // -------- Enlaces internos: prioriza pares que comparten "from" o "to" con esta página --------
+    const candidates = [];
+    const pushIfNew = (c, weight) => { if (c.slug !== slug && !candidates.find(x => x.slug === c.slug)) candidates.push({ ...c, weight }); };
+    for (const c of conversions) if (c.tab === tab && c.from === from) pushIfNew(c, 0);   // kg → *
+    for (const c of conversions) if (c.tab === tab && c.from === to) pushIfNew(c, 1);     // gramos → *
+    for (const c of conversions) if (c.tab === tab && c.to === from) pushIfNew(c, 2);     // * → kg
+    for (const c of conversions) if (c.tab === tab) pushIfNew(c, 3);                      // relleno
+    candidates.sort((a, b) => a.weight - b.weight);
+    const sameCat = candidates.slice(0, 8);
     const sameCatHtml = sameCat.map(r => `<a href="/${r.slug}/">${esc(labelOf(r.tab, r.from))} a ${esc(labelOf(r.tab, r.to))}</a>`).join('');
 
     const relatedTabs = CATEGORY_RELATIONS[tab] || [];
-    const crossCatHtml = relatedTabs
-      .map(rt => {
-        const repSlug = REPRESENTATIVE[rt];
-        const rc = bySlug.get(repSlug);
-        if (!rc) return '';
-        return `<a href="/${repSlug}/">${esc(tabLabel(rt))}: ${esc(labelOf(rc.tab, rc.from))} a ${esc(labelOf(rc.tab, rc.to))}</a>`;
-      })
-      .filter(Boolean)
-      .join('');
+    const crossCatHtml = relatedTabs.map(rt => {
+      const repSlug = REPRESENTATIVE[rt];
+      const rc = bySlug.get(repSlug);
+      if (!rc) return '';
+      return `<a href="/${repSlug}/">${esc(tabLabel(rt))}: ${esc(labelOf(rc.tab, rc.from))} a ${esc(labelOf(rc.tab, rc.to))}</a>`;
+    }).filter(Boolean).join('');
 
-    const seoBlock = `
-    <div class="seo-block">
-      <p class="seo-intro"><strong>1 ${esc(labelFrom)} = ${engine.fmt(exampleResult)} ${esc(labelTo)}${isCurrency ? ` <em>(referencia ${BUILD_DATE})</em>` : ''}.</strong>
-      ${ctxA ? `Esta conversión de ${esc(magnitude)} se usa frecuentemente para ${esc(ctxA)}${ctxB ? ` y ${esc(ctxB)}` : ''}. ` : ''}${formula ? `Fórmula: <strong>${esc(formula)}</strong>.` : ''}</p>
-      <table class="seo-table">${rows}</table>
-      <p class="seo-about">${esc(CATEGORY_ABOUT[tab] || '')}</p>
-      <div class="faq-block">
-        <h2 class="faq-title">Preguntas frecuentes</h2>
-        ${faqHtml}
-      </div>
-    </div>`;
+    const relatedParts = [`    <section id="relacionadas" class="content-section">`];
+    relatedParts.push(`      <h2 class="section-title">También puedes convertir</h2>`);
+    if (sameCatHtml) relatedParts.push(`      <div class="related-links">${sameCatHtml}</div>`);
+    if (crossCatHtml) {
+      relatedParts.push(`      <p class="related-label">Categorías relacionadas</p>`);
+      relatedParts.push(`      <div class="related-links related-links-cross">${crossCatHtml}</div>`);
+    }
+    relatedParts.push(`    </section>\n`);
+    const relatedBlock = relatedParts.join('\n');
 
-    const relatedBlockParts = [];
-    if (sameCatHtml) relatedBlockParts.push(`    <p class="related-label">Más conversiones de ${esc(catLabel)}</p>\n    <div class="related-links">${sameCatHtml}</div>`);
-    if (crossCatHtml) relatedBlockParts.push(`    <p class="related-label">Categorías relacionadas</p>\n    <div class="related-links related-links-cross">${crossCatHtml}</div>`);
+    const faqBlock = `    <section id="faq" class="content-section">
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <div class="faq-block">${faqHtml}</div>
+    </section>\n`;
 
     const html = fill(template, {
       TITLE: esc(title), DESCRIPTION: esc(description), CANONICAL: canonical, OG_TITLE: esc(`${labelFrom} a ${labelTo}`),
       JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
       ASSET_PREFIX: '/',
-      BREADCRUMB: `        <p class="breadcrumb"><a href="/">Inicio</a> · <a href="/#${tab}">${esc(catLabel)}</a></p>`,
-      H1: `${esc(labelFrom)} a ${esc(labelTo)}`,
+      BREADCRUMB: `      <p class="breadcrumb"><a href="/">Inicio</a> · <a href="/#${tab}">${esc(catLabel)}</a> · <span>${esc(labelFrom)} a ${esc(labelTo)}</span></p>`,
+      H1: h1,
       SUBTITLE: `Conversión de ${esc(labelFrom.toLowerCase())} a ${esc(labelTo.toLowerCase())}, con calculadora interactiva.`,
-      SEO_BLOCK: seoBlock,
-      RELATED_BLOCK: relatedBlockParts.join('\n'),
+      TOC_BLOCK: tocBlock,
+      INTRO_BLOCK: introBlock,
+      LEARN_BLOCK: learnBlock,
+      RELATED_BLOCK: relatedBlock,
+      FAQ_BLOCK: faqBlock,
       PRESET_SCRIPT: `<script>window.PRESET = { tab: '${tab}', from: '${from}', to: '${to}' };</script>\n`,
     });
 
@@ -332,7 +444,7 @@ function buildConversionPages(rates) {
 }
 
 // ============================================================================
-// 6) sitemap.xml (con lastmod) + robots.txt + CNAME + .nojekyll
+// 8) sitemap.xml + robots.txt + CNAME + .nojekyll
 // ============================================================================
 function buildMeta() {
   const urlEntry = (loc, priority) =>
@@ -348,6 +460,7 @@ function buildMeta() {
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
   fs.writeFileSync(path.join(OUT, 'CNAME'), SITE_URL.replace(/^https?:\/\//, '') + '\n');
+  fs.writeFileSync(path.join(OUT, 'ads.txt'), `google.com, ${ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0\n`);
 }
 
 function copyAssets() {
@@ -357,18 +470,15 @@ function copyAssets() {
   fs.copyFileSync(path.join(ROOT, 'assets/app.js'), path.join(dest, 'app.js'));
 }
 
-// ============================================================================
 async function main() {
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
   copyAssets();
-
   const rates = await fetchBuildRates();
-
   buildHome();
   buildConversionPages(rates);
   buildMeta();
-  console.log(`✅ Sitio generado en /docs: 1 home + ${conversions.length} páginas de conversión (tasas de moneda: ${rates === engine.STATIC_RATES ? 'fallback estático' : 'en vivo'}).`);
+  console.log(`✅ Sitio generado en /docs: 1 home + ${conversions.length} páginas (monedas: ${rates === engine.STATIC_RATES ? 'fallback estático' : 'en vivo'}).`);
 }
 
 main();

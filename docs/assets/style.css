@@ -32,6 +32,19 @@ body {
 }
 
 /* ---------- HEADER ---------- */
+.site-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+.site-brand span { color: var(--brass); }
+.site-brand:hover { color: var(--text); }
 .site-header {
   display: flex;
   align-items: baseline;
@@ -105,7 +118,7 @@ body {
   font-family: var(--font-mono);
   font-size: 22px;
 }
-.result-value { color: var(--brass); font-weight: 700; }
+.result-value { color: var(--brass); font-weight: 700; font-size: 1.5em; }
 .result-unit { color: var(--text-muted); font-size: 15px; margin-left: 6px; }
 .hint { color: var(--text-muted); font-size: 14px; font-family: var(--font-body); }
 .hint em { color: var(--teal); font-style: normal; }
@@ -304,19 +317,103 @@ footer.site-footer {
 .breadcrumb { font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px; }
 .breadcrumb a { color: var(--teal); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
-.seo-block { margin-bottom: 24px; }
-.seo-intro { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 16px; max-width: 68ch; }
-.seo-intro strong { color: var(--brass); }
+.breadcrumb span { color: var(--text-muted); }
+
+/* ---------- Tabla de contenidos ---------- */
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 20px 0 32px;
+  padding: 14px 16px;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.toc a {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--ink-3);
+}
+.toc a:hover { color: var(--text); border-color: var(--brass-dim); }
+
+/* ---------- Secciones de contenido (más aire entre bloques) ---------- */
+.content-section {
+  margin: 0 0 40px;
+  scroll-margin-top: 24px;
+}
+.content-section:last-of-type { margin-bottom: 28px; }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+.seo-intro {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0 0 20px;
+  max-width: 68ch;
+}
+.seo-intro em { color: var(--text-muted); font-style: normal; }
+
+/* ---------- Caja de fórmula destacada ---------- */
+.formula-box {
+  background: var(--ink-2);
+  border: 1px solid var(--brass-dim);
+  border-left: 3px solid var(--brass);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 0 0 22px;
+  max-width: 420px;
+}
+.formula-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  margin: 0 0 6px;
+}
+.formula-text {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  color: var(--brass);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- Bloque "Aprende más" ---------- */
+.learn-p {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0 0 16px;
+  max-width: 68ch;
+}
+.learn-p strong { color: var(--brass); }
+.learn-p.seo-about {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
 .seo-table { width: 100%; border-collapse: collapse; max-width: 420px; }
 .seo-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 14px; }
 .seo-table td:first-child { color: var(--text-muted); }
+.seo-table tr:last-child td { border-bottom: none; }
 .related-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 8px; }
 .related-links a {
   background: var(--ink-2); border: 1px solid var(--line); color: var(--text-muted);
   border-radius: 999px; padding: 6px 12px; font-size: 12.5px; text-decoration: none;
 }
 .related-links a:hover { border-color: var(--brass-dim); color: var(--text); }
-.seo-about { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 4px 0 20px; max-width: 68ch; }
 .related-label { font-size: 11.5px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.04em; margin: 18px 0 8px; }
 .related-links-cross a { border-style: dashed; }
 .faq-block { margin-top: 8px; }

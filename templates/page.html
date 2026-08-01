@@ -28,24 +28,29 @@
 </head>
 <body>
   <div class="page">
-    <header class="site-header">
-      <div>
-{{BREADCRUMB}}
-        <h1 class="site-title">{{H1}}</h1>
-        <p class="site-sub">{{SUBTITLE}}</p>
-      </div>
-    </header>
-{{SEO_BLOCK}}
-    <div class="smart-bar">
-      <div class="tape-ticks"></div>
-      <input type="text" id="smartInput" placeholder='Ej: "1 metro en pies", "36 c a f", "5 kg en libras"' autocomplete="off" />
-      <div id="smartResult"></div>
-      <div id="smartTape"></div>
-    </div>
+    <a href="/" class="site-brand">Conversor <span>Universal</span></a>
 
-    <nav id="tabNav"></nav>
-    <main id="panelArea"></main>
+    <header class="site-header">
+{{BREADCRUMB}}
+      <h1 class="site-title">{{H1}}</h1>
+      <p class="site-sub">{{SUBTITLE}}</p>
+    </header>
+{{TOC_BLOCK}}
+{{INTRO_BLOCK}}
+{{LEARN_BLOCK}}
+    <section id="calculadora" class="content-section">
+      <div class="smart-bar">
+        <div class="tape-ticks"></div>
+        <input type="text" id="smartInput" placeholder='Ej: "1 metro en pies", "36 c a f", "5 kg en libras"' autocomplete="off" />
+        <div id="smartResult"></div>
+        <div id="smartTape"></div>
+      </div>
+
+      <nav id="tabNav"></nav>
+      <main id="panelArea"></main>
+    </section>
 {{RELATED_BLOCK}}
+{{FAQ_BLOCK}}
     <footer class="site-footer">Conversor Universal — hecho con HTML, CSS y JavaScript puro.</footer>
   </div>
 

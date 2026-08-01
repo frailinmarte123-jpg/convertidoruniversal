@@ -31,6 +31,7 @@ jobs:
       - name: Build del sitio estático (docs/)
         env:
           SITE_URL: https://convertidoruniversal.lat
+          ADSENSE_PUBLISHER_ID: pub-2394878225224723
         run: node scripts/build.js
 
       - name: Subir artefacto de Pages

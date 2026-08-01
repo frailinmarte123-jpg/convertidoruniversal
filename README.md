@@ -4,78 +4,86 @@ Este proyecto genera, a partir de **un único CSS, un único JS y una lista de c
 un sitio 100% estático con **una URL real por conversión** (`/metros-a-pies/`, `/kg-a-libras/`, etc.),
 listo para GitHub Pages (con o sin dominio personalizado).
 
-Actualmente genera **1,002 páginas de conversión** (todas las combinaciones válidas entre
-17 categorías: longitud, peso, temperatura, área, volumen, tiempo, velocidad, combustible,
-presión, energía, potencia, electricidad, datos digitales, ángulos, frecuencia, densidad
-y monedas), cada una con:
+Genera **1,002 páginas de conversión** entre 17 categorías. Cada página incluye:
 
-- `<title>` y `<meta description>` únicos, calculados con el valor real de esa conversión.
-- `<link rel="canonical">`, Open Graph y Twitter Card.
-- JSON-LD: `BreadcrumbList` + `FAQPage` con **4 preguntas y respuestas reales** por página
-  (cuánto equivale, cómo convertir con fórmula, para qué se usa, cómo hacer el inverso).
-- Tabla de referencia con valores reales (no placeholders).
-- Explicación con la fórmula exacta de esa conversión.
-- Un párrafo "acerca de la categoría" (reutilizado dentro de cada categoría, no por cada
-  página individual — evita contenido vacío sin inflar cada URL con texto repetido disfrazado).
-- Enlaces internos a otras conversiones de la **misma categoría** y a conversiones
-  representativas de **categorías relacionadas** (p. ej. Longitud enlaza a Área, Volumen
-  y Velocidad).
-- La calculadora interactiva completa, con las unidades correctas preseleccionadas.
+- Marca "Conversor Universal" fija en la parte superior, clicable, que lleva al inicio.
+- Breadcrumb visible (Inicio · Categoría · Conversión actual) + `BreadcrumbList` en JSON-LD.
+- Tabla de contenidos con enlaces a Calculadora, Tabla, Fórmula, Explicación, Relacionadas y FAQ.
+- `<h1>` en formato "Convertir X a Y", singular/plural correcto en todo el texto (1 Kilogramo,
+  no 1 Kilogramos).
+- `<title>` y `<meta description>` con 3 patrones distintos que rotan por página (no siempre
+  "Convierte X a Y...").
+- Tabla de referencia con 11 valores (1, 2, 5, 10, 25, 50, 100, 250, 500, 1000, 10000).
+- Fórmula en una caja destacada.
+- Sección "Aprende más": diferencia entre unidades explicada dinámicamente según cuál es más
+  grande/pequeña, contexto de uso, un ejemplo cotidiano concreto por categoría, y un párrafo
+  "acerca de esta magnitud".
+- Enlaces internos reforzados: primero conversiones que comparten la unidad de origen (kg→lb,
+  kg→oz, kg→t...), luego las que comparten la unidad de destino (g→lb, g→oz...), y por último
+  enlaces a categorías relacionadas (Peso → Densidad, Volumen).
+- **FAQ al final de la página** (4 preguntas reales) + `FAQPage` en JSON-LD.
+- Open Graph, Twitter Card, canonical.
+- La calculadora interactiva, con las unidades correctas preseleccionadas.
 
 ## Por qué ya no da 404 al recargar
 
-Cada conversión es una **carpeta real con su propio `index.html`** (`docs/metros-a-pies/index.html`).
-GitHub Pages sirve automáticamente `carpeta/index.html` tanto para `/metros-a-pies` como
-para `/metros-a-pies/` — sin reglas de reescritura ni trucos de SPA.
+Cada conversión es una **carpeta real con su propio `index.html`**. GitHub Pages sirve
+`carpeta/index.html` tanto para `/metros-a-pies` como para `/metros-a-pies/` — sin reglas
+de reescritura ni trucos de SPA.
 
 ## Estructura del proyecto
 
 ```
 assets/
-  style.css          ← ÚNICO CSS (el mismo de siempre + clases para FAQ/enlaces relacionados)
+  style.css          ← ÚNICO CSS
   app.js             ← ÚNICO JS (mismo motor; se usa en el navegador Y se `require()` desde
-                        Node para el build — cero duplicación de fórmulas ni de unidades)
+                        Node para el build — cero duplicación)
 data/
-  conversions.json   ← LISTA MAESTRA (1002 conversiones). Edítala para agregar/quitar.
+  conversions.json   ← LISTA MAESTRA (1002 conversiones)
 templates/
-  page.html          ← ÚNICA plantilla HTML (placeholders {{...}})
+  page.html          ← ÚNICA plantilla HTML
 scripts/
-  build.js                  ← genera /docs: home + 1 carpeta por conversión + FAQs +
-                               enlaces relacionados + sitemap + robots + CNAME
-  build-conversions-list.js ← genera data/conversions.json con TODAS las combinaciones
-                               válidas por categoría (uso manual, no se corre en CI)
+  build.js                  ← genera /docs: home + 1 carpeta por conversión, con todo el
+                               contenido enriquecido (FAQs, explicación, enlaces, TOC...)
+  build-conversions-list.js ← genera data/conversions.json con todas las combinaciones
+                               válidas por categoría (uso manual)
 docs/                ← SALIDA DEL BUILD (esto es lo que GitHub Pages publica)
 .github/workflows/deploy.yml  ← build + deploy automático (push a main + cron diario)
 ```
 
+## Singular/plural y etiquetas "de prosa"
+
+`scripts/build.js` tiene dos diccionarios pequeños que resuelven esto sin tocar `app.js`
+(el selector de la calculadora sigue mostrando las etiquetas en plural, que es lo normal
+en un `<select>`):
+
+- `SINGULAR`: la forma singular de cada unidad, solo donde de verdad cambia
+  (Kilogramo, Pie, Milla...). Las abreviaturas (PSI, BTU, kWh, Hz...) no necesitan entrada:
+  al no encontrarse, se usa la misma etiqueta.
+- `DISPLAY_LABEL_OVERRIDE`: una versión más natural para prosa de las etiquetas que en el
+  `<select>` llevan paréntesis o barras (`Metros/segundo (m/s)` → `Metros por segundo`).
+
+Si agregas una unidad nueva a `CATEGORIES` en `assets/app.js`, solo tienes que agregar su
+singular aquí si su plural termina en una letra distinta de "s" simple (o déjalo así si
+son iguales, como con divisas o abreviaturas).
+
 ## De dónde salen las 1,002 conversiones
 
-`scripts/build-conversions-list.js` toma cada categoría de `assets/app.js` y genera
-**todas las combinaciones ordenadas posibles** entre sus unidades (A→B y B→A), respetando
-qué unidades sí se pueden convertir entre sí:
+`scripts/build-conversions-list.js` genera todas las combinaciones ordenadas posibles
+entre las unidades de cada categoría (A→B y B→A), respetando subgrupos donde no todas las
+unidades son mutuamente convertibles (Electricidad: Voltios solo con Milivoltios, Amperios
+solo con Miliamperios, Ohmios solo con Kiloohmios).
 
-- Casi todas las categorías: todas sus unidades son un solo grupo (p. ej. en Longitud,
-  cualquier unidad se puede convertir a cualquier otra).
-- **Electricidad** es la excepción: Voltios solo convierte con Milivoltios, Amperios solo
-  con Miliamperios, Ohmios solo con Kiloohmios — nunca se mezclan voltios con amperios,
-  porque no son la misma magnitud física. Esto está controlado por `SUBGROUPS` dentro de
-  `build-conversions-list.js`.
-- **Monedas** es su propia categoría con 18 divisas (USD, EUR, GBP, DOP, COP, ARS, etc.),
-  con 306 pares posibles.
-
-Para agregar más (llegar a 2,000, 5,000...): agrega más unidades a `CATEGORIES` en
-`assets/app.js` (con su `code`, `label`, `factor` y `aliases`) y su entrada correspondiente
-en `SLUG_WORDS`, y vuelve a correr `node scripts/build-conversions-list.js`. El build es
-lineal en el número de conversiones, así que escala sin cambios de arquitectura.
+Para agregar más: agrega unidades a `CATEGORIES`/`SLUG_WORDS` en `assets/app.js` y vuelve a
+correr `node scripts/build-conversions-list.js`. El build es lineal en el número de
+conversiones.
 
 ## Tasas de moneda: en vivo en el build + en vivo en la calculadora
 
-`scripts/build.js` intenta obtener tasas de cambio reales al momento de generar el sitio
-(API gratuita, sin key). Si lo logra, los números "de referencia" en cada página de moneda
-(título, tabla, FAQ) usan esa tasa real del día del build. Si el build no tiene acceso a
-internet (poco probable en GitHub Actions), usa una tabla de respaldo aproximada.
-**La calculadora interactiva de cada página siempre intenta obtener la tasa en vivo desde
-el navegador del visitante**, independientemente de lo que se haya generado en el build.
+`scripts/build.js` intenta obtener tasas de cambio reales al momento de generar el sitio.
+Si no tiene acceso a internet, usa una tabla de respaldo aproximada. La calculadora
+interactiva de cada página siempre intenta obtener la tasa en vivo desde el navegador del
+visitante, independientemente de lo que se haya generado en el build.
 
 ## Build local
 
@@ -87,29 +95,26 @@ npm run serve         # sirve /docs en http://localhost:8080 para probar antes d
 ## Despliegue en GitHub Pages (automático, recomendado)
 
 1. Sube este proyecto a un repo de GitHub.
-2. En **Settings → Pages**, en "Build and deployment" elige **Source: GitHub Actions**
-   (no "Deploy from a branch").
-3. El workflow en `.github/workflows/deploy.yml` corre:
-   - en cada `git push` a `main`,
-   - y además **todos los días por cron** (para refrescar tasas de moneda y `lastmod`
-     del sitemap aunque no hayas tocado el código).
+2. En **Settings → Pages**, elige **Source: GitHub Actions**.
+3. El workflow corre en cada push a `main` y además todos los días por cron (refresca
+   tasas de moneda y `lastmod` del sitemap aunque no toques el código).
 4. Dominio personalizado: el build genera `docs/CNAME` con el dominio de `SITE_URL`
-   (variable de entorno en el workflow). Tu DNS sigue apuntando a GitHub Pages igual
-   que ya lo tenías configurado.
+   (variable de entorno en el workflow).
 
-### Alternativa sin Actions (más simple, menos automática)
+### Alternativa sin Actions
 
 Corre `npm run build`, haz commit de `docs/`, y en **Settings → Pages** elige
-**Source: Deploy from a branch → main → /docs**. Tendrás que repetir "build + commit"
-cada vez que cambies algo (y no tendrás el refresco automático de tasas por cron).
+**Source: Deploy from a branch → main → /docs**.
 
 ## Notas
 
 - `docs/.nojekyll` evita que GitHub Pages procese el sitio con Jekyll.
-- `sitemap.xml` incluye `lastmod` con la fecha del build más reciente — se regenera solo
-  en cada corrida (push o cron).
-- Si cambias el dominio, actualiza `SITE_URL` en `.github/workflows/deploy.yml` — el build
-  regenera `CNAME`, `sitemap.xml` y todos los `canonical`/`og:url` automáticamente.
-- Un control de calidad rápido (`title`, `canonical`, OG, JSON-LD válido con 4 preguntas,
-  `PRESET`, assets enlazados) corrió sobre las 1,002 páginas generadas sin errores antes
-  de esta entrega.
+- `sitemap.xml` incluye `lastmod` con la fecha del build más reciente.
+- Control de calidad automático corrido sobre las 1,002 páginas antes de esta entrega:
+  title, canonical, OG, JSON-LD válido (BreadcrumbList + FAQPage con 4 preguntas), preset,
+  assets enlazados, marca clicable, TOC, FAQ al final, y verificación de singular/plural
+  — **0 errores**.
+- `ads.txt` se genera automáticamente en `docs/ads.txt` con tu ID de editor de AdSense
+  (`pub-2394878225224723`, configurado como `ADSENSE_PUBLISHER_ID` en `scripts/build.js`
+  y en el workflow de GitHub Actions). Si alguna vez cambias de cuenta o agregas otra red
+  publicitaria, actualiza esa variable — no hay que tocar nada más.
