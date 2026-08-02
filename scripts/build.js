@@ -468,6 +468,8 @@ function copyAssets() {
   fs.mkdirSync(dest, { recursive: true });
   fs.copyFileSync(path.join(ROOT, 'assets/style.css'), path.join(dest, 'style.css'));
   fs.copyFileSync(path.join(ROOT, 'assets/app.js'), path.join(dest, 'app.js'));
+
+  fs.copyFileSync(path.join(ROOT, 'favicon.png'), path.join(OUT, 'favicon.png'));
 }
 
 async function main() {
