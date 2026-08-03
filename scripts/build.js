@@ -206,6 +206,16 @@ function numWithUnit(n, tab, code) {
   const label = n === 1 ? singularOf(tab, code) : labelOf(tab, code);
   return `${engine.fmt(n)} ${label}`;
 }
+// Igual que numWithUnit, pero para valores calculados (no enteros de entrada): compara
+// sobre el string YA REDONDEADO por engine.fmt, no sobre el float crudo. Evita que un
+// resultado como 1000 g → 1 kg (o 1000 mv → 1 v) se muestre como "1 Kilogramos"/"1 Voltios"
+// por una comparación de punto flotante que nunca da exactamente 1.
+function unitWithFmt(rawValue, tab, code) {
+  const formatted = engine.fmt(rawValue);
+  const isOne = formatted === '1';
+  const label = isOne ? singularOf(tab, code) : labelOf(tab, code);
+  return `${formatted} ${label}`;
+}
 function formulaText(tab, from, to, labelFrom, labelTo, exampleResult) {
   if (tab === 'temperatura') return TEMP_FORMULAS[`${from}-${to}`];
   if (tab === 'combustible') return FUEL_FORMULAS[`${from}-${to}`];
@@ -415,7 +425,7 @@ function buildConversionPages(rates) {
 
     const exampleResult = convert(tab, from, to, 1, rates);
     const rows = sampleValues(tab)
-      .map(v => `<tr><td>${numWithUnit(v, tab, from)}</td><td>= ${engine.fmt(convert(tab, from, to, v, rates))} ${esc(labelTo)}</td></tr>`)
+      .map(v => `<tr><td>${numWithUnit(v, tab, from)}</td><td>= ${unitWithFmt(convert(tab, from, to, v, rates), tab, to)}</td></tr>`)
       .join('');
 
     const ctx = CATEGORY_CONTEXT[tab] || [];
