@@ -14,6 +14,7 @@ const OUT = path.join(ROOT, 'docs');
 const SITE_URL = (process.env.SITE_URL || 'https://convertidoruniversal.lat').replace(/\/+$/, '');
 const SITE_NAME = 'Convertidor Universal';
 const ADSENSE_PUBLISHER_ID = process.env.ADSENSE_PUBLISHER_ID || 'pub-2394878225224723';
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'frailinmarte123@gmail.com';
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const conversions = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/conversions.json'), 'utf-8'));
@@ -249,19 +250,150 @@ function buildDescription(h, tab, labelFrom, labelTo, singFrom, exampleResult, i
 function buildHome() {
   const title = `${SITE_NAME} — Convierte unidades, monedas y más`;
   const description = `Más de ${conversions.length} conversiones de unidades, monedas, tallas y calculadoras. Metros a pies, kilogramos a libras, Celsius a Fahrenheit y más. Gratis y en tiempo real.`;
-  const jsonld = {
-    '@context': 'https://schema.org', '@type': 'WebApplication', name: SITE_NAME, url: `${SITE_URL}/`,
-    applicationCategory: 'UtilityApplication', operatingSystem: 'Any', description,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-  };
+
+  // -------- Contenido propio de la home (para no ser una pantalla "sin contenido del
+  // editor": explicación de qué es el sitio, cómo usarlo, categorías con descripción
+  // real y FAQ del sitio en sí, no de una conversión puntual). --------
+  const categoryOrder = Object.keys(CATEGORY_ABOUT);
+  const categoryCardsHtml = categoryOrder.map(tab => {
+    const repSlug = REPRESENTATIVE[tab];
+    const rc = conversions.find(c => c.slug === repSlug);
+    const label = tabLabel(tab);
+    const about = CATEGORY_ABOUT[tab] || '';
+    const firstSentence = about.split(/(?<=\.)\s+/)[0] || about;
+    const href = rc ? `/${repSlug}/` : '/';
+    return `<a class="category-card" href="${href}"><h3>${esc(label)}</h3><p>${esc(firstSentence)}</p></a>`;
+  }).join('');
+
+  const tocBlock = `    <nav class="toc" aria-label="Contenido de esta página">
+      <a href="#calculadora">Calculadora</a>
+      <a href="#acerca">Qué es</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </nav>\n`;
+
+  const introBlock = `    <section id="acerca" class="content-section">
+      <h2 class="section-title">Qué es Convertidor Universal</h2>
+      <p class="seo-intro">Convertidor Universal es una calculadora de unidades gratuita y sin registro, con ${conversions.length}+ conversiones listas entre ${categoryOrder.length} categorías: longitud, peso, temperatura, volumen, monedas y muchas más. Cada conversión tiene su propia página con calculadora interactiva, tabla de referencia, la fórmula exacta y respuestas a las preguntas más comunes.</p>
+      <p class="learn-p">Puedes escribir tu conversión en lenguaje natural en el buscador de arriba — por ejemplo <em>"1 metro en pies"</em>, <em>"36 c a f"</em> o <em>"5 kg en libras"</em> — o elegir una categoría en las pestañas para usar la calculadora completa con todas sus unidades.</p>
+    </section>\n`;
+
+  const learnBlock = `    <section id="categorias" class="content-section">
+      <h2 class="section-title">Categorías disponibles</h2>
+      <div class="category-grid">${categoryCardsHtml}</div>
+    </section>\n`;
+
+  const homeFaqs = [
+    { q: '¿Convertidor Universal es gratis?', a: 'Sí, todas las conversiones y calculadoras son gratuitas y no requieren registro ni instalación.' },
+    { q: '¿De dónde salen las tasas de cambio de monedas?', a: 'La calculadora de monedas obtiene la tasa en vivo desde tu navegador al momento de usarla; el sitio también se actualiza a diario con valores de referencia. Son cifras orientativas — para operaciones financieras confirma la tasa con tu banco o casa de cambio.' },
+    { q: '¿Cuántas conversiones tiene el sitio?', a: `El sitio incluye ${conversions.length}+ conversiones entre ${categoryOrder.length} categorías de unidades físicas, además de calculadoras de tallas, pantallas y otras utilidades.` },
+    { q: '¿Necesito instalar algo o crear una cuenta?', a: 'No. Convertidor Universal funciona directamente en el navegador, sin instalación ni cuentas.' },
+  ];
+  const homeFaqHtml = homeFaqs.map(f => `<div class="faq-item"><p class="faq-q">${esc(f.q)}</p><p class="faq-a">${esc(f.a)}</p></div>`).join('');
+  const faqBlock = `    <section id="faq" class="content-section">
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <div class="faq-block">${homeFaqHtml}</div>
+    </section>\n`;
+
+  const jsonld = [
+    {
+      '@context': 'https://schema.org', '@type': 'WebApplication', name: SITE_NAME, url: `${SITE_URL}/`,
+      applicationCategory: 'UtilityApplication', operatingSystem: 'Any', description,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: homeFaqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ];
+
   const html = fill(template, {
     TITLE: esc(title), DESCRIPTION: esc(description), CANONICAL: `${SITE_URL}/`, OG_TITLE: esc(title),
     JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
     ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Convertidor <span>Universal</span>`,
     SUBTITLE: `Escribe en lenguaje natural o usa los conversores por categoría — ${conversions.length}+ conversiones listas.`,
-    TOC_BLOCK: '', INTRO_BLOCK: '', LEARN_BLOCK: '', RELATED_BLOCK: '', FAQ_BLOCK: '', PRESET_SCRIPT: '',
+    TOC_BLOCK: tocBlock, INTRO_BLOCK: introBlock, LEARN_BLOCK: learnBlock, RELATED_BLOCK: '', FAQ_BLOCK: faqBlock, PRESET_SCRIPT: '',
   });
   writePage('', html);
+}
+
+// ============================================================================
+// 6b) Páginas estáticas: Acerca de, Contacto, Privacidad
+// ============================================================================
+function buildStaticPage({ slug, title, description, breadcrumbLabel, bodyHtml }) {
+  const canonical = `${SITE_URL}/${slug}/`;
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'WebPage', name: title, url: canonical, description,
+  };
+  const html = fill(template, {
+    TITLE: esc(title), DESCRIPTION: esc(description), CANONICAL: canonical, OG_TITLE: esc(title),
+    JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
+    ASSET_PREFIX: '/',
+    BREADCRUMB: `      <p class="breadcrumb"><a href="/">Inicio</a> · <span>${esc(breadcrumbLabel)}</span></p>`,
+    H1: esc(breadcrumbLabel),
+    SUBTITLE: description,
+    TOC_BLOCK: '', INTRO_BLOCK: bodyHtml, LEARN_BLOCK: '', RELATED_BLOCK: '', FAQ_BLOCK: '', PRESET_SCRIPT: '',
+  });
+  writePage(slug, html);
+}
+
+function buildAcercaDe() {
+  const bodyHtml = `    <section id="acerca" class="content-section">
+      <p class="seo-intro">Soy la persona detrás de Convertidor Universal. Lo armé solo, en mi tiempo libre, porque me cansé de buscar cada conversión por separado — a veces una calculadora de unidades, otras un conversor de monedas, otras una tabla de tallas — y casi nunca encontraba un sitio que juntara todo eso en un solo lugar, sin registro y sin tardar una eternidad en cargar.</p>
+      <p class="learn-p">Empezó como algo pequeño para uso personal — necesitaba convertir medidas y precios entre distintas monedas de la región todo el tiempo — y terminó creciendo hasta las ${conversions.length}+ conversiones que tiene hoy, entre longitud, peso, temperatura, volumen, electricidad, densidad, ángulos y monedas, entre otras.</p>
+      <p class="learn-p">Está hecho con HTML, CSS y JavaScript puro, sin frameworks pesados, a propósito: quería que cargara rápido incluso con conexiones lentas, algo que sigue siendo la realidad de muchas personas en Latinoamérica.</p>
+      <p class="learn-p">Lo mantengo yo solo. El sitio se sostiene con publicidad (Google AdSense), lo que me permite mantenerlo gratuito y sin límites de uso para todos. Si encuentras un error de cálculo, una unidad que falta, o simplemente quieres escribirme, en <a class="inline-link" href="/contacto/">Contacto</a> te dejo cómo hacerlo.</p>
+    </section>\n`;
+  buildStaticPage({
+    slug: 'acerca-de',
+    title: `Acerca de — ${SITE_NAME}`,
+    description: 'Quién hizo Convertidor Universal, por qué existe y cómo está construido.',
+    breadcrumbLabel: 'Acerca de',
+    bodyHtml,
+  });
+}
+
+function buildContacto() {
+  const bodyHtml = `    <section id="contacto" class="content-section">
+      <p class="seo-intro">¿Tienes una pregunta, encontraste un error en alguna conversión, o quieres sugerir una unidad o moneda que falta? Escríbeme directamente:</p>
+      <p class="learn-p"><a class="inline-link" href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a></p>
+      <p class="learn-p seo-about">Convertidor Universal es un proyecto que mantengo yo solo, así que las respuestas pueden tardar unos días — pero leo todos los mensajes.</p>
+    </section>\n`;
+  buildStaticPage({
+    slug: 'contacto',
+    title: `Contacto — ${SITE_NAME}`,
+    description: 'Cómo ponerte en contacto con Convertidor Universal.',
+    breadcrumbLabel: 'Contacto',
+    bodyHtml,
+  });
+}
+
+function buildPrivacidad() {
+  const bodyHtml = `    <section id="privacidad" class="content-section">
+      <p class="seo-intro">Última actualización: ${BUILD_DATE}.</p>
+      <h2 class="section-title">Información general</h2>
+      <p class="learn-p">Convertidor Universal (${SITE_URL}/) es un sitio operado de forma independiente. No pedimos registro ni cuenta para usar ninguna de sus calculadoras, y no recopilamos directamente datos personales tuyos a través de formularios.</p>
+      <h2 class="section-title">Cookies y publicidad (Google AdSense)</h2>
+      <p class="learn-p">Este sitio muestra anuncios a través de Google AdSense. Google y sus socios publicitarios pueden usar cookies y tecnologías similares para mostrar anuncios según tus visitas a este sitio y a otros, incluyendo, cuando corresponda, anuncios personalizados basados en tu actividad previa. Estas cookies son gestionadas por Google, no por nosotros.</p>
+      <ul class="plain-list">
+        <li>Puedes ver y ajustar cómo Google personaliza los anuncios que te muestra en <a class="inline-link" href="https://adssettings.google.com/" target="_blank" rel="noopener">adssettings.google.com</a>.</li>
+        <li>Puedes leer la política de Google sobre el uso de cookies en publicidad en <a class="inline-link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>.</li>
+        <li>Si estás en la Unión Europea, también puedes gestionar tus preferencias de publicidad en <a class="inline-link" href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">youronlinechoices.eu</a>.</li>
+      </ul>
+      <h2 class="section-title">Enlaces a terceros</h2>
+      <p class="learn-p">Algunas páginas incluyen enlaces a sitios externos (por ejemplo, fuentes de tasas de cambio). No somos responsables de las prácticas de privacidad de esos sitios; te recomendamos revisar sus propias políticas.</p>
+      <h2 class="section-title">Cambios a esta política</h2>
+      <p class="learn-p">Podemos actualizar esta política ocasionalmente. Los cambios se publican en esta misma página con la fecha de última actualización arriba.</p>
+      <h2 class="section-title">Contacto</h2>
+      <p class="learn-p seo-about">Si tienes preguntas sobre esta política, escríbenos a <a class="inline-link" href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a>.</p>
+    </section>\n`;
+  buildStaticPage({
+    slug: 'privacidad',
+    title: `Política de Privacidad — ${SITE_NAME}`,
+    description: 'Cómo usamos cookies y publicidad de Google AdSense en Convertidor Universal, y cómo puedes ajustar tus preferencias.',
+    breadcrumbLabel: 'Política de Privacidad',
+    bodyHtml,
+  });
 }
 
 // ============================================================================
@@ -453,6 +585,9 @@ function buildMeta() {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     urlEntry(`${SITE_URL}/`, '1.0'),
+    urlEntry(`${SITE_URL}/acerca-de/`, '0.5'),
+    urlEntry(`${SITE_URL}/contacto/`, '0.5'),
+    urlEntry(`${SITE_URL}/privacidad/`, '0.3'),
     ...conversions.map(c => urlEntry(`${SITE_URL}/${c.slug}/`, '0.7')),
     '</urlset>',
   ].join('\n');
@@ -478,9 +613,12 @@ async function main() {
   copyAssets();
   const rates = await fetchBuildRates();
   buildHome();
+  buildAcercaDe();
+  buildContacto();
+  buildPrivacidad();
   buildConversionPages(rates);
   buildMeta();
-  console.log(`✅ Sitio generado en /docs: 1 home + ${conversions.length} páginas (monedas: ${rates === engine.STATIC_RATES ? 'fallback estático' : 'en vivo'}).`);
+  console.log(`✅ Sitio generado en /docs: 1 home + 3 páginas estáticas + ${conversions.length} páginas (monedas: ${rates === engine.STATIC_RATES ? 'fallback estático' : 'en vivo'}).`);
 }
 
 main();

@@ -307,6 +307,14 @@ footer.site-footer {
   font-size: 12px;
   margin-top: 32px;
 }
+footer.site-footer a { color: var(--text-muted); text-decoration: none; }
+footer.site-footer a:hover { color: var(--teal); text-decoration: underline; }
+
+/* ---------- Páginas estáticas (Acerca de, Contacto, Privacidad) ---------- */
+ul.plain-list { margin: 0 0 16px; padding-left: 20px; color: var(--text); font-size: 14.5px; line-height: 1.75; max-width: 68ch; }
+ul.plain-list li { margin-bottom: 6px; }
+a.inline-link { color: var(--teal); text-decoration: none; }
+a.inline-link:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
   .convert-row { grid-template-columns: 1fr; }
@@ -424,3 +432,33 @@ footer.site-footer {
 .faq-a { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 0; max-width: 68ch; }
 .faq-a a { color: var(--teal); text-decoration: none; }
 .faq-a a:hover { text-decoration: underline; }
+
+/* ---------- Grilla de categorías (home) ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.category-card {
+  display: block;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+.category-card:hover { border-color: var(--brass-dim); }
+.category-card h3 {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+.category-card p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
