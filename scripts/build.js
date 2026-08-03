@@ -430,7 +430,7 @@ function buildConversionPages(rates) {
       ASSET_PREFIX: '/',
       BREADCRUMB: `      <p class="breadcrumb"><a href="/">Inicio</a> · <a href="/#${tab}">${esc(catLabel)}</a> · <span>${esc(labelFrom)} a ${esc(labelTo)}</span></p>`,
       H1: h1,
-      SUBTITLE: `Conversión de ${esc(labelFrom.toLowerCase())} a ${esc(labelTo.toLowerCase())}, con calculadora interactiva.`,
+      SUBTITLE: `Convierte ${esc(labelFrom.toLowerCase())} a ${esc(labelTo.toLowerCase())} de forma rápida y precisa. Utiliza esta calculadora gratuita para obtener el resultado al instante, consultar la fórmula y ver una tabla de conversión.`,
       TOC_BLOCK: tocBlock,
       INTRO_BLOCK: introBlock,
       LEARN_BLOCK: learnBlock,
