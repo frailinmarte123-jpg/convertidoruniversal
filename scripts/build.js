@@ -12,7 +12,7 @@ const engine = require('../assets/app.js');
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'docs');
 const SITE_URL = (process.env.SITE_URL || 'https://convertidoruniversal.lat').replace(/\/+$/, '');
-const SITE_NAME = 'Conversor Universal';
+const SITE_NAME = 'Convertidor Universal';
 const ADSENSE_PUBLISHER_ID = process.env.ADSENSE_PUBLISHER_ID || 'pub-2394878225224723';
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
@@ -257,7 +257,7 @@ function buildHome() {
   const html = fill(template, {
     TITLE: esc(title), DESCRIPTION: esc(description), CANONICAL: `${SITE_URL}/`, OG_TITLE: esc(title),
     JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
-    ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Conversor <span>Universal</span>`,
+    ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Convertidor <span>Universal</span>`,
     SUBTITLE: `Escribe en lenguaje natural o usa los conversores por categoría — ${conversions.length}+ conversiones listas.`,
     TOC_BLOCK: '', INTRO_BLOCK: '', LEARN_BLOCK: '', RELATED_BLOCK: '', FAQ_BLOCK: '', PRESET_SCRIPT: '',
   });
