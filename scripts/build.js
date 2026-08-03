@@ -63,27 +63,280 @@ const SINGULAR = {
 };
 
 // ============================================================================
-// 3) Contenido: contexto de uso, "acerca de" y ejemplo cotidiano por categoría
+// 3) Contenido específico POR UNIDAD (no por categoría entera): a qué sistema
+// pertenece cada unidad y en qué se usa REALMENTE. Se combina por pares (from+to)
+// para que cada una de las 1002 páginas hable de esa conversión en concreto, en vez
+// de reciclar una misma lista aleatoria de usos para las ~40-80 páginas de su categoría.
 // ============================================================================
-const CATEGORY_CONTEXT = {
-  longitud: ['medir distancias en el hogar o la oficina', 'proyectos de construcción y carpintería', 'planificar rutas y viajes', 'trabajos de costura, manualidades y diseño'],
-  peso: ['ajustar recetas de cocina', 'calcular el peso de equipaje al viajar', 'rutinas de ejercicio y nutrición', 'logística y envíos internacionales'],
-  temperatura: ['interpretar el clima y pronósticos', 'cocinar y hornear con precisión', 'contextos médicos y científicos', 'comparar climas entre países'],
-  area: ['calcular el tamaño de terrenos y propiedades', 'proyectos de construcción y remodelación', 'agricultura y agrimensura', 'comparar superficies entre países'],
-  volumen: ['recetas de cocina y coctelería', 'calcular la capacidad de tanques o recipientes', 'compras de combustible o líquidos a granel', 'ciencia y laboratorio'],
-  tiempo: ['planificación de proyectos y tareas', 'cálculos de edad o antigüedad', 'programación y desarrollo de software', 'historia y eventos a largo plazo'],
-  velocidad: ['comparar límites de velocidad entre países', 'deportes y actividades al aire libre', 'aviación y náutica', 'ciclismo y running'],
-  combustible: ['comparar la eficiencia entre vehículos', 'planificar el gasto de un viaje largo', 'decidir qué auto comprar', 'entender etiquetas de eficiencia energética'],
-  presion: ['inflar llantas de auto o bicicleta', 'meteorología y pronósticos del clima', 'buceo y aplicaciones industriales', 'sistemas hidráulicos y neumáticos'],
-  energia: ['comparar el valor calórico de alimentos', 'entender el consumo eléctrico del hogar', 'ciencia e ingeniería', 'eficiencia energética de electrodomésticos'],
-  potencia: ['comparar motores de vehículos', 'elegir electrodomésticos y equipos', 'sistemas eléctricos y de climatización', 'proyectos de ingeniería'],
-  electricidad: ['diseño de circuitos electrónicos', 'reparaciones eléctricas del hogar', 'proyectos de electrónica y robótica', 'especificaciones de baterías y cargadores'],
-  datos: ['calcular espacio de almacenamiento', 'planes de datos móviles e internet', 'desarrollo de software', 'transferencia y respaldo de archivos'],
-  angulos: ['trigonometría y matemáticas', 'diseño gráfico y CAD', 'navegación y topografía', 'programación gráfica y videojuegos'],
-  frecuencia: ['electrónica y telecomunicaciones', 'música y producción de audio', 'procesadores de computadoras', 'ingeniería de radiofrecuencia'],
-  densidad: ['identificar materiales en física y química', 'control de calidad industrial', 'flotabilidad de objetos y líquidos', 'mezclas y formulaciones'],
-  monedas: ['viajes internacionales y presupuestos', 'compras y comercio en línea', 'remesas y transferencias internacionales', 'inversión y finanzas personales'],
+const UNIT_INFO = {
+  longitud: {
+    m:  { system: 'sistema métrico (SI)', uses: ['planos de arquitectura', 'ingeniería y construcción', 'mediciones internacionales estandarizadas'] },
+    cm: { system: 'sistema métrico (SI)', uses: ['medidas de muebles y objetos pequeños', 'costura y patronaje', 'fichas técnicas de productos'] },
+    mm: { system: 'sistema métrico (SI)', uses: ['precisión mecánica y manufactura', 'planos técnicos de ingeniería', 'especificaciones de piezas y componentes'] },
+    km: { system: 'sistema métrico (SI)', uses: ['distancias de viaje y señalización vial', 'carreras y running', 'geografía y cartografía'] },
+    nm: { system: 'sistema métrico (SI)', uses: ['nanotecnología', 'longitudes de onda de luz', 'microelectrónica'] },
+    um: { system: 'sistema métrico (SI)', uses: ['microscopía', 'grosor de materiales muy finos', 'microelectrónica'] },
+    yd: { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['fútbol americano y golf', 'telas y textiles', 'jardinería y paisajismo'] },
+    ft: { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['bienes raíces y construcción en EE. UU.', 'altitud de vuelo en aviación', 'topografía en países de habla inglesa'] },
+    in: { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['tamaños de pantallas y dispositivos', 'tornillería y herramientas', 'diseño gráfico e impresión'] },
+    mi: { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['distancias de viaje en EE. UU. y Reino Unido', 'límites de velocidad y señalización vial', 'carreras de larga distancia'] },
+    nmi: { system: 'sistema náutico y aeronáutico', uses: ['navegación marítima', 'navegación aérea', 'cálculo de velocidad en nudos'] },
+    league: { system: 'unidad tradicional', uses: ['literatura y contextos históricos', 'narrativa marítima antigua'] },
+    fathom: { system: 'sistema náutico', uses: ['profundidad del mar', 'buceo y cartas náuticas'] },
+  },
+  peso: {
+    kg: { system: 'sistema métrico (SI)', uses: ['recetas y nutrición', 'control de peso corporal', 'logística y envíos internacionales'] },
+    g:  { system: 'sistema métrico (SI)', uses: ['recetas de cocina de precisión', 'joyería y farmacia', 'laboratorio y ciencia'] },
+    t:  { system: 'sistema métrico (SI)', uses: ['carga de camiones y contenedores', 'industria y minería', 'capacidad de vehículos pesados'] },
+    lb: { system: 'sistema imperial (EE. UU.)', uses: ['peso corporal en EE. UU.', 'etiquetas de alimentos en EE. UU.', 'categorías de peso en boxeo y artes marciales'] },
+    oz: { system: 'sistema imperial (EE. UU.)', uses: ['recetas de cocina en EE. UU.', 'porciones de alimentos envasados', 'joyería (metales preciosos)'] },
+    st: { system: 'sistema imperial (Reino Unido)', uses: ['peso corporal en el Reino Unido e Irlanda', 'boxeo en contextos británicos'] },
+    ct: { system: 'sistema internacional de joyería', uses: ['peso de piedras preciosas y diamantes', 'joyería'] },
+    gr: { system: 'unidad tradicional', uses: ['pólvora y municiones', 'farmacia histórica', 'arquería'] },
+  },
+  area: {
+    m2:  { system: 'sistema métrico (SI)', uses: ['tamaño de viviendas y terrenos', 'planos de construcción', 'bienes raíces'] },
+    cm2: { system: 'sistema métrico (SI)', uses: ['diseño gráfico y empaques', 'manualidades', 'especificaciones de materiales'] },
+    km2: { system: 'sistema métrico (SI)', uses: ['extensión de ciudades y países', 'geografía', 'agricultura a gran escala'] },
+    ha:  { system: 'sistema métrico (agrícola)', uses: ['agricultura y agrimensura', 'tamaño de fincas y terrenos rurales', 'silvicultura'] },
+    ft2: { system: 'sistema imperial (EE. UU.)', uses: ['bienes raíces en EE. UU.', 'construcción residencial', 'anuncios inmobiliarios'] },
+    in2: { system: 'sistema imperial (EE. UU.)', uses: ['pantallas y superficies pequeñas', 'manufactura de piezas'] },
+    yd2: { system: 'sistema imperial (EE. UU.)', uses: ['alfombras y textiles', 'jardinería y paisajismo', 'construcción'] },
+    mi2: { system: 'sistema imperial (EE. UU.)', uses: ['extensión de ciudades y condados en EE. UU.', 'geografía y densidad poblacional'] },
+    acre:{ system: 'sistema imperial agrícola', uses: ['agricultura en EE. UU. y Reino Unido', 'bienes raíces rurales', 'terrenos y fincas'] },
+  },
+  volumen: {
+    L:    { system: 'sistema métrico (SI)', uses: ['recetas de cocina', 'venta de bebidas y combustible', 'laboratorio'] },
+    mL:   { system: 'sistema métrico (SI)', uses: ['dosis de medicamentos', 'recetas de precisión', 'cosmética y perfumería'] },
+    m3:   { system: 'sistema métrico (SI)', uses: ['capacidad de tanques y contenedores', 'construcción (concreto, excavación)', 'ingeniería'] },
+    ft3:  { system: 'sistema imperial (EE. UU.)', uses: ['refrigeradores y electrodomésticos en EE. UU.', 'construcción en EE. UU.'] },
+    galus:{ system: 'sistema imperial (EE. UU.)', uses: ['venta de combustible en EE. UU.', 'pintura y líquidos industriales'] },
+    galuk:{ system: 'sistema imperial (Reino Unido)', uses: ['venta de combustible en el Reino Unido', 'contextos históricos británicos'] },
+    floz: { system: 'sistema imperial (EE. UU.)', uses: ['bebidas envasadas en EE. UU.', 'recetas de coctelería'] },
+    cup:  { system: 'sistema imperial culinario (EE. UU.)', uses: ['recetas de cocina estadounidenses', 'repostería'] },
+    tbsp: { system: 'sistema imperial culinario', uses: ['recetas de cocina', 'dosis de suplementos y medicamentos líquidos'] },
+    tsp:  { system: 'sistema imperial culinario', uses: ['recetas de cocina', 'dosis de medicamentos líquidos'] },
+    pt:   { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['venta de cerveza en pubs del Reino Unido', 'recetas de cocina'] },
+    qt:   { system: 'sistema imperial (EE. UU.)', uses: ['recetas de cocina en EE. UU.', 'envases de líquidos'] },
+    bbl:  { system: 'estándar de la industria petrolera', uses: ['comercio internacional de petróleo', 'industria energética'] },
+  },
+  tiempo: {
+    ms:    { system: 'sistema métrico (SI)', uses: ['programación y rendimiento de software', 'fotografía de alta velocidad', 'medicina deportiva'] },
+    s:     { system: 'sistema internacional (SI)', uses: ['cronometraje deportivo', 'ciencia y física', 'programación'] },
+    min:   { system: 'uso cotidiano', uses: ['duración de reuniones y tareas', 'recetas de cocina', 'ejercicio y rutinas'] },
+    h:     { system: 'uso cotidiano', uses: ['jornada laboral', 'duración de viajes y vuelos', 'planificación de proyectos'] },
+    day:   { system: 'uso cotidiano', uses: ['planificación de calendario', 'plazos y proyectos', 'cálculo de edad'] },
+    week:  { system: 'uso cotidiano', uses: ['planificación laboral y escolar', 'ciclos de pago', 'rutinas periódicas'] },
+    month: { system: 'uso cotidiano', uses: ['pagos y suscripciones mensuales', 'calendarios financieros', 'plazos de contratos'] },
+    year:  { system: 'uso cotidiano', uses: ['edad y aniversarios', 'planificación financiera a largo plazo', 'historia'] },
+    decade:{ system: 'uso histórico', uses: ['historia y demografía', 'tendencias culturales y económicas'] },
+    century:{ system: 'uso histórico', uses: ['historia', 'geología y evolución en escalas menores'] },
+  },
+  velocidad: {
+    ms:   { system: 'sistema internacional (SI)', uses: ['física y ciencia', 'ingeniería'] },
+    kmh:  { system: 'sistema métrico', uses: ['límites de velocidad en la mayoría de países', 'velocímetros de autos'] },
+    mph:  { system: 'sistema imperial (EE. UU. y Reino Unido)', uses: ['límites de velocidad en EE. UU. y Reino Unido', 'velocímetros de autos importados'] },
+    knot: { system: 'sistema náutico y aeronáutico', uses: ['navegación marítima', 'aviación', 'meteorología (viento)'] },
+    fts:  { system: 'sistema imperial', uses: ['física e ingeniería en EE. UU.', 'balística'] },
+    mach: { system: 'aeronáutico', uses: ['aviación supersónica', 'ingeniería aeroespacial'] },
+  },
+  presion: {
+    kpa:  { system: 'sistema internacional (SI)', uses: ['meteorología', 'ingeniería'] },
+    bar:  { system: 'sistema métrico industrial', uses: ['reguladores de gas', 'equipos industriales y de buceo'] },
+    atm:  { system: 'sistema científico', uses: ['química y física', 'presión atmosférica en contextos científicos'] },
+    psi:  { system: 'sistema imperial (EE. UU.)', uses: ['presión de llantas de auto y bicicleta', 'equipos neumáticos e hidráulicos'] },
+    mmhg: { system: 'sistema médico y científico', uses: ['presión arterial en medicina', 'barometría'] },
+  },
+  energia: {
+    j:   { system: 'sistema internacional (SI)', uses: ['física e ingeniería', 'ciencia'] },
+    cal: { system: 'sistema nutricional', uses: ['etiquetas nutricionales', 'dietas y conteo de calorías'] },
+    kwh: { system: 'sistema eléctrico', uses: ['facturas de electricidad', 'consumo energético del hogar'] },
+    btu: { system: 'sistema imperial (EE. UU.)', uses: ['aires acondicionados y calefacción en EE. UU.', 'industria de climatización'] },
+    wh:  { system: 'sistema eléctrico', uses: ['capacidad de baterías y power banks', 'electrodomésticos'] },
+  },
+  potencia: {
+    w:    { system: 'sistema internacional (SI)', uses: ['electrodomésticos', 'electrónica'] },
+    kw:   { system: 'sistema métrico', uses: ['motores y maquinaria', 'potencia de autos eléctricos'] },
+    hp:   { system: 'unidad tradicional de origen imperial', uses: ['potencia de motores de auto', 'maquinaria industrial'] },
+    btuh: { system: 'sistema imperial (EE. UU.)', uses: ['climatización y aires acondicionados'] },
+  },
+  electricidad: {
+    v:   { system: 'sistema internacional (SI)', uses: ['electrónica de consumo', 'baterías y cargadores'] },
+    mv:  { system: 'sistema internacional (SI)', uses: ['sensores y electrónica de precisión', 'instrumentación médica'] },
+    a:   { system: 'sistema internacional (SI)', uses: ['diseño de circuitos', 'fusibles y protecciones eléctricas'] },
+    ma:  { system: 'sistema internacional (SI)', uses: ['electrónica de bajo consumo', 'baterías de dispositivos pequeños'] },
+    ohm: { system: 'sistema internacional (SI)', uses: ['diseño de circuitos', 'resistencias electrónicas'] },
+    kohm:{ system: 'sistema internacional (SI)', uses: ['resistencias de electrónica de precisión', 'circuitos de señal'] },
+  },
+  datos: {
+    bit:  { system: 'informática', uses: ['velocidad de conexión a internet', 'transmisión de datos'] },
+    byte: { system: 'informática', uses: ['tamaño de archivos', 'programación'] },
+    kb:   { system: 'informática', uses: ['tamaño de documentos y textos', 'mensajes'] },
+    mb:   { system: 'informática', uses: ['tamaño de fotos y canciones', 'apps móviles'] },
+    gb:   { system: 'informática', uses: ['planes de datos móviles', 'tamaño de videos y juegos'] },
+    tb:   { system: 'informática', uses: ['discos duros y almacenamiento en la nube', 'servidores'] },
+    pb:   { system: 'informática a gran escala', uses: ['centros de datos', 'big data'] },
+  },
+  angulos: {
+    deg:  { system: 'uso cotidiano y geometría', uses: ['navegación y orientación', 'diseño gráfico', 'deportes'] },
+    rad:  { system: 'sistema científico (SI)', uses: ['matemáticas y trigonometría', 'física e ingeniería', 'programación gráfica'] },
+    grad: { system: 'sistema métrico topográfico', uses: ['topografía e ingeniería civil en algunos países europeos'] },
+  },
+  frecuencia: {
+    hz:  { system: 'sistema internacional (SI)', uses: ['corriente eléctrica doméstica', 'audio (frecuencias audibles)'] },
+    khz: { system: 'sistema internacional (SI)', uses: ['transmisión de radio AM', 'audio digital'] },
+    mhz: { system: 'sistema internacional (SI)', uses: ['transmisión de radio FM', 'frecuencias de wifi antiguas'] },
+    ghz: { system: 'sistema internacional (SI)', uses: ['velocidad de procesadores de computadora', 'redes wifi y 5G'] },
+  },
+  densidad: {
+    kgm3:  { system: 'sistema internacional (SI)', uses: ['física y química', 'ingeniería de materiales'] },
+    gcm3:  { system: 'sistema métrico de laboratorio', uses: ['laboratorio y química', 'identificación de materiales'] },
+    lbft3: { system: 'sistema imperial (EE. UU.)', uses: ['ingeniería en EE. UU.', 'construcción'] },
+  },
 };
+
+const TEMP_INFO = {
+  c: { uses: ['clima y pronósticos en la mayoría de países del mundo', 'cocina y recetas', 'medicina'] },
+  f: { uses: ['clima y pronósticos en Estados Unidos', 'hornos y recetas en EE. UU.'] },
+  k: { uses: ['física y astronomía', 'ciencia en general, al no usar temperaturas negativas'] },
+};
+// Notas específicas por par (solo hay 6 combinaciones posibles entre 3 escalas).
+const TEMP_PAIR_NOTE = {
+  'c-f': 'Celsius y Fahrenheit usan puntos de referencia distintos: el agua se congela a 0 °C / 32 °F y hierve a 100 °C / 212 °F. Por eso la conversión no es una simple multiplicación, sino que incluye un desplazamiento de escala.',
+  'f-c': 'Fahrenheit y Celsius usan puntos de referencia distintos: el agua se congela a 32 °F / 0 °C y hierve a 212 °F / 100 °C. Por eso la conversión no es una simple multiplicación, sino que incluye un desplazamiento de escala.',
+  'c-k': 'Kelvin usa la misma escala que Celsius (un grado Kelvin equivale a un grado Celsius), pero empieza en el cero absoluto: 0 K equivale a -273.15 °C. Por eso convertir es solo sumar o restar 273.15.',
+  'k-c': 'Celsius usa la misma escala que Kelvin (un grado Celsius equivale a un grado Kelvin), pero Kelvin empieza en el cero absoluto: 0 K equivale a -273.15 °C. Por eso convertir es solo sumar o restar 273.15.',
+  'f-k': 'Fahrenheit y Kelvin usan tanto un desplazamiento como una escala distinta, ya que Kelvin parte del cero absoluto (-459.67 °F) y Fahrenheit del punto de congelación del agua salada.',
+  'k-f': 'Kelvin y Fahrenheit usan tanto un desplazamiento como una escala distinta, ya que Kelvin parte del cero absoluto (-459.67 °F en esa escala) y Fahrenheit del punto de congelación del agua salada.',
+};
+
+const FUEL_INFO = {
+  mpg:    { uses: ['etiquetas de eficiencia de autos en EE. UU. y Reino Unido'] },
+  l100km: { uses: ['fichas técnicas oficiales de autos en Europa y gran parte de Latinoamérica'] },
+  kml:    { uses: ['comparar autos de forma más intuitiva en el uso diario'] },
+};
+// En consumo de combustible la dirección de "mejor" se invierte según la unidad:
+// más MPG o más km/L es más eficiente, pero más L/100km es MENOS eficiente.
+const FUEL_PAIR_NOTE = {
+  'mpg-l100km': 'Ojo con la dirección: en MPG, un número más alto significa más eficiencia; en L/100 km es al revés — un número más bajo significa más eficiencia.',
+  'l100km-mpg': 'Ojo con la dirección: en L/100 km, un número más bajo significa más eficiencia; en MPG es al revés — un número más alto significa más eficiencia.',
+  'mpg-kml': 'En ambas unidades, un número más alto significa un vehículo más eficiente.',
+  'kml-mpg': 'En ambas unidades, un número más alto significa un vehículo más eficiente.',
+  'l100km-kml': 'Ojo con la dirección: en L/100 km, un número más bajo significa más eficiencia; en km/L es al revés — un número más alto significa más eficiencia.',
+  'kml-l100km': 'Ojo con la dirección: en km/L, un número más alto significa más eficiencia; en L/100 km es al revés — un número más bajo significa más eficiencia.',
+};
+
+const CURRENCY_INFO = {
+  USD: 'dólar estadounidense, la principal moneda de reserva y de comercio internacional',
+  EUR: 'euro, moneda oficial de la eurozona',
+  GBP: 'libra esterlina, moneda del Reino Unido',
+  CAD: 'dólar canadiense',
+  MXN: 'peso mexicano',
+  JPY: 'yen japonés',
+  DOP: 'peso dominicano',
+  COP: 'peso colombiano',
+  ARS: 'peso argentino',
+  CLP: 'peso chileno',
+  PEN: 'sol peruano',
+  BRL: 'real brasileño',
+  CHF: 'franco suizo',
+  CNY: 'yuan o renminbi chino',
+  INR: 'rupia india',
+  AUD: 'dólar australiano',
+  SEK: 'corona sueca',
+  NOK: 'corona noruega',
+};
+
+// Valores de referencia reales (aproximados) para la sección "Ejemplos comunes".
+// Están expresados en la unidad BASE de cada categoría (la de factor: 1 en app.js).
+const REFERENCE_VALUES = {
+  longitud: [
+    { label: 'la altura promedio de una persona adulta', base: 1.7 },
+    { label: 'el largo de una cancha de fútbol', base: 105 },
+    { label: 'una maratón completa', base: 42195 },
+  ],
+  peso: [
+    { label: 'una bolsa de azúcar típica', base: 1 },
+    { label: 'una persona adulta promedio', base: 70 },
+    { label: 'un auto compacto', base: 1200 },
+  ],
+  area: [
+    { label: 'una vivienda promedio', base: 90 },
+    { label: 'una cancha de baloncesto', base: 420 },
+    { label: 'un campo de fútbol', base: 7140 },
+  ],
+  volumen: [
+    { label: 'una botella de refresco', base: 2 },
+    { label: 'un balde doméstico', base: 20 },
+    { label: 'el tanque de combustible de un auto', base: 50 },
+  ],
+  tiempo: [
+    { label: 'una canción de radio típica', base: 210 },
+    { label: 'un partido de fútbol (90 minutos)', base: 5400 },
+    { label: 'una jornada laboral', base: 28800 },
+  ],
+  velocidad: [
+    { label: 'el paso al caminar de una persona', base: 1.4 },
+    { label: 'el límite de velocidad típico en ciudad', base: 14 },
+    { label: 'un auto en autopista', base: 28 },
+  ],
+  presion: [
+    { label: 'la presión atmosférica al nivel del mar', base: 101.325 },
+    { label: 'una llanta de auto inflada', base: 220 },
+    { label: 'una llanta de bicicleta de ruta', base: 550 },
+  ],
+  energia: [
+    { label: 'una manzana mediana (≈95 kcal)', base: 397480 },
+    { label: '1 kWh de electricidad', base: 3600000 },
+  ],
+  potencia: [
+    { label: 'un foco LED típico', base: 10 },
+    { label: 'una plancha eléctrica', base: 1200 },
+    { label: 'un auto compacto', base: 75000 },
+  ],
+  datos: [
+    { label: 'una canción en MP3', base: 4 * 1024 * 1024 },
+    { label: 'una foto de celular moderna', base: 3 * 1024 * 1024 },
+    { label: 'una película en HD', base: 4 * 1024 * 1024 * 1024 },
+  ],
+  angulos: [
+    { label: 'un ángulo recto', base: 90 },
+    { label: 'cada ángulo de un triángulo equilátero', base: 60 },
+    { label: 'una vuelta completa', base: 360 },
+  ],
+  frecuencia: [
+    { label: 'la corriente eléctrica doméstica', base: 60 },
+    { label: 'una red wifi moderna', base: 5e9 },
+    { label: 'un procesador de computadora', base: 3e9 },
+  ],
+  densidad: [
+    { label: 'el agua', base: 1000 },
+    { label: 'el aire a nivel del mar', base: 1.2 },
+    { label: 'el hierro', base: 7870 },
+  ],
+};
+// Electricidad no tiene una sola "base": son 3 magnitudes independientes (V, A, Ω).
+const ELECTRICIDAD_REFERENCE = {
+  v:   [{ label: 'una pila AA', base: 1.5 }, { label: 'un enchufe doméstico', base: 120 }],
+  a:   [{ label: 'un cargador de celular USB', base: 2 }, { label: 'un refrigerador en funcionamiento', base: 5 }],
+  ohm: [{ label: 'una resistencia electrónica común', base: 4700 }],
+};
+
+function usesFor(dict, from, to, max = 3) {
+  const a = (dict[from] && dict[from].uses) || [];
+  const b = (dict[to] && dict[to].uses) || [];
+  const merged = [];
+  for (const u of [...a, ...b]) {
+    if (!merged.includes(u)) merged.push(u);
+    if (merged.length >= max) break;
+  }
+  return merged;
+}
+function joinNatural(arr) {
+  if (!arr || !arr.length) return '';
+  if (arr.length === 1) return arr[0];
+  return arr.slice(0, -1).join(', ') + ' y ' + arr[arr.length - 1];
+}
 
 const CATEGORY_ABOUT = {
   longitud: 'La longitud es la magnitud que mide la distancia entre dos puntos. Es una de las unidades más usadas en la vida diaria, alternando entre el sistema métrico (metros, centímetros) y el imperial (pies, pulgadas, millas).',
@@ -103,26 +356,6 @@ const CATEGORY_ABOUT = {
   frecuencia: 'La frecuencia mide cuántas veces ocurre un evento por segundo (Hertz). Es central en electrónica, telecomunicaciones y audio.',
   densidad: 'La densidad mide cuánta masa tiene un material por unidad de volumen. Ayuda a identificar materiales y a entender por qué algunos objetos flotan y otros no.',
   monedas: 'El tipo de cambio indica cuánto vale una moneda en términos de otra. A diferencia de las unidades físicas, cambia constantemente según los mercados financieros globales.',
-};
-
-const ANCHOR_EXAMPLE = {
-  longitud: 'una puerta estándar mide unos 2 metros de alto',
-  peso: 'una bolsa de azúcar típica pesa 1 kilogramo',
-  temperatura: 'el agua se congela a 0 °C (32 °F) y hierve a 100 °C (212 °F)',
-  area: 'una cancha de baloncesto mide unos 420 metros cuadrados',
-  volumen: 'una botella de refresco típica contiene 2 litros',
-  tiempo: 'una clase escolar suele durar 1 hora',
-  velocidad: 'el límite de velocidad en ciudad suele ser 50 km/h',
-  combustible: 'un auto compacto puede rendir unos 15 km/L',
-  presion: 'una llanta de auto se infla normalmente a unos 32 PSI',
-  energia: 'una manzana mediana aporta unas 95 calorías',
-  potencia: 'una plancha eléctrica típica consume unos 1200 watts',
-  electricidad: 'una batería AA típica entrega 1.5 voltios',
-  datos: 'una canción en MP3 pesa aproximadamente 4 MB',
-  angulos: 'un ángulo recto mide 90 grados',
-  frecuencia: 'la corriente eléctrica doméstica es de 50 o 60 Hz según el país',
-  densidad: 'el agua tiene una densidad de 1000 kg/m³ (1 g/cm³)',
-  monedas: 'los precios y tasas de cambio varían a diario según el mercado',
 };
 
 const MAGNITUDE_NAME = {
@@ -428,12 +661,24 @@ function buildConversionPages(rates) {
       .map(v => `<tr><td>${numWithUnit(v, tab, from)}</td><td>= ${unitWithFmt(convert(tab, from, to, v, rates), tab, to)}</td></tr>`)
       .join('');
 
-    const ctx = CATEGORY_CONTEXT[tab] || [];
-    const ctxIntroA = ctx.length ? ctx[h % ctx.length] : null;
-    const ctxIntroB = ctx.length > 1 ? ctx[(h + 1) % ctx.length] : null;
-    // Offset distinto para el bloque "Aprende más", así no repite literalmente las mismas frases.
-    const ctxLearnA = ctx.length > 2 ? ctx[(h + 2) % ctx.length] : ctxIntroA;
-    const ctxLearnB = ctx.length > 3 ? ctx[(h + 3) % ctx.length] : ctxIntroB;
+    // -------- Usos específicos de ESTE par (no de la categoría entera) --------
+    const pairKey = `${from}-${to}`;
+    let usesList = [];
+    let usageSentence = '';
+    if (isCurrency) {
+      const fromC = CURRENCY_INFO[from] || labelFrom.toLowerCase();
+      const toC = CURRENCY_INFO[to] || labelTo.toLowerCase();
+      usageSentence = `Es una conversión útil para viajes, comercio o remesas entre países que usan el ${esc(fromC)} y el ${esc(toC)}.`;
+    } else if (tab === 'temperatura') {
+      usesList = usesFor(TEMP_INFO, from, to);
+      usageSentence = usesList.length ? `Esta conversión se usa frecuentemente en ${esc(joinNatural(usesList))}.` : '';
+    } else if (tab === 'combustible') {
+      usesList = usesFor(FUEL_INFO, from, to);
+      usageSentence = usesList.length ? `Esta conversión se usa frecuentemente en ${esc(joinNatural(usesList))}.` : '';
+    } else {
+      usesList = usesFor(UNIT_INFO[tab] || {}, from, to);
+      usageSentence = usesList.length ? `Esta conversión se usa frecuentemente en ${esc(joinNatural(usesList))}.` : '';
+    }
 
     const formula = formulaText(tab, from, to, labelFrom, labelTo, exampleResult);
 
@@ -442,42 +687,84 @@ function buildConversionPages(rates) {
     const canonical = `${SITE_URL}/${slug}/`;
     const h1 = cap(`Convertir ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}`);
 
+    // -------- Sección "Ejemplos comunes": equivalencias con referencias reales --------
+    let ejemplosBlock = '';
+    if (!isCurrency && tab !== 'temperatura' && tab !== 'combustible') {
+      let refs, baseCode;
+      if (tab === 'electricidad') {
+        const group = (from === 'v' || from === 'mv' || to === 'v' || to === 'mv') ? 'v'
+          : (from === 'a' || from === 'ma' || to === 'a' || to === 'ma') ? 'a' : 'ohm';
+        refs = ELECTRICIDAD_REFERENCE[group];
+        baseCode = group;
+      } else {
+        refs = REFERENCE_VALUES[tab];
+        baseCode = (engine.CATEGORIES.find(c => c.id === tab) || {}).base;
+      }
+      if (refs && refs.length && baseCode) {
+        const items = refs.map(r => {
+          const fromVal = engine.convertLinear(tab, baseCode, from, r.base);
+          const toVal = convert(tab, from, to, fromVal, rates);
+          return `<li>${unitWithFmt(fromVal, tab, from)} ≈ ${unitWithFmt(toVal, tab, to)} <span class="example-note">(${esc(r.label)})</span></li>`;
+        }).join('');
+        ejemplosBlock = `    <section id="ejemplos" class="content-section">
+      <h2 class="section-title">Ejemplos comunes</h2>
+      <ul class="examples-list">${items}</ul>
+    </section>\n`;
+      }
+    }
+
     // -------- Tabla de contenidos --------
     const tocBlock = `    <nav class="toc" aria-label="Contenido de esta página">
       <a href="#calculadora">Calculadora</a>
       <a href="#tabla">Tabla</a>
       <a href="#formula">Fórmula</a>
+      ${ejemplosBlock ? '<a href="#ejemplos">Ejemplos</a>' : ''}
       <a href="#explicacion">Explicación</a>
       <a href="#relacionadas">Relacionadas</a>
       <a href="#faq">Preguntas frecuentes</a>
     </nav>\n`;
 
-    // -------- Bloque de introducción: equivalencia + fórmula destacada + tabla --------
+    // -------- Bloque de introducción: equivalencia + fórmula destacada + tabla + ejemplos --------
     const introBlock = `    <section id="intro" class="content-section">
-      <p class="seo-intro">${cap(numWithUnit(1, tab, from))} equivale a ${engine.fmt(exampleResult)} ${esc(labelTo)}${isCurrency ? ` <em>(referencia ${BUILD_DATE})</em>` : ''}. ${ctxIntroA ? `Esta conversión de ${esc(magnitude)} se usa frecuentemente para ${esc(ctxIntroA)}${ctxIntroB ? ` y ${esc(ctxIntroB)}` : ''}.` : ''}</p>
+      <p class="seo-intro">${cap(numWithUnit(1, tab, from))} equivale a ${engine.fmt(exampleResult)} ${esc(labelTo)}${isCurrency ? ` <em>(referencia ${BUILD_DATE})</em>` : ''}. ${usageSentence}</p>
       ${formula ? `<div id="formula" class="formula-box">
         <p class="formula-label">Fórmula</p>
         <p class="formula-text">${esc(formula)}</p>
       </div>` : ''}
       <table id="tabla" class="seo-table">${rows}</table>
-    </section>\n`;
+    </section>\n${ejemplosBlock}`;
 
     // -------- Bloque "Aprende más" --------
+    const sysFrom = (UNIT_INFO[tab] && UNIT_INFO[tab][from] && UNIT_INFO[tab][from].system) || null;
+    const sysTo = (UNIT_INFO[tab] && UNIT_INFO[tab][to] && UNIT_INFO[tab][to].system) || null;
     let scaleSentence;
-    if (exampleResult > 1) {
-      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más pequeña que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}. ${cap(labelTo.toLowerCase())} suele usarse para medir cantidades menores, mientras que ${labelFrom.toLowerCase()} es más práctico para cantidades mayores.`;
+    if (tab === 'temperatura') {
+      scaleSentence = TEMP_PAIR_NOTE[pairKey] || `${cap(labelFrom)} y ${labelTo.toLowerCase()} son escalas de temperatura distintas; 1 ${singFrom.toLowerCase()} equivale a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}.`;
+    } else if (tab === 'combustible') {
+      scaleSentence = FUEL_PAIR_NOTE[pairKey] || `1 ${singFrom} equivale a ${engine.fmt(exampleResult)} ${labelTo}.`;
+    } else if (isCurrency) {
+      scaleSentence = `El tipo de cambio entre ${labelFrom} y ${labelTo} cambia constantemente según los mercados financieros; el valor de esta página es una referencia del ${BUILD_DATE}, no un dato en vivo.`;
+    } else if (sysFrom && sysTo && sysFrom !== sysTo) {
+      scaleSentence = `${cap(singFrom.toLowerCase())} pertenece al ${sysFrom}, mientras que ${singTo.toLowerCase()} pertenece al ${sysTo}. Por eso 1 ${singFrom.toLowerCase()} equivale a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()} — es una conversión exacta, pero no intuitiva a simple vista, por lo que suele necesitarse una calculadora.`;
+    } else if (sysFrom && sysTo) {
+      scaleSentence = `Ambas unidades pertenecen al mismo sistema (${sysFrom}); la diferencia es de escala, no de sistema: 1 ${singFrom.toLowerCase()} equivale exactamente a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}.`;
+    } else if (exampleResult > 1) {
+      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más pequeña que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}.`;
     } else if (exampleResult < 1) {
-      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más grande que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a solo ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}. ${cap(labelFrom.toLowerCase())} suele usarse para cantidades pequeñas, mientras que ${labelTo.toLowerCase()} es más práctico para cantidades mayores.`;
+      scaleSentence = `${cap(singTo.toLowerCase())} es una unidad más grande que ${singFrom.toLowerCase()}: por eso 1 ${singFrom.toLowerCase()} equivale a solo ${engine.fmt(exampleResult)} ${labelTo.toLowerCase()}.`;
     } else {
       scaleSentence = `Ambas unidades pertenecen a la misma magnitud (${magnitude}), aunque provienen de sistemas o contextos distintos.`;
     }
 
+    const systemsClause = (sysFrom && sysTo && !isCurrency && tab !== 'temperatura' && tab !== 'combustible')
+      ? ` ${cap(singFrom.toLowerCase())} corresponde al ${sysFrom}${sysFrom !== sysTo ? `, y ${singTo.toLowerCase()} al ${sysTo}` : ''}.`
+      : '';
+
     const learnBlock = `    <section id="explicacion" class="content-section">
       <h2 class="section-title">Aprende más sobre esta conversión</h2>
       <p class="learn-p"><strong>¿Qué diferencia hay entre ${esc(singFrom.toLowerCase())} y ${esc(singTo.toLowerCase())}?</strong> ${scaleSentence}</p>
-      <p class="learn-p">${cap(magnitude)} es una magnitud presente en ${ctxLearnA || 'muchos contextos cotidianos'}${ctxLearnB ? ` y en ${ctxLearnB}` : ''}.</p>
-      <p class="learn-p">Como referencia: ${esc(ANCHOR_EXAMPLE[tab] || '')}.</p>
-      <p class="learn-p seo-about">${esc(CATEGORY_ABOUT[tab] || '')}</p>
+      <p class="learn-p">${usageSentence || `${cap(magnitude)} es una magnitud presente en distintos contextos cotidianos y profesionales.`}</p>
+      <p class="learn-p seo-about">${esc(CATEGORY_ABOUT[tab] || '')}${systemsClause}</p>
     </section>\n`;
 
     // -------- FAQs (4, al final de la página) --------
@@ -497,9 +784,11 @@ function buildConversionPages(rates) {
       },
       {
         q: `¿Para qué se usa la conversión de ${labelFrom.toLowerCase()} a ${labelTo.toLowerCase()}?`,
-        aText: ctxIntroA
-          ? `Esta conversión es útil, por ejemplo, en ${ctxIntroA}${ctxIntroB ? ` y en ${ctxIntroB}` : ''}.`
-          : `Esta conversión es útil en distintos contextos cotidianos y profesionales relacionados con ${magnitude}.`,
+        aText: isCurrency
+          ? `Es útil para viajes, comercio o remesas entre países que usan el ${CURRENCY_INFO[from] || labelFrom.toLowerCase()} y el ${CURRENCY_INFO[to] || labelTo.toLowerCase()}.`
+          : (usesList.length
+            ? `Se utiliza principalmente en ${joinNatural(usesList)}.`
+            : `Esta conversión es útil en distintos contextos cotidianos y profesionales relacionados con ${magnitude}.`),
       },
       {
         q: `¿Cómo hago la conversión inversa, de ${labelTo.toLowerCase()} a ${labelFrom.toLowerCase()}?`,
