@@ -322,6 +322,14 @@ const ELECTRICIDAD_REFERENCE = {
   ohm: [{ label: 'una resistencia electrónica común', base: 4700 }],
 };
 
+// Valores puntuales con demanda de búsqueda REAL detectada en Google Search Console
+// (consultas como "88 siglos en años" que no caen en la tabla de valores redondos de
+// siempre). Se resuelven como caja destacada + FAQ adicional en la página del slug
+// indicado. Se va ampliando con el tiempo a medida que aparecen picos de búsqueda nuevos.
+const POPULAR_VALUES = {
+  'siglos-a-anos': [88, 85],
+};
+
 function usesFor(dict, from, to, max = 3) {
   const a = (dict[from] && dict[from].uses) || [];
   const b = (dict[to] && dict[to].uses) || [];
@@ -680,6 +688,28 @@ function buildConversionPages(rates) {
       usageSentence = usesList.length ? `Esta conversión se usa frecuentemente en ${esc(joinNatural(usesList))}.` : '';
     }
 
+    // -------- Búsquedas populares detectadas en Search Console (valores puntuales con demanda real) --------
+    const popularVals = POPULAR_VALUES[slug] || [];
+    let popularBlock = '';
+    let popularFaqs = [];
+    if (popularVals.length) {
+      const items = popularVals.map(v => {
+        const res = convert(tab, from, to, v, rates);
+        return `<li>${unitWithFmt(v, tab, from)} = <strong>${unitWithFmt(res, tab, to)}</strong></li>`;
+      }).join('');
+      popularBlock = `      <div class="popular-box">
+        <p class="popular-label">Búsquedas populares</p>
+        <ul class="popular-list">${items}</ul>
+      </div>`;
+      popularFaqs = popularVals.map(v => {
+        const res = convert(tab, from, to, v, rates);
+        return {
+          q: `¿Cuántos ${labelTo.toLowerCase()} son ${engine.fmt(v)} ${labelFrom.toLowerCase()}?`,
+          aText: `${unitWithFmt(v, tab, from)} equivalen a ${unitWithFmt(res, tab, to)}.`,
+        };
+      });
+    }
+
     const formula = formulaText(tab, from, to, labelFrom, labelTo, exampleResult);
 
     const title = buildTitle(h, labelFrom, labelTo, from, to);
@@ -731,6 +761,7 @@ function buildConversionPages(rates) {
         <p class="formula-label">Fórmula</p>
         <p class="formula-text">${esc(formula)}</p>
       </div>` : ''}
+${popularBlock}
       <table id="tabla" class="seo-table">${rows}</table>
     </section>\n${ejemplosBlock}`;
 
@@ -796,6 +827,7 @@ function buildConversionPages(rates) {
         aHtmlLink: reverseSlug,
       },
     ];
+    if (popularFaqs.length) faqs.splice(1, 0, ...popularFaqs);
     const faqHtml = faqs.map(f => {
       const answer = f.aHtmlLink
         ? `Puedes usar el conversor de <a href="/${f.aHtmlLink}/">${esc(labelTo)} a ${esc(labelFrom)}</a>, disponible en este mismo sitio.`

@@ -404,6 +404,38 @@ a.inline-link:hover { text-decoration: underline; }
   font-weight: 600;
 }
 
+/* ---------- Caja de búsquedas populares (valores puntuales con demanda real) ---------- */
+.popular-box {
+  background: var(--ink-2);
+  border: 1px solid var(--brass-dim);
+  border-left: 3px solid var(--teal);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 0 0 22px;
+  max-width: 420px;
+}
+.popular-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  margin: 0 0 8px;
+}
+.popular-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.popular-list li {
+  font-family: var(--font-mono);
+  font-size: 14.5px;
+  color: var(--text);
+}
+.popular-list strong { color: var(--brass); }
+
 /* ---------- Bloque "Aprende más" ---------- */
 .learn-p {
   font-size: 14.5px;
