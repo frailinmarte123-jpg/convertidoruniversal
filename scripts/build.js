@@ -631,6 +631,12 @@ function buildPrivacidad() {
         <li>Puedes leer la política de Google sobre el uso de cookies en publicidad en <a class="inline-link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>.</li>
         <li>Si estás en la Unión Europea, también puedes gestionar tus preferencias de publicidad en <a class="inline-link" href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">youronlinechoices.eu</a>.</li>
       </ul>
+      <h2 class="section-title">Estadísticas de uso (Google Analytics)</h2>
+      <p class="learn-p">También usamos Google Analytics para entender cuántas personas visitan el sitio, desde qué país y qué páginas son más útiles. Google Analytics utiliza cookies propias y de terceros para generar estas estadísticas de forma agregada y anónima; no usamos esta información para identificarte individualmente.</p>
+      <ul class="plain-list">
+        <li>Puedes leer cómo Google trata los datos de Analytics en <a class="inline-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+        <li>Si prefieres que tu navegación no se registre en Analytics, puedes instalar el <a class="inline-link" href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">complemento de inhabilitación de Google Analytics</a>.</li>
+      </ul>
       <h2 class="section-title">Enlaces a terceros</h2>
       <p class="learn-p">Algunas páginas incluyen enlaces a sitios externos (por ejemplo, fuentes de tasas de cambio). No somos responsables de las prácticas de privacidad de esos sitios; te recomendamos revisar sus propias políticas.</p>
       <h2 class="section-title">Cambios a esta política</h2>
@@ -641,7 +647,7 @@ function buildPrivacidad() {
   buildStaticPage({
     slug: 'privacidad',
     title: `Política de Privacidad — ${SITE_NAME}`,
-    description: 'Cómo usamos cookies y publicidad de Google AdSense en Convertidor Universal, y cómo puedes ajustar tus preferencias.',
+    description: 'Cómo usamos cookies, publicidad de Google AdSense y Google Analytics en Convertidor Universal, y cómo puedes ajustar tus preferencias.',
     breadcrumbLabel: 'Política de Privacidad',
     bodyHtml,
   });
