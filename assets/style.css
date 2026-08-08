@@ -346,6 +346,24 @@ a.inline-link:hover { text-decoration: underline; }
   }
   #tabNav::-webkit-scrollbar { display: none; }
   .tab-btn { flex: 0 0 auto; }
+
+  /* Versión compacta de la barra de búsqueda cuando va arriba, para que no
+     empuje la calculadora fuera de la pantalla inicial en móvil. */
+  .smart-bar-compact {
+    padding: 14px 14px 10px;
+    margin-bottom: 14px;
+  }
+  .smart-bar-compact #smartInput {
+    font-size: 15px;
+    margin-top: 6px;
+    padding: 8px 2px 8px 0;
+  }
+  .smart-bar-compact #smartResult {
+    min-height: 0;
+    margin-top: 6px;
+    font-size: 17px;
+  }
+  .smart-bar-compact #smartTape { margin-top: 6px; }
 }
 /* ---------- Extra: páginas SEO individuales (mismo sistema de diseño) ---------- */
 .breadcrumb { font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px; }
