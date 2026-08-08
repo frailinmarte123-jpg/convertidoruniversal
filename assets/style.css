@@ -328,6 +328,24 @@ a.inline-link:hover { text-decoration: underline; }
   .convert-row { grid-template-columns: 1fr; }
   .swap-btn { justify-self: center; }
   .ref-row { grid-template-columns: 1fr 1fr 1fr 1fr; font-size: 11px; }
+
+  /* En móvil, el menú de categorías pasa a una sola fila deslizable en vez de
+     envolver en varias filas: así no empuja la calculadora fuera de la
+     pantalla inicial. La versión de escritorio (arriba) no se toca. */
+  #tabNav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    mask-image: linear-gradient(to right, transparent 0, #000 4px, #000 calc(100% - 16px), transparent 100%);
+  }
+  #tabNav::-webkit-scrollbar { display: none; }
+  .tab-btn { flex: 0 0 auto; }
 }
 /* ---------- Extra: páginas SEO individuales (mismo sistema de diseño) ---------- */
 .breadcrumb { font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px; }
