@@ -238,6 +238,12 @@ function slugFor(tabId, fromCode, toCode) {
 
 // Actualiza la URL del navegador (sin recargar) para reflejar la conversión activa.
 function updateUrlSlug(tabId, fromCode, toCode) {
+  // Si el usuario elige la misma unidad en ambos lados (ej. Kilómetros -> Kilómetros),
+  // esa página nunca existe (no tendría sentido generarla), así que NO tocamos la URL.
+  // Así, la barra de direcciones se queda en la última conversión real y válida que
+  // estaba activa, y si la persona recarga la página, vuelve a esa misma conversión
+  // en vez de toparse con un 404 al no existir "kilometros-a-kilometros".
+  if (fromCode === toCode) return;
   const slug = slugFor(tabId, fromCode, toCode);
   const newPath = slug ? `/${slug}` : '/';
   const currentPath = location.pathname.replace(/\/+$/, '') || '/';
