@@ -561,7 +561,7 @@ function buildHome() {
   const html = fill(template, {
     TITLE: esc(title), DESCRIPTION: esc(description), CANONICAL: `${SITE_URL}/`, OG_TITLE: esc(title),
     JSONLD: `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
-    ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Convertidor <span>Universal</span>`,
+    ASSET_PREFIX: '/', BREADCRUMB: '', H1: `Convierte unidades, monedas y medidas al instante`,
     SUBTITLE: `Escribe en lenguaje natural o usa los conversores por categoría — ${conversions.length}+ conversiones listas.`,
     TOC_BLOCK: tocBlock, INTRO_BLOCK: introBlock, LEARN_BLOCK: learnBlock, RELATED_BLOCK: '', FAQ_BLOCK: faqBlock, PRESET_SCRIPT: '',
   });
